@@ -5,12 +5,13 @@
 - 题干逐字复刻英文原版，不增删改写；stem 只含原题+数学，不混中文解说。解析 solution 可中英结合。
 - 小分用 `\hfill (N)`（JS 双反斜杠 `\\hfill`），必须在题干正文、紧跟文本同段落，**绝不**包进 `$...$`/`$$...$$`；禁止 `\tag{N}`。
 - 来源格式：Edexcel 新 `年_月_卷号[_题号]`；CIE `YY_SERIES_VARIANT`（MJ/FM/ON，变体31/32/33）。
-- **来源月份全称**：examRef.month 用全称 — FM=`"Feb/March"`，MJ=`"May/June"`，ON=`"Oct/Nav"`（label 同理含 "2024 Oct/Nav · Paper 31 Q1" 格式）。
+- **来源月份全称**：examRef.month 用全称 — FM=`"Feb/March"`，MJ=`"May/June"`，ON=`"Oct/Nov"`（label 同理含 "2024 Oct/Nov · Paper 31 Q1" 格式）。⚠️ 历史记忆曾误记成 "Oct/Nav"，以库内已录入数据（`24ON31` 等用 `"Oct/Nov"`）为准。
 - **小问序号不加粗**：`(a)``(b)` 等纯文本，**绝不**用 `**(a)**`。
-- **换行符**：stem 中段落间用 `\n\n`（JS 源码中 2 字符：反斜杠+n+反斜杠+n），由 json.dumps 自动生成；运行时解析为真实换行，mdToHtml 按 `\n{2,}` 切段。**禁止**写 `\\n\\n`（4 字符 = 字面文本，不换行）。
+- **换行符（2026-07-17 修正）**：题干换行**只靠真实换行**——Excel 单元格内用 **Alt+Enter** 输入真实换行符；json.dumps 写出为 JS 源码里的 `\n`，浏览器加载时解析为真实换行，`mdToHtml` 按「行内 `\n`→`<br>`、连续 `\n{2,}`→分段 `<p>`」渲染。**严禁**在 Excel 里写字面转义 `\newline` 或 `\n\n` 当换行——录入时必须把这些**字面文本删除**（不转真实换行）。即：真实换行保留，字面 `\newline`/`\n\n` 删除。
 - 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。
 - ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
 - 章节权威清单（FP1 8章 / FP2 8章 / CIE P3 10章，无 Differentiation）在 data.js `CHAPTER_PRESETS`，录入严格对应。
+- ⚠️ **CIE P3 无 Differentiation 章**：隐函数求导/驻点（无积分）等题无对应预设章，库内既有约定暂归 `"Algebra"`（如 `22MJ31_q8`、`25FM32_q2/q9`、`24FM32_q6`）。若需更精确，可在 `CHAPTER_PRESETS` 加 `Differentiation` 章（会同步影响侧栏）。迭代求 α 归 `"Numerical solution of equations"`（`24FM32_q7`）。
 
 ## 解析配图 / 数学字体
 - solution 内嵌 `![alt](src)`；网页上传转 data URI（缩≤1000px / JPEG q0.85）；种子图写全路径。三处解析均走 `mdToHtml`。
@@ -18,6 +19,9 @@
 
 ## 修改前备份（铁律）
 - 改 data.js/app.js 前必跑 `python .workbuddy/tools/backup.py backup <file>`（存 `.workbuddy/backups/`，保留 30 版；restore 自动再备份）。
+- ⚠️ **注入绝不可截断 Store**：`data.js` 末尾在 `SEED_QUESTIONS` 的 `];` **之后**还有完整的 `Store` IIFE（`const Store = (function(){...})();`，含 `parseExamRef`/`_MONTHS`/`_normMonth`/init/all/upsert/remove/replaceAll）。录入注入必须用**行式插入到 `];` 之前、保留 `];` 及之后全部内容**的方式；**绝不可**整体重写或截断 `];` 之后，否则白屏。
+- 注入后**强制校验**：`node --check assets/js/data.js` 通过 + `grep -c "const Store = (function" assets/js/data.js` 须为 1 + `grep -o '"id":"' assets/js/data.js | wc -l`（或 python 解析 SEED_QUESTIONS）确认题数。
+- 若已截断 Store 的**恢复流程**：从注入前备份用 Python 提取 `];` 之后全部行（Store 段落）追加到当前文件（先确认当前末尾确为 `];`），再 `node --check`。
 
 ## 存储层与规模化（2026-07-15）
 - ⚠️ 数据丢失根因：用户网页编辑发生在 `_edited` 保护加入**前** → 本地题无标记；抬高种子 createdAt 后刷新，`Store.all()` 把未保护本地题整条覆盖为种子版（种子 139 题全有解析，故丢失的是用户**改写版**而非空白）。补救：未刷新标签页立即点「导出 JSON」是唯一找回途径。
