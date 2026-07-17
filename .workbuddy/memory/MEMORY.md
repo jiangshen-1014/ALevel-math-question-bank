@@ -10,8 +10,8 @@
 - **换行符（2026-07-17 修正）**：题干换行**只靠真实换行**——Excel 单元格内用 **Alt+Enter** 输入真实换行符；json.dumps 写出为 JS 源码里的 `\n`，浏览器加载时解析为真实换行，`mdToHtml` 按「行内 `\n`→`<br>`、连续 `\n{2,}`→分段 `<p>`」渲染。**严禁**在 Excel 里写字面转义 `\newline` 或 `\n\n` 当换行——录入时必须把这些**字面文本删除**（不转真实换行）。即：真实换行保留，字面 `\newline`/`\n\n` 删除。
 - 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。
 - ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
-- 章节权威清单（FP1 8章 / FP2 8章 / CIE P3 10章，无 Differentiation）在 data.js `CHAPTER_PRESETS`，录入严格对应。
-- ⚠️ **CIE P3 无 Differentiation 章**：隐函数求导/驻点（无积分）等题无对应预设章，库内既有约定暂归 `"Algebra"`（如 `22MJ31_q8`、`25FM32_q2/q9`、`24FM32_q6`）。若需更精确，可在 `CHAPTER_PRESETS` 加 `Differentiation` 章（会同步影响侧栏）。迭代求 α 归 `"Numerical solution of equations"`（`24FM32_q7`）。
+- 章节权威清单（FP1 8章 / FP2 8章 / **CIE P3 11章**，含 `Differentiation`）在 data.js `CHAPTER_PRESETS`，录入严格对应。
+- ✅ **CIE P3 `Differentiation` 章已加入（2026-07-17）**：隐函数求导、参数方程求导、求 maximum/minimum（含驻点）的题目**都归属 `Differentiation`**。归类细则：① 纯微分法（隐函数/参数方程/令 dy/dx=0 解极值）单标签 `["Differentiation"]`；② 先求极值再求面积/体积的多问大题双标签 `["Differentiation","Integration"]`；③ 用迭代/数值法定位驻点的题双标签 `["Differentiation","Numerical solution of equations"]`（保留数值法身份）。微分方程求解仍归 `"Differential equations"`、复平面 |z| 极值仍归 `"Complex numbers"`、求给定梯度后积分的题（如 `25MJ35_q7`）仍归 `"Integration"`。
 
 ## 解析配图 / 数学字体
 - solution 内嵌 `![alt](src)`；网页上传转 data URI（缩≤1000px / JPEG q0.85）；种子图写全路径。三处解析均走 `mdToHtml`。
