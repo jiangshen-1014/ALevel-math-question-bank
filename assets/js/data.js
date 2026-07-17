@@ -4409,3 +4409,271 @@ const SEED_QUESTIONS = [
 {"id":"cie_p3_24ON32_q10","board":"CIE","subject":"P3","chapter":["Differential equations"],"source":"24_ON_32_10","stem":"A balloon in the shape of a sphere has volume $V$ and radius $r$. Air is pumped into the balloon at a constant rate of $40\\pi$ starting when time $t=0$ and $r=0$. At the same time, air begins to flow out of the balloon at a rate of $0.8\\pi r$. The balloon remains a sphere at all times.\n\n(a) Show that $r$ and $t$ satisfy the differential equation $$\\dfrac{\\mathrm dr}{\\mathrm dt}=\\dfrac{50-r}{5r^{2}}.$$ \\hfill (3)\n\n(b) Find the quotient and remainder when $5r^{2}$ is divided by $50-r$. \\hfill (3)\n\n(c) Solve the differential equation in part (a), obtaining an expression for $t$ in terms of $r$. \\hfill (6)\n\n(d) Find the value of $t$ when the radius of the balloon is 12. \\hfill (1)","figure":"","difficulty":4,"marks":13,"solution":"","createdAt":1729560000010,"examRef":{"year":2024,"month":"Oct/Nav","paper":"32","qno":10,"code":"32","label":"2024 Oct/Nav · Paper 32 Q10"},"subMarks":[3,3,6,1]},
 {"id":"cie_p3_24ON32_q11","board":"CIE","subject":"P3","chapter":["Integration"],"source":"24_ON_32_11","stem":"Let $f(x)=\\dfrac{2\\mathrm{e}^{2x}}{\\mathrm{e}^{2x}-3\\mathrm{e}^{x}+2}$.\n\n(a) Find $\\mathrm f'(x)$ and hence find the exact coordinates of the stationary point of the curve with equation $y=f(x)$. \\hfill (5)\n\n(b) Use the substitution $u=\\mathrm{e}^{x}$ and partial fractions to find the exact value of $$\\int_{\\ln 3}^{\\ln 5} f(x)\\,\\mathrm dx.$$\n\nGive your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. \\hfill (9)","figure":"","difficulty":4,"marks":14,"solution":"","createdAt":1729560000011,"examRef":{"year":2024,"month":"Oct/Nav","paper":"32","qno":11,"code":"32","label":"2024 Oct/Nav · Paper 32 Q11"},"subMarks":[5,9]}
 ];
+
+
+
+
+const _MONTHS = {
+  jan: "Jan", january: "Jan", feb: "Feb", february: "Feb", mar: "Mar", march: "Mar",
+  apr: "Apr", april: "Apr", may: "May", jun: "Jun", june: "Jun", jul: "Jul", july: "Jul",
+  aug: "Aug", august: "Aug", sep: "Sep", sept: "Sep", september: "Sep",
+  oct: "Oct", october: "Oct", nov: "Nov", november: "Nov", dec: "Dec", december: "Dec",
+  // CIE 考季（series，非自然月）：FM=Feb/Mar, MJ=May/June, ON=Oct/Nov
+  fm: "Feb/Mar", mj: "May/June", on: "Oct/Nov"
+};
+function _normMonth(s) {
+  if (!s) return "";
+  return _MONTHS[String(s).toLowerCase()] || (s.charAt(0).toUpperCase() + s.slice(1, 3).toLowerCase());
+}
+
+function parseExamRef(source) {
+  if (!source) return null;
+  const s = String(source).trim();
+
+  // 新格式：YY_Mon_Paper[_Q]   例 26_Jan_01 / 26_Jan_01A / 26_Jan_01A_2
+  let m = s.match(/^(\d{2})_([A-Za-z]{3,9})_([0-9][0-9A-Za-z]*)(?:_(\d+))?$/);
+  if (m) {
+    const year = 2000 + parseInt(m[1], 10);
+    const month = _normMonth(m[2]);
+    const paper = m[3].toUpperCase();
+    const qno = m[4] ? parseInt(m[4], 10) : undefined;
+    return {
+      year, month, paper, qno,
+      code: paper,                       // 按卷号筛选
+      label: year + " " + month + " · Paper " + paper + (qno ? " Q" + qno : "")
+    };
+  }
+
+  // CIE 格式：YY_SERIES_VARIANT[_Q]  例 21_MJ_31 / 21_MJ_31_2
+  //   - year   : 21 → 2021
+  //   - series : MJ（CIE 考季 FM=Feb/Mar, MJ=May/June, ON=Oct/Nov）
+  //   - variant: 31（Paper 3 变体号为 31/32/33；同理 11/12/13=Paper1 等）
+  m = s.match(/^(\d{2})_([A-Za-z]{2})_(\d{2})(?:_(\d+))?$/);
+  if (m) {
+    const year = 2000 + parseInt(m[1], 10);
+    const month = _normMonth(m[2]);      // FM/MJ/ON → Feb/Mar / May/June / Oct/Nov
+    const paper = m[3];                   // 卷号变体，如 31
+    const qno = m[4] ? parseInt(m[4], 10) : undefined;
+    return {
+      year, month, paper, qno,
+      code: paper,
+      label: year + " " + month + " · Paper " + paper + (qno ? " Q" + qno : "")
+    };
+  }
+
+  // 兼容旧格式：UNIT_Paper_YY_Q   例 WFM02_01A_26_1
+  m = s.match(/^([A-Za-z0-9]+)_([0-9][0-9A-Za-z]*)_(\d{2})_(\d+)$/);
+  if (m) {
+    const unit = m[1];
+    const paper = m[2].toUpperCase();
+    const year = 2000 + parseInt(m[3], 10);
+    const qno = parseInt(m[4], 10);
+    return {
+      unit, paper, year, qno,
+      code: paper,
+      label: unit + "/" + paper + " · " + year + " Q" + qno
+    };
+  }
+  return null;
+}
+
+/* ---------------------- 5. 存储层（IndexedDB，按 id 读写；用户覆盖记录永优先于种子）---------------------- */
+
+const Store = (function () {
+  const KEY = "mathbank_questions_v2";
+  const DELETED_KEY = "mathbank_deleted_v2";
+  const DB_NAME = "mathbank";
+  const DB_VERSION = 1;
+  const STORE_Q = "questions";   // 用户覆盖记录（完整题对象），keyPath: id
+  const STORE_DEL = "deleted";   // 已删除 id 标记，keyPath: id
+
+  let _db = null;          // IDB 连接（null = 降级到 localStorage）
+  let _fallback = false;   // 浏览器不支持 IDB 时降级
+  let _cache = null;       // 合并后的题目数组（种子被覆盖记录按 id 覆盖）；读取 O(1)
+  let _overrides = null;   // Map<id, 覆盖记录>
+  let _deleted = null;     // Set<id> 已删除
+
+  /* ---------- IndexedDB 封装（异步） ---------- */
+  function _openDB() {
+    return new Promise(function (resolve, reject) {
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = function () {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(STORE_Q)) db.createObjectStore(STORE_Q, { keyPath: "id" });
+        if (!db.objectStoreNames.contains(STORE_DEL)) db.createObjectStore(STORE_DEL, { keyPath: "id" });
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+  function _idbGetAll(store) {
+    return new Promise(function (resolve, reject) {
+      const r = _db.transaction(store, "readonly").objectStore(store).getAll();
+      r.onsuccess = function () { resolve(r.result || []); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  function _idbPut(store, value) {
+    return new Promise(function (resolve, reject) {
+      const r = _db.transaction(store, "readwrite").objectStore(store).put(value);
+      r.onsuccess = function () { resolve(); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  function _idbDelete(store, key) {
+    return new Promise(function (resolve, reject) {
+      const r = _db.transaction(store, "readwrite").objectStore(store).delete(key);
+      r.onsuccess = function () { resolve(); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  function _idbClear(store) {
+    return new Promise(function (resolve, reject) {
+      const r = _db.transaction(store, "readwrite").objectStore(store).clear();
+      r.onsuccess = function () { resolve(); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+
+  /* ---------- 降级模式（无 IDB）：沿用旧 localStorage 逻辑 ---------- */
+  function _legacyBuild() {
+    let list = null;
+    try { const raw = localStorage.getItem(KEY); if (raw) list = JSON.parse(raw); } catch (e) {}
+    if (!Array.isArray(list)) {
+      list = JSON.parse(JSON.stringify(SEED_QUESTIONS.filter(function (q) { return q && q.id; })));
+    } else {
+      const deleted = new Set();
+      try { JSON.parse(localStorage.getItem(DELETED_KEY) || "[]").forEach(function (x) { deleted.add(x); }); } catch (e) {}
+      const ids = new Set(list.map(function (q) { return q.id; }));
+      SEED_QUESTIONS.forEach(function (sq) {
+        if (sq.id && !ids.has(sq.id) && !deleted.has(sq.id)) list.push(JSON.parse(JSON.stringify(sq)));
+      });
+      const seedMap = new Map(SEED_QUESTIONS.map(function (q) { return [q.id, q]; }));
+      list.forEach(function (q) {
+        const sq = seedMap.get(q.id);
+        if (!sq) return;
+        if (q._edited) return;
+        if (sq.createdAt && q.createdAt && sq.createdAt > q.createdAt) {
+          Object.assign(q, JSON.parse(JSON.stringify(sq)));
+        } else {
+          Object.keys(sq).forEach(function (k) {
+            if (q[k] === undefined || q[k] === null) q[k] = JSON.parse(JSON.stringify(sq[k]));
+          });
+        }
+      });
+    }
+    return list;
+  }
+  function _legacySave(list) {
+    try { localStorage.setItem(KEY, JSON.stringify(list)); }
+    catch (e) { console.warn("本地存储写入失败（可能超出配额）", e); }
+  }
+
+  /* ---------- 合并：种子被覆盖记录按 id 覆盖；已删除 id 排除 ---------- */
+  function _rebuild() {
+    const arr = [];
+    const seedIds = new Set(SEED_QUESTIONS.map(function (q) { return q.id; }));
+    SEED_QUESTIONS.forEach(function (sq) {
+      if (_deleted.has(sq.id)) return;
+      const ov = _overrides.get(sq.id);
+      arr.push(ov ? ov : JSON.parse(JSON.stringify(sq)));
+    });
+    _overrides.forEach(function (ov, id) {
+      if (!seedIds.has(id) && !_deleted.has(id)) arr.push(ov);
+    });
+    _cache = arr;
+  }
+
+  function _loadLegacyOverrides() {
+    // 仅把「用户真正编辑过（_edited）或种子中没有（用户新增）」的本地记录导入为覆盖记录，
+    // 其余（等同于种子的记录）保持为种子，便于后续种子修复自动生效，也避免把被误覆盖的空解析固化为覆盖。
+    let legacy = null;
+    try { const raw = localStorage.getItem(KEY); if (raw) legacy = JSON.parse(raw); } catch (e) {}
+    if (!Array.isArray(legacy)) return [];
+    const seedIds = new Set(SEED_QUESTIONS.map(function (q) { return q.id; }));
+    return legacy.filter(function (q) { return q && q.id && (q._edited === true || !seedIds.has(q.id)); });
+  }
+
+  async function init() {
+    if (typeof indexedDB === "undefined") { _fallback = true; _cache = _legacyBuild(); return; }
+    try {
+      _db = await _openDB();
+      let overrides = await _idbGetAll(STORE_Q);
+      let deleted = await _idbGetAll(STORE_DEL);
+      if (overrides.length === 0 && deleted.length === 0) {
+        const migrated = _loadLegacyOverrides();
+        if (migrated.length) {
+          await Promise.all(migrated.map(function (o) { return _idbPut(STORE_Q, o); }));
+          overrides = migrated;
+          try { localStorage.removeItem(KEY); } catch (e) {}
+        }
+      }
+      _overrides = new Map(overrides.map(function (o) { return [o.id, o]; }));
+      _deleted = new Set(deleted.map(function (d) { return d.id; }));
+      _rebuild();
+    } catch (e) {
+      console.warn("IndexedDB 初始化失败，降级到 localStorage", e);
+      _fallback = true; _db = null;
+      _cache = _legacyBuild();
+    }
+  }
+
+  function all() {
+    if (!_cache) throw new Error("Store 尚未初始化，请先 await Store.init()");
+    return _cache;
+  }
+
+  function upsert(q) {
+    if (!_cache) return q;
+    const rec = JSON.parse(JSON.stringify(q));
+    const idx = _cache.findIndex(function (x) { return x.id === q.id; });
+    if (idx >= 0) _cache[idx] = rec; else _cache.unshift(rec);
+    if (_deleted && _deleted.has(q.id)) { _deleted.delete(q.id); if (_db) _idbDelete(STORE_DEL, q.id); }
+    if (_db) {
+      _overrides.set(q.id, rec);
+      _idbPut(STORE_Q, rec).catch(function (e) { console.warn("保存失败", e); });
+    } else {
+      _legacySave(_cache);
+    }
+    return rec;
+  }
+
+  function remove(id) {
+    if (!_cache) return;
+    _cache = _cache.filter(function (x) { return x.id !== id; });
+    if (_deleted) _deleted.add(id);
+    if (_db) { _overrides.delete(id); _idbPut(STORE_DEL, { id: id }); _idbDelete(STORE_Q, id); }
+    else { _legacySave(_cache); }
+  }
+
+  async function replaceAll(list) {
+    const items = (list || []).filter(function (q) { return q && q.id; });
+    const map = new Map(items.map(function (q) { return [q.id, q]; }));
+    const seedIds = new Set(SEED_QUESTIONS.map(function (q) { return q.id; }));
+    const ov = new Map();
+    const del = new Set();
+    items.forEach(function (q) { ov.set(q.id, q); });
+    seedIds.forEach(function (id) { if (!map.has(id)) del.add(id); });
+    _overrides = ov; _deleted = del;
+    _cache = items.slice();
+    if (_db) {
+      try {
+        await _idbClear(STORE_Q); await _idbClear(STORE_DEL);
+        await Promise.all(Array.from(ov.values()).map(function (o) { return _idbPut(STORE_Q, o); }));
+        await Promise.all(Array.from(del).map(function (id) { return _idbPut(STORE_DEL, { id: id }); }));
+      } catch (e) { console.warn("批量写入失败", e); }
+    } else {
+      _legacySave(_cache);
+    }
+  }
+
+  function newId() {
+    return "q_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 7);
+  }
+
+  return {
+    init: init, all: all, upsert: upsert, remove: remove,
+    replaceAll: replaceAll, newId: newId, KEY: KEY,
+    get fallback() { return _fallback; }
+  };
+})();
