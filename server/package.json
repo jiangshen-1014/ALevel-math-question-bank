@@ -1,0 +1,19 @@
+{
+  "name": "mathbank-server",
+  "version": "1.0.0",
+  "description": "数学题库后端：登录 + 共享题库 API",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

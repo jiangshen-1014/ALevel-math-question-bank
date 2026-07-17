@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>数学题库 · Edexcel & CIE Question Bank</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- TikZJax：把 <script type="text/tikz"> 编译为 SVG（WebAssembly，仅支持基础 tikz） -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css" />
+<!-- MathJax 3（SVG 模式）：SVG 输出 <text> 完全响应 CSS font-weight/font-family，
+     解决 CHTML 用 Latin Modern webfont 导致行内数学比正文粗的问题 -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      packages: { '[+]': ['textmacros', 'ams', 'color', 'cancel', 'mhchem', 'noundefined', 'html', 'boldsymbol', 'newcommand'] },
+      macros: {
+        hfill: ['\\hspace{\\fill}', 0]
+      }
+    },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    svg: { scale: 1, fontCache: 'global' },
+    startup: { typeset: false }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="app">
+  <!-- 顶栏 -->
+  <header class="topbar">
+    <div class="logo">
+      <span class="mark">∑</span>
+      <div>数学题库 <small>Edexcel &amp; CIE Question Bank</small></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="actions">
+      <button class="btn sm ghost" id="btnBatch" title="按 4 列表格批量导入 Excel/CSV">批量导入</button>
+      <button class="btn sm ghost" id="btnImport">导入</button>
+      <button class="btn sm ghost" id="btnExport">导出</button>
+      <button class="btn sm primary" id="btnAdd">＋ 新增题目</button>
+      <button class="btn sm basket-btn" id="btnBasket">🧺 组卷篮 <span class="n" id="basketN" style="display:none">0</span></button>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- 侧边栏：大类 → 科目 -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- 内容区 -->
+    <section class="content">
+      <div class="content-head">
+        <div class="crumb" id="crumb">全部题目</div>
+        <h1 id="viewTitle">全部题目</h1>
+        <div class="sub" id="viewSub">选择左侧大类与科目进行筛选</div>
+      </div>
+
+      <div class="list-wrap">
+        <div class="list-toolbar">
+          <div class="filters">
+            <div class="search">
+              <span class="ico">🔍</span>
+              <input type="text" id="searchInput" placeholder="搜索题干、章节、考点、来源…" />
+            </div>
+            <select class="select-sm" id="filterChapter"><option value="">全部章节</option></select>
+            <select class="select-sm" id="filterYear"><option value="">全部年份</option></select>
+            <select class="select-sm" id="filterMonth"><option value="">全部月份</option></select>
+            <select class="select-sm" id="filterPaper"><option value="">全部卷号</option></select>
+            <select class="select-sm" id="filterDiff">
+              <option value="">全部难度</option>
+              <option value="1">★ 难度1</option>
+              <option value="2">★★ 难度2</option>
+              <option value="3">★★★ 难度3</option>
+              <option value="4">★★★★ 难度4</option>
+              <option value="5">★★★★★ 难度5</option>
+            </select>
+          </div>
+          <div class="list-meta">
+            <span id="listCount">共 0 题</span>
+            <span class="sel-bar" id="selBar">
+              <label class="sel-all"><input type="checkbox" id="selAllChk" /> 全选</label>
+              <span class="sel-info">已选 <b id="selCount">0</b> 题</span>
+              <button class="btn sm primary" id="selToBasket">加入组卷篮</button>
+              <button class="btn sm ghost" id="selClear">清空选择</button>
+            </span>
+          </div>
+        </div>
+        <div id="qList"></div>
+      </div>
+      <div class="pager" id="pager"></div>
+    </section>
+  </div>
+</div>
+
+<!-- 组卷抽屉 -->
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h2>🧺 组卷篮</h2>
+    <button class="btn sm ghost" style="margin-left:auto" id="drawerClose">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="toggle-row">
+      <label class="switch"><input type="checkbox" id="incSolution" checked /><span class="track"></span></label>
+      <div>
+        <div style="font-weight:600">包含解析 / 答案</div>
+        <div class="hint" style="margin:0">关闭则只生成题目（学生卷）</div>
+      </div>
+    </div>
+    <label class="fld" style="margin-top:4px">试卷标题</label>
+    <input type="text" id="paperTitle" placeholder="例：CIE P1 单元测验" />
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn" id="clearBasket" style="flex:0 0 auto">清空</button>
+      <button class="btn primary" id="genPaper" style="flex:1">生成试卷</button>
+    </div>
+  </div>
+</div>
+
+<!-- 新增/编辑 弹窗 -->
+<div class="overlay" id="editOverlay">
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2 id="editTitle">新增题目</h2>
+      <button class="btn sm ghost x" id="editClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="f_id" />
+      <div class="form-grid">
+        <div>
+          <label class="fld">大类 Board</label>
+          <select id="f_board"></select>
+        </div>
+        <div>
+          <label class="fld">科目 Subject</label>
+          <select id="f_subject"></select>
+        </div>
+        <div>
+          <label class="fld">章节 Chapter</label>
+          <input type="text" id="f_chapter" list="chapterList" placeholder="选择或输入章节" />
+          <datalist id="chapterList"></datalist>
+        </div>
+        <div>
+          <label class="fld">考点 Topics（英文逗号分隔）</label>
+          <input type="text" id="f_topics" placeholder="如：切线法线, Stationary points" />
+        </div>
+        <div>
+          <label class="fld">难度 Difficulty</label>
+          <select id="f_diff">
+            <option value="1">★ 1</option><option value="2">★★ 2</option>
+            <option value="3" selected>★★★ 3</option><option value="4">★★★★ 4</option>
+            <option value="5">★★★★★ 5</option>
+          </select>
+        </div>
+        <div>
+          <label class="fld">分值 Marks</label>
+          <input type="number" id="f_marks" min="0" placeholder="如 7" />
+        </div>
+        <div class="full">
+          <label class="fld">来源 Source（真题请按 年_月_卷号，如 <code>26_Jan_01</code> = 2026年1月 Paper 01；卷号可带字母如 <code>26_Jun_01A</code>）</label>
+          <input type="text" id="f_source" placeholder="如：WFM02_01_26_1" />
+          <div class="hint" id="srcHint" style="display:none;color:var(--green)"></div>
+        </div>
+
+        <div class="full">
+          <label class="fld">题目正文 Stem（支持 LaTeX：$...$ 行内、$$...$$ 独立公式、\hfill 等命令；**加粗**；TikZ 用 ```tikz 代码块）</label>
+          <textarea id="f_stem" placeholder="粘贴/输入题目正文的 LaTeX 文本…"></textarea>
+          <div class="preview-box"><div class="plabel">实时预览 Preview</div><div class="mathrender" id="stemPreview"></div></div>
+        </div>
+
+        <div class="full">
+          <label class="fld">配图 Figure（坐标图 / 力学图等，原样保留）</label>
+          <div class="img-drop" id="imgDrop">点击选择图片，或 Ctrl+V 粘贴截图 · 也可留空</div>
+          <input type="file" id="f_figFile" accept="image/*" style="display:none" />
+          <div class="img-preview" id="imgPreview"></div>
+          <div class="hint">若通过对话让我识别截图，我会自动填好正文与配图，无需手动上传。</div>
+        </div>
+
+        <div class="full">
+          <label class="fld">详细解析 Solution（中英结合，支持 LaTeX；可在需要图示处插入图片）</label>
+          <textarea id="f_solution" placeholder="输入详细解析…"></textarea>
+          <div class="sol-img-tools">
+            <button type="button" class="btn sm ghost" id="solImgBtn">🖼 插入图片</button>
+            <input type="file" id="f_solFile" accept="image/*" multiple style="display:none" />
+            <span class="hint">点击选择，或把光标放在解析中需要图示的位置后 Ctrl+V 粘贴截图；图片以数据形式存入本地</span>
+          </div>
+          <div class="sol-img-list" id="solImgList"></div>
+          <div class="preview-box"><div class="plabel">解析预览 Preview</div><div class="mathrender" id="solPreview"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="editCancel">取消</button>
+      <button class="btn primary" id="editSave">保存题目</button>
+    </div>
+  </div>
+</div>
+
+<!-- 试卷预览 弹窗 -->
+<div class="overlay" id="paperOverlay">
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2>试卷预览</h2>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button class="btn sm primary" id="printPaper">🖨️ 打印 / 导出PDF</button>
+        <button class="btn sm ghost" id="paperClose">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="paper-hint no-print">🖨️ 打印 / 导出 PDF 时，请在浏览器的打印对话框中取消勾选「<b>页眉和页脚</b>」（Headers and footers），即可去除每页自动添加的网址 / 日期 / 页码。</div>
+      <div id="printArea"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 通用确认弹窗（替代被 webview 禁用的 window.confirm） -->
+<div class="overlay" id="confirmOverlay">
+  <div class="modal small">
+    <p id="confirmMsg" class="confirm-msg">确定执行？</p>
+    <div class="modal-actions">
+      <button class="btn" id="confirmCancel">取消</button>
+      <button class="btn danger" id="confirmOk">确定</button>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="batchFile" accept=".xlsx,.xls,.csv" style="display:none" />
+<input type="file" id="importFile" accept="application/json" style="display:none" />
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="assets/js/app.js"></script>
+<!-- TikZJax 引擎（约 500KB + 首次加载 WASM 核心，之后浏览器缓存）。放在最后，window.onload 由它接管 -->
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</body>
+</html>

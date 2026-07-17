@@ -1,0 +1,39 @@
+# 题库软件项目长期约定（Edexcel/CIE 数学）
+
+## 录入规范（铁律）
+- 题干截图只转 LaTeX 不入库；`figure` 只存真正配图，写全路径 `data/images/xxx.png`（app.js 渲染不拼前缀）。
+- 题干逐字复刻英文原版，不增删改写；stem 只含原题+数学，不混中文解说。解析 solution 可中英结合。
+- 小分用 `\hfill (N)`（JS 双反斜杠 `\\hfill`），必须在题干正文、紧跟文本同段落，**绝不**包进 `$...$`/`$$...$$`；禁止 `\tag{N}`。
+- 来源格式：Edexcel 新 `年_月_卷号[_题号]`；CIE `YY_SERIES_VARIANT`（MJ/FM/ON，变体31/32/33）。
+- **来源月份全称**：examRef.month 用全称 — FM=`"Feb/March"`，MJ=`"May/June"`，ON=`"Oct/Nav"`（label 同理含 "2024 Oct/Nav · Paper 31 Q1" 格式）。
+- **小问序号不加粗**：`(a)``(b)` 等纯文本，**绝不**用 `**(a)**`。
+- **换行符**：stem 中段落间用 `\n\n`（JS 源码中 2 字符：反斜杠+n+反斜杠+n），由 json.dumps 自动生成；运行时解析为真实换行，mdToHtml 按 `\n{2,}` 切段。**禁止**写 `\\n\\n`（4 字符 = 字面文本，不换行）。
+- 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。
+- ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
+- 章节权威清单（FP1 8章 / FP2 8章 / CIE P3 10章，无 Differentiation）在 data.js `CHAPTER_PRESETS`，录入严格对应。
+
+## 解析配图 / 数学字体
+- solution 内嵌 `![alt](src)`；网页上传转 data URI（缩≤1000px / JPEG q0.85）；种子图写全路径。三处解析均走 `mdToHtml`。
+- MathJax 已切 SVG 模式：`.MathJax_SVG text{font-family:"Segoe UI";font-weight:400!important}` 全量覆盖为系统正文字体。
+
+## 修改前备份（铁律）
+- 改 data.js/app.js 前必跑 `python .workbuddy/tools/backup.py backup <file>`（存 `.workbuddy/backups/`，保留 30 版；restore 自动再备份）。
+
+## 存储层与规模化（2026-07-15）
+- ⚠️ 数据丢失根因：用户网页编辑发生在 `_edited` 保护加入**前** → 本地题无标记；抬高种子 createdAt 后刷新，`Store.all()` 把未保护本地题整条覆盖为种子版（种子 139 题全有解析，故丢失的是用户**改写版**而非空白）。补救：未刷新标签页立即点「导出 JSON」是唯一找回途径。
+- ✅ **P0 已实施**：存储层迁移 **IndexedDB**（库 `mathbank`，对象库 `questions` 存用户覆盖记录、`deleted` 存删除标记，均按 id keyPath）。合并 = 种子被覆盖按 id 覆盖 + 排除已删 id；内存 `_cache` 仅 `init()` 构建一次，`Store.all()` 此后 O(1) 返回；保存退化为一次异步 `put`（非阻塞）。首次运行自动迁移 localStorage 中 `_edited`/非种子记录（等同种子不固化，便于种子修复自动生效）。无 IDB 时降级回 localStorage 旧逻辑。
+- 验证：假 IndexedDB 自测（迁移/覆盖胜出/删除/新增/按 id 持久化）全 PASS；`node --check` data.js/app.js 通过；改动前已用 backup.py 备份。
+- ✅ **P1 已实施（2026-07-15）**：列表虚拟滚动（仅渲染可视区 ±6 缓冲卡片，DOM 节点从全量 N 降到 ~40）+ MathJax 增量排版（仅新卡 stem，解析展开时再排）+ 保存单题精准更新（`vlUpdateItem`：仅当该卡可见且仍在筛选内才替换其 DOM，否则才整页重建）；解析展开/收起触发重测高度并滚动锚定防跳屏；含「VL 未初始化全量渲染」兜底。验证：node 语法校验通过 + 纯逻辑（二分查找/偏移累加）单测全 PASS + DOM 桩集成测试（139 题仅挂 10 卡，WINDOWING_OK）。关键改动：`assets/js/app.js` 新增 `VL` 虚拟列表模块 + `vlInit/vlBuild/vlRender/vlUpdateItem` 等；`typeset` 支持回调；`toggleBasket`/`saveEdit` 改为精准更新；`assets/css/style.css` 加 `#qList{position:relative}`。
+- ✅ **列表分页（2026-07-16）**：在 P1 虚拟滚动之上加显式分页（每页 10 题）。`renderList` 先全量过滤再 `slice` 当前页喂 `vlBuild`；`renderPager`+`pageNumbers`（>10 页带省略号）渲染页码/上下页/信息；搜索/筛选/侧边栏切换复位 `state.page=1`；`index.html` 在 `.list-wrap` 外加 `#pager` 固定底栏，`style.css` 加 `.pager` 样式。验证：DOM 桩测试 第1页挂10卡、点页码2切第2页 → PAGINATION_OK。
+- 🔁 **「以导出文件为准覆盖」恢复流程（2026-07-15 实战）**：用户提供旧标签页导出的 JSON（135 题，含被恢复自定义解析）。做法 = 合并写回 `SEED_QUESTIONS`：重叠题以文件为准、种子独有真实题保留（示例题样题缺 `examRef` 时自动补 `examRef.label`）。并导出合并集 JSON（如 `mathbank_recovered_YYYY-MM-DD.json`，139 题）供网页「导入 JSON」一键生效。⚠️ 浏览器生效注意：P0 后数据在 IndexedDB，**仅刷新可能不生效**（旧 IDB 覆盖优先）；最稳是网页内「导入 JSON」选合并集文件，或清掉站点 IndexedDB 后刷新（新种子即合并集）。
+
+## 上线/部署倾向（2026-07-17，当前搁置）
+- **现状**：纯静态前端 + 浏览器本地 IndexedDB，无后端/登录/共享写入。多人共享录入**必须**加后端+共享库+登录。
+- **用户决策**：暂时搁置上线，优先完善本地数据。未来上线时再议。
+- **成本敏感**：介意标准 CVM ¥65/月；倾向免费/极便宜方案。国内访问速度重要（使用者均在国内）。
+- **候选方案**（上线时据预算/实名意愿选）：
+  1. 腾讯云轻量服务器 Lighthouse 特价（~¥60/年，国内快，需实名，复用 Node 服务+一键脚本）。
+  2. 腾讯云 CloudBase 云开发（国内快，免后端代码、前端直连平台库+登录，有免费/极低额度，需实名）。
+  3. Supabase（海外，完全免费、免实名免备案，前端直连 API，但国内偏慢）。
+  4. *排除*：纯静态托管（CloudStudio 部署）跑不了后端；标准 CVM ¥65/月偏贵。
+- **已搭未完成的 `server/` 脚手架**（Express + `db.js` JSON 文件库 + 待补 `auth.js`）：上线时复用，本地应用不加载它、不影响当前使用。
