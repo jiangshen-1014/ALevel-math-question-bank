@@ -5003,6 +5003,273 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784343888572
 }
+,
+{
+  "id": "cie_p3_22ON31_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_ON_31_1",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 1,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q1"
+  },
+  "stem": "(a) Sketch the graph of $y = |2x + 1|$.\\hfill (1)\n(b) Solve the inequality $3x + 5 < |2x + 1|$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_ON_31_2",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 2,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q2"
+  },
+  "stem": "On a sketch of an Argand diagram shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z| \\leqslant 3$, $\\mathrm{Re}(z) \\geqslant -2$ and $\\dfrac{1}{4}\\pi \\leqslant \\arg z \\leqslant \\pi$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_ON_31_3",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 3,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q3"
+  },
+  "stem": "Solve the equation $2^{3x-1} = 5 \\times 3^{-x}$. Give your answer in the form $\\dfrac{\\ln a}{\\ln b}$, where $a$ and $b$ are integers.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "22_ON_31_4",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 4,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q4"
+  },
+  "stem": "Solve the equation $\\tan(x + 45^\\circ) = 2\\cot x$ for $0^\\circ < x < 180^\\circ$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "22_ON_31_5",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 5,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q5"
+  },
+  "stem": "The complex numbers $u$ and $w$ are defined by $u = 2\\mathrm{e}^{\\frac{1}{4}\\pi\\mathrm{i}}$ and $w = 3\\mathrm{e}^{\\frac{1}{3}\\pi\\mathrm{i}}$.\n(a) Find $\\dfrac{u^{2}}{w}$, giving your answer in the form $r\\mathrm{e}^{\\mathrm{i}\\theta}$, where $r > 0$ and $-\\pi < \\theta \\leqslant \\pi$. Give the exact values of $r$ and $\\theta$.\\hfill (3)\n(b) State the least positive integer $n$ such that both $\\mathrm{Im}(w^{n}) = 0$ and $\\mathrm{Re}(w^{n}) > 0$.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "22_ON_31_6",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 6,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q6"
+  },
+  "stem": "(a) Prove the identity $\\cos 4\\theta + 4\\cos 2\\theta + 3 \\equiv 8\\cos^{4}\\theta$.\\hfill (4)\n(b) Hence solve the equation $\\cos 4\\theta + 4\\cos 2\\theta = 4$ for $0^\\circ \\leqslant \\theta \\leqslant 180^\\circ$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_31_7",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 7,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q7"
+  },
+  "stem": "The equation of a curve is $y = \\dfrac{x}{\\cos^{2}x}$, for $0 \\leqslant x < \\dfrac{1}{2}\\pi$. At the point where $x = a$, the tangent to the curve has gradient equal to 12.\n(a) Show that $a = \\cos^{-1}\\left(\\sqrt[3]{\\dfrac{\\cos a + 2a\\sin a}{12}}\\right)$.\\hfill (3)\n(b) Verify by calculation that $a$ lies between 0.9 and 1.\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_31_8",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 8,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q8"
+  },
+  "stem": "In a certain chemical reaction the amount, $x$ grams, of a substance is increasing. The differential equation satisfied by $x$ and $t$, the time in seconds since the reaction began, is $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = kx\\mathrm{e}^{-0.1t}$, where $k$ is a positive constant. It is given that $x = 20$ at the start of the reaction.\n(a) Solve the differential equation, obtaining a relation between $x$, $t$ and $k$.\\hfill (5)\n(b) Given that $x = 40$ when $t = 10$, find the value of $k$ and find the value approached by $x$ as $t$ becomes large.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_ON_31_9",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 9,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q9"
+  },
+  "stem": "The diagram shows part of the curve $y = (3 - x)\\mathrm{e}^{-\\frac{1}{3}x}$ for $x \\geqslant 0$, and its minimum point $M$.\n(a) Find the exact coordinates of $M$.\\hfill (5)\n(b) Find the area of the shaded region bounded by the curve and the axes, giving your answer in terms of $\\mathrm{e}$.\\hfill (5)",
+  "figure": "data/images/22_ON_31_9.png",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_ON_31_10",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 10,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q10"
+  },
+  "stem": "Let $f(x) = \\dfrac{2x^{2} + 7x + 8}{(1 + x)(2 + x)^{2}}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^{2}$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344196936
+},
+{
+  "id": "cie_p3_22ON31_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 11,
+  "source": "22_ON_31_11",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 11,
+    "code": "31",
+    "label": "2022 Oct/Nov · Paper 31 Q11"
+  },
+  "stem": "In the diagram, $OABCD$ is a solid figure in which $OA = OB = 4$ units and $OD = 3$ units. The edge $OD$ is vertical, $DC$ is parallel to $OB$ and $DC = 1$ unit. The base, $OAB$, is horizontal and angle $AOB = 90^\\circ$. Unit vectors $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$ are parallel to $OA$, $OB$ and $OD$ respectively. The midpoint of $AB$ is $M$ and the point $N$ on $BC$ is such that $CN = 2NB$.\n(a) Express vectors $\\overrightarrow{MD}$ and $\\overrightarrow{ON}$ in terms of $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$.\\hfill (4)\n(b) Calculate the angle in degrees between the directions of $\\overrightarrow{MD}$ and $\\overrightarrow{ON}$.\\hfill (3)\n(c) Show that the length of the perpendicular from $M$ to $ON$ is $\\dfrac{\\sqrt{22}}{5}$.\\hfill (4)",
+  "figure": "data/images/22_ON_31_11.png",
+  "solution": "",
+  "createdAt": 1784344196936
+}
 ];
 
 
