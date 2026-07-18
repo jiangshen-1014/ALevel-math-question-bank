@@ -5754,6 +5754,273 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784345333544
 }
+,
+{
+  "id": "cie_p3_22FM32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_FM_32_1",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q1"
+  },
+  "stem": "Solve the inequality $|2x+3|>3|x+2|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373713
+  },
+{
+  "id": "cie_p3_22FM32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_FM_32_2",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q2"
+  },
+  "stem": "On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z+2-3\\mathrm{i}|\\leq 2$ and $\\arg z\\leq \\dfrac{3\\pi}{4}$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373713
+  },
+{
+  "id": "cie_p3_22FM32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "22_FM_32_3",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q3"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the equation $x^ny^2=C$, where $n$ and $C$ are constants. The graph of $\\ln y$ against $\\ln x$ is a straight line passing through the points $(0.31, 1.21)$ and $(1.06, 0.91)$, as shown in the diagram.\nFind the value of $n$ and find the value of $C$ correct to 2 decimal places.\\hfill (5)",
+  "figure": "data/images/22_FM_32_3.png",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "22_FM_32_4",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q4"
+  },
+  "stem": "The parametric equations of a curve are\n$x=1-\\cos\\theta$, $y=\\cos\\theta-\\dfrac{1}{4}\\cos 2\\theta$.\nShow that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=-2\\sin^2\\left(\\dfrac{1}{2}\\theta\\right)$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "22_FM_32_5",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q5"
+  },
+  "stem": "The angles $\\alpha$ and $\\beta$ lie between $0$ and $\\pi$ and are such that\n$\\tan(\\alpha+\\beta)=2$ and $\\tan\\alpha=3\\tan\\beta$.\nFind the possible values of $\\alpha$ and $\\beta$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "22_FM_32_6",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q6"
+  },
+  "stem": "Find the complex numbers $w$ which satisfy the equation $w^2+2\\mathrm{i}w^*=1$ and are such that $\\mathrm{Re}\\,w\\leq 0$.\nGive your answers in the form $x+\\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 7,
+  "source": "22_FM_32_7",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q7"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $4-x^2=\\sec\\dfrac{1}{2}x$ has exactly one root in the interval $0\\leq x<\\pi$.\\hfill (2)\n(b) Verify by calculation that this root lies between $1$ and $2$.\\hfill (2)\n(c) Use the iterative formula $x_{n+1}=\\sqrt{4-\\sec\\dfrac{1}{2}x_n}$ to determine the root correct to 2 decimal places.\nGive the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_FM_32_8",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q8"
+  },
+  "stem": "(a) Find the quotient and remainder when $8x^3+4x^2+2x+7$ is divided by $4x^2+1$.\\hfill (3)\n(b) Hence find the exact value of $\\displaystyle\\int_0^{\\frac{1}{2}}\\dfrac{8x^3+4x^2+2x+7}{4x^2+1}\\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_FM_32_9",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q9"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation\n$(x+1)(3x+1)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=y$,\nand it is given that $y=1$ when $x=1$.\nSolve the differential equation and find the exact value of $y$ when $x=3$, giving your answer in a simplified form.\\hfill (9)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_FM_32_10",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q10"
+  },
+  "stem": "The points $A$ and $B$ have position vectors $2\\mathbf{i}+\\mathbf{j}+\\mathbf{k}$ and $\\mathbf{i}-2\\mathbf{j}+2\\mathbf{k}$ respectively. The line $l$ has vector equation $\\mathbf{r}=\\mathbf{i}+2\\mathbf{j}-3\\mathbf{k}+\\mu(\\mathbf{i}-3\\mathbf{j}-2\\mathbf{k})$.\n(a) Find a vector equation for the line through $A$ and $B$.\\hfill (3)\n(b) Find the acute angle between the directions of $AB$ and $l$, giving your answer in degrees.\\hfill (3)\n(c) Show that the line through $A$ and $B$ does not intersect the line $l$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784348373714
+  },
+{
+  "id": "cie_p3_22FM32_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "22_FM_32_11",
+  "examRef": {
+    "year": 2022,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 11,
+    "code": "32",
+    "label": "2022 Feb/March · Paper 32 Q11"
+  },
+  "stem": "The diagram shows the curve $y=\\sin x\\cos 2x$ for $0\\leq x\\leq\\dfrac{1}{2}\\pi$, and its maximum point $M$.\n(a) Find the $x$-coordinate of $M$, giving your answer correct to 3 significant figures.\\hfill (6)\n(b) Using the substitution $u=\\cos x$, find the area of the shaded region enclosed by the curve and the $x$-axis in the first quadrant, giving your answer in a simplified exact form.\\hfill (5)",
+  "figure": "data/images/22_FM_32_11.png",
+  "solution": "",
+  "createdAt": 1784348373714
+  }
 ];
 
 
