@@ -5512,6 +5512,248 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784344677651
 }
+,
+{
+  "id": "cie_p3_22MJ32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_MJ_32_1",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q1"
+  },
+  "stem": "Solve the equation $\\ln(\\mathrm{e}^{2x}+3)=2x+\\ln 3$, giving your answer correct to 3 decimal places.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 2,
+  "marks": 5,
+  "source": "22_MJ_32_2",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q2"
+  },
+  "stem": "Solve the equation $3\\cos^2\\theta=3\\cos\\theta+2$, for $0\\leq\\theta\\leq 360$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "22_MJ_32_3",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q3"
+  },
+  "stem": "The polynomial $ax^3+x^2+bx+3$ is denoted by $\\mathrm{p}(x)$. It is given that $\\mathrm{p}(x)$ is divisible by $(2x-1)$ and that when $\\mathrm{p}(x)$ is divided by $(x+2)$ the remainder is $5$.\nFind the values of $a$ and $b$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 6,
+  "source": "22_MJ_32_4",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q4"
+  },
+  "stem": "The equation of a curve is $y=\\cos^3 x\\sqrt{\\sin x}$. It is given that the curve has one stationary point in the interval $0<x<\\dfrac{1}{2}\\pi$.\nFind the $x$-coordinate of this stationary point, giving your answer correct to 3 significant figures.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 7,
+  "source": "22_MJ_32_5",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q5"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $\\ln x=\\dfrac{3}{\\sqrt{x}}-x^2$ has one real root.\\hfill (2)\n(b) Verify by calculation that the root lies between $2$ and $2.8$.\\hfill (2)\n(c) Use the iterative formula $x_{n+1}=\\dfrac{3}{\\sqrt{x_n}}-\\ln x_n$ to determine the root correct to 2 decimal places.\nGive the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_MJ_32_6",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q6"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=x\\mathrm{e}^{y-x}$,\nand $y=0$ when $x=0$.\n(a) Solve the differential equation, obtaining an expression for $y$ in terms of $x$.\\hfill (7)\n(b) Find the value of $y$ when $x=1$, giving your answer in the form $a-\\ln b$, where $a$ and $b$ are integers.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_MJ_32_7",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q7"
+  },
+  "stem": "The equation of a curve is $x^3+3x^2y-y^3=3$.\n(a) Show that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=-\\dfrac{x^2+2xy}{y^2-x^2}$.\\hfill (4)\n(b) Find the coordinates of the points on the curve where the tangent is parallel to the $x$-axis.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_MJ_32_8",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q8"
+  },
+  "stem": "Let $f(x)=\\dfrac{x^2+9x}{(3x-1)(x^2+3)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence find $\\displaystyle\\int_1^3 f(x)\\mathrm{d}x$, giving your answer in a simplified exact form.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_MJ_32_9",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q9"
+  },
+  "stem": "The lines $l$ and $m$ have vector equations\n$\\mathbf{r}=-\\mathbf{i}+3\\mathbf{j}+4\\mathbf{k}+\\lambda(2\\mathbf{i}-\\mathbf{j}-\\mathbf{k})$ and $\\mathbf{r}=5\\mathbf{i}+4\\mathbf{j}+3\\mathbf{k}+\\mu(a\\mathbf{i}+b\\mathbf{j}+\\mathbf{k})$\nrespectively, where $a$ and $b$ are constants.\n(a) Given that $l$ and $m$ intersect, show that $2b-a=4$.\\hfill (4)\n(b) Given also that $l$ and $m$ are perpendicular, find the values of $a$ and $b$.\\hfill (4)\n(c) When $a$ and $b$ have these values, find the position vector of the point of intersection of $l$ and $m$.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+},
+{
+  "id": "cie_p3_22MJ32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 11,
+  "source": "22_MJ_32_10",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2022 May/June · Paper 32 Q10"
+  },
+  "stem": "The complex number $-1+\\sqrt{7}\\,\\mathrm{i}$ is denoted by $u$. It is given that $u$ is a root of the equation $2x^3+3x^2+14x+k=0$, where $k$ is a real constant.\n(a) Find the value of $k$.\\hfill (3)\n(b) Find the other two roots of the equation.\\hfill (4)\n(c) On an Argand diagram, sketch the locus of points representing complex numbers $z$ satisfying the equation $|z-u|=2$.\\hfill (2)\n(d) Determine the greatest value of $\\arg z$ for points on this locus, giving your answer in radians.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784345333544
+}
 ];
 
 
