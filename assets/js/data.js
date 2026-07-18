@@ -4494,6 +4494,273 @@ const SEED_QUESTIONS = [
 {"id":"cie_p3_23FM32_q9","board":"CIE","subject":"P3","chapter":["Differential equations"],"source":"23_FM_32_9","stem":"The variables $x$ and $y$ satisfy the differential equation\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=e^{3y}\\sin^2 2x$.\nIt is given that $y=0$ when $x=0$.\nSolve the differential equation and find the value of $y$ when $x=\\dfrac{1}{2}$.\\hfill (7)","figure":"","difficulty":4,"marks":7,"solution":"","createdAt":1784303878757,"examRef":{"year":2023,"month":"Feb/March","paper":"32","qno":9,"code":"32","label":"2023 Feb/March · Paper 32 Q9"}},
 {"id":"cie_p3_23FM32_q10","board":"CIE","subject":"P3","chapter":["Vectors"],"source":"23_FM_32_10","stem":"With respect to the origin $O$, the points $A$, $B$, $C$ and $D$ have position vectors given by\n$\\overrightarrow{OA}=\\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix}$, $\\overrightarrow{OB}=\\begin{pmatrix}1\\\\2\\\\-3\\end{pmatrix}$, $\\overrightarrow{OC}=\\begin{pmatrix}1\\\\-2\\\\5\\end{pmatrix}$ and $\\overrightarrow{OD}=\\begin{pmatrix}5\\\\-6\\\\11\\end{pmatrix}$.\n(a) Find the obtuse angle between the vectors $\\overrightarrow{OA}$ and $\\overrightarrow{OB}$.\\hfill (3)\n(b) The line $l$ passes through the points $A$ and $B$. Find a vector equation for the line $l$.\\hfill (2)\n(c) Find the position vector of the point of intersection of the line $l$ and the line passing through $C$ and $D$.\\hfill (4)","figure":"","difficulty":4,"marks":9,"solution":"","createdAt":1784303878757,"examRef":{"year":2023,"month":"Feb/March","paper":"32","qno":10,"code":"32","label":"2023 Feb/March · Paper 32 Q10"}},
 {"id":"cie_p3_23FM32_q11","board":"CIE","subject":"P3","chapter":["Algebra (partial fractions and binomial expansions)"],"source":"23_FM_32_11","stem":"Let $f(x)=\\dfrac{5x^2+x+11}{(4+x^2)(1+x)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence show that $\\displaystyle\\int_0^2 f(x)\\mathrm{d}x=\\ln 54-\\dfrac{1}{8}\\pi$.\\hfill (5)","figure":"","difficulty":4,"marks":10,"solution":"","createdAt":1784303878757,"examRef":{"year":2023,"month":"Feb/March","paper":"32","qno":11,"code":"32","label":"2023 Feb/March · Paper 32 Q11"}}
+,
+{
+  "id": "cie_p3_22ON33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_ON_33_1",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q1"
+  },
+  "stem": "Solve the equation $\\ln(2x-1) = 2\\ln(x+1) - \\ln x$. Give your answer correct to 3 decimal places.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "22_ON_33_2",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q2"
+  },
+  "stem": "Expand $\\sqrt{\\dfrac{1+2x}{1-2x}}$ in ascending powers of $x$, up to and including the term in $x^{2}$, simplifying the coefficients.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "22_ON_33_3",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q3"
+  },
+  "stem": "Find the exact value of $\\displaystyle\\int_{0}^{\\frac{1}{4}\\pi} x \\sec^{2}x \\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "22_ON_33_4",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q4"
+  },
+  "stem": "The parametric equations of a curve are\n$x = 2t - \\tan t$, $y = \\ln(\\sin 2t)$,\nfor $0 < t < \\dfrac{1}{2}\\pi$.\nShow that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\cot t$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "22_ON_33_5",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q5"
+  },
+  "stem": "(a) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z+2| \\leqslant 2$ and $\\mathrm{Im}\\, z \\geqslant 1$.\\hfill (4)\n(b) Find the greatest value of $\\arg z$ for points in the shaded region.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "22_ON_33_6",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q6"
+  },
+  "stem": "Solve the quadratic equation $(1-3\\mathrm{i})z^{2}-(2+\\mathrm{i})z+\\mathrm{i} = 0$, giving your answers in the form $x+\\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_33_7",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q7"
+  },
+  "stem": "(a) Show that the equation $\\sqrt{5}\\sec x + \\tan x = 4$ can be expressed as $R\\cos(x+\\alpha) = \\sqrt{5}$, where $R > 0$ and $0 < \\alpha < 90$. Give the exact value of $R$ and the value of $\\alpha$ correct to 2 decimal places.\\hfill (4)\n(b) Hence solve the equation $\\sqrt{5}\\sec 2x + \\tan 2x = 4$, for $0 < x < 180$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "22_ON_33_8",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q8"
+  },
+  "stem": "The curve with equation $y = \\dfrac{x^{3}}{\\mathrm{e}^{x}-1}$ has a stationary point at $x = p$, where $p > 0$.\n(a) Show that $p = 3(1-\\mathrm{e}^{-p})$.\\hfill (3)\n(b) Verify by calculation that $p$ lies between $2.5$ and $3$.\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $p$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_ON_33_9",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q9"
+  },
+  "stem": "With respect to the origin $O$, the position vectors of the points $A$, $B$ and $C$ are given by\n$\\overrightarrow{OA} = \\begin{pmatrix} 0 \\\\ 5 \\\\ 2 \\end{pmatrix}$, $\\overrightarrow{OB} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$ and $\\overrightarrow{OC} = \\begin{pmatrix} 4 \\\\ -3 \\\\ -2 \\end{pmatrix}$.\nThe midpoint of $AC$ is $M$ and the point $N$ lies on $BC$, between $B$ and $C$, and is such that $BN = 2NC$.\n(a) Find the position vectors of $M$ and $N$.\\hfill (3)\n(b) Find a vector equation for the line through $M$ and $N$.\\hfill (2)\n(c) Find the position vector of the point $Q$ where the line through $M$ and $N$ intersects the line through $A$ and $B$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_ON_33_10",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q10"
+  },
+  "stem": "A gardener is filling an ornamental pool with water, using a hose that delivers $30$ litres of water per minute. Initially the pool is empty. At time $t$ minutes after filling begins the volume of water in the pool is $V$ litres. The pool has a small leak and loses water at a rate of $0.01V$ litres per minute.\nThe differential equation satisfied by $V$ and $t$ is of the form $\\dfrac{\\mathrm{d}V}{\\mathrm{d}t} = a - bV$.\n(a) Write down the values of the constants $a$ and $b$.\\hfill (1)\n(b) Solve the differential equation and find the value of $t$ when $V = 1000$.\\hfill (6)\n(c) Obtain an expression for $V$ in terms of $t$ and hence state what happens to $V$ as $t$ becomes large.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+},
+{
+  "id": "cie_p3_22ON33_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_ON_33_11",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 11,
+    "code": "33",
+    "label": "2022 Oct/Nov · Paper 33 Q11"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{5-x+6x^{2}}{(3-x)(1+3x^{2})}$.\n(a) Express $\\mathrm{f}(x)$ in partial fractions.\\hfill (5)\n(b) Find the exact value of $\\displaystyle\\int_{0}^{1} \\mathrm{f}(x) \\mathrm{d}x$, simplifying your answer.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343156573
+}
 ];
 
 
