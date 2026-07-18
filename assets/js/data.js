@@ -5270,6 +5270,248 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784344196936
 }
+,
+{
+  "id": "cie_p3_22MJ33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_MJ_33_1",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q1"
+  },
+  "stem": "Find, in terms of $a$, the set of values of $x$ satisfying the inequality\n$2|3x + a| < |2x + 3a|$,\nwhere $a$ is a positive constant.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "22_MJ_33_2",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q2"
+  },
+  "stem": "Solve the equation $\\cos(\\theta - 60^\\circ) = 3\\sin\\theta$, for $0^\\circ \\leqslant \\theta \\leqslant 360^\\circ$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "22_MJ_33_3",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q3"
+  },
+  "stem": "(a) Show that the equation $\\log_3(2x + 1) = 1 + 2\\log_3(x - 1)$ can be written as a quadratic equation in $x$.\\hfill (3)\n(b) Hence solve the equation $\\log_3(4y + 1) = 1 + 2\\log_3(2y - 1)$, giving your answer correct to 2 decimal places.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "22_MJ_33_4",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q4"
+  },
+  "stem": "The curve $y = \\mathrm{e}^{-4x}\\tan x$ has two stationary points in the interval $0 \\leqslant x < \\dfrac{1}{2}\\pi$.\n(a) Obtain an expression for $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ and show it can be written in the form $\\sec^2 x(a + b\\sin 2x)\\mathrm{e}^{-4x}$, where $a$ and $b$ are constants.\\hfill (4)\n(b) Hence find the exact $x$-coordinates of the two stationary points.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_MJ_33_5",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q5"
+  },
+  "stem": "The complex number $3 - \\mathrm{i}$ is denoted by $u$.\n(a) Show, on an Argand diagram with origin $O$, the points $A$, $B$ and $C$ representing the complex numbers $u$, $u^*$ and $u^* - u$ respectively. State the type of quadrilateral formed by the points $O$, $A$, $B$ and $C$.\\hfill (3)\n(b) Express $\\dfrac{u^*}{u}$ in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (3)\n(c) By considering the argument of $\\dfrac{u^*}{u}$, or otherwise, prove that $\\tan^{-1}\\dfrac{3}{4} = 2\\tan^{-1}\\dfrac{1}{3}$.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_MJ_33_6",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q6"
+  },
+  "stem": "The parametric equations of a curve are $x = \\dfrac{1}{\\cos t}$, $y = \\ln\\tan t$, where $0 < t < \\dfrac{1}{2}\\pi$.\n(a) Show that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\cos t}{\\sin^2 t}$.\\hfill (5)\n(b) Find the equation of the tangent to the curve at the point where $y = 0$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_MJ_33_7",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q7"
+  },
+  "stem": "Let $f(x) = \\dfrac{5x^{2} + 8x - 3}{(x - 2)(2x^{2} + 3)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^{2}$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_MJ_33_8",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q8"
+  },
+  "stem": "At time $t$ days after the start of observations, the number of insects in a population is $N$. The variation in the number of insects is modelled by a differential equation of the form $\\dfrac{\\mathrm{d}N}{\\mathrm{d}t} = kN^{\\frac{1}{2}}\\cos 0.02t$, where $k$ is a constant and $N$ is a continuous variable. It is given that when $t = 0$, $N = 100$.\n(a) Solve the differential equation, obtaining a relation between $N$, $k$ and $t$.\\hfill (5)\n(b) Given also that $N = 625$ when $t = 50$, find the value of $k$.\\hfill (2)\n(c) Obtain an expression for $N$ in terms of $t$, and find the greatest value of $N$ predicted by this model.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "22_MJ_33_9",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q9"
+  },
+  "stem": "With respect to the origin $O$, the point $A$ has position vector given by $\\overrightarrow{OA} = \\mathbf{i} + 5\\mathbf{j} + 6\\mathbf{k}$. The line $l$ has vector equation $\\mathbf{r} = 4\\mathbf{i} + \\mathbf{k} + \\lambda(-\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k})$.\n(a) Find in degrees the acute angle between the directions of $\\overrightarrow{OA}$ and $l$.\\hfill (3)\n(b) Find the position vector of the foot of the perpendicular from $A$ to $l$.\\hfill (4)\n(c) Hence find the position vector of the reflection of $A$ in $l$.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+},
+{
+  "id": "cie_p3_22MJ33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_MJ_33_10",
+  "examRef": {
+    "year": 2022,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2022 May/June · Paper 33 Q10"
+  },
+  "stem": "The constant $a$ is such that $\\displaystyle\\int_{1}^{a} x^{2}\\ln x\\,\\mathrm{d}x = 4$.\n(a) Show that $a = \\left(\\dfrac{35}{3\\ln a - 1}\\right)^{\\frac{1}{3}}$.\\hfill (5)\n(b) Verify by calculation that $a$ lies between 2.4 and 2.8.\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784344677651
+}
 ];
 
 
