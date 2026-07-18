@@ -6021,6 +6021,3511 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784348373714
   }
+,
+{
+  "id": "cie_p3_20FM32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_FM_32_1",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q1"
+  },
+  "stem": "(a) Sketch the graph of $y = |x - 2|$.\\hfill (1)\n(b) Solve the inequality $|x - 2| < 3x - 4$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_FM_32_2",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q2"
+  },
+  "stem": "Solve the equation $\\ln 3 + \\ln(2x + 5) = 2\\ln(x + 2)$. Give your answer in a simplified exact form.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_FM_32_3",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q3"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $\\sec x = 2 - \\dfrac{1}{2}x$ has exactly one root in the interval $0 \\leqslant x < \\dfrac{1}{2}\\pi$.\\hfill (2)\n(b) Verify by calculation that this root lies between 0.8 and 1.\\hfill (2)\n(c) Use the iterative formula $x_{n+1} = \\cos^{-1}\\left(\\dfrac{2}{4 - x_n}\\right)$ to determine the root correct to 2 decimal places.\nGive the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_FM_32_4",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q4"
+  },
+  "stem": "Find $\\displaystyle\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} x\\sec^2 x \\,\\mathrm{d}x$. Give your answer in a simplified exact form.\\hfill (7)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_FM_32_5",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q5"
+  },
+  "stem": "(a) Show that $\\dfrac{\\cos 3x}{\\sin x} + \\dfrac{\\sin 3x}{\\cos x} = 2\\cot 2x$.\\hfill (4)\n(b) Hence solve the equation $\\dfrac{\\cos 3x}{\\sin x} + \\dfrac{\\sin 3x}{\\cos x} = 4$, for $0 < x < \\pi$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "20_FM_32_6",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q6"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{1 + 4y^2}{\\mathrm{e}^x}$.\nIt is given that $y = 0$ when $x = 1$.\n(a) Solve the differential equation, obtaining an expression for $y$ in terms of $x$.\\hfill (7)\n(b) State what happens to the value of $y$ as $x$ tends to infinity.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "20_FM_32_7",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q7"
+  },
+  "stem": "The equation of a curve is $x^3 + 3xy^2 - y^3 = 5$.\n(a) Show that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{x^2 + y^2}{y^2 - 2xy}$.\\hfill (4)\n(b) Find the coordinates of the points on the curve where the tangent is parallel to the $y$-axis.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "20_FM_32_8",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q8"
+  },
+  "stem": "In the diagram, $OABCDEFG$ is a cuboid in which $OA = 2$ units, $OC = 3$ units and $OD = 2$ units. Unit vectors $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$ are parallel to $OA$, $OC$ and $OD$ respectively. The point $M$ on $AB$ is such that $MB = 2AM$. The midpoint of $FG$ is $N$.\n(a) Express the vectors $\\overrightarrow{OM}$ and $\\overrightarrow{MN}$ in terms of $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$.\\hfill (3)\n(b) Find a vector equation for the line through $M$ and $N$.\\hfill (2)\n(c) Find the position vector of $P$, the foot of the perpendicular from $D$ to the line through $M$ and $N$.\\hfill (4)",
+  "figure": "data/images/20_FM_32_8.png",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_FM_32_9",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q9"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{2 + 11x - 10x^2}{(1 + 2x)(1 - 2x)(2 + x)}$.\n(a) Express $\\mathrm{f}(x)$ in partial fractions.\\hfill (5)\n(b) Hence obtain the expansion of $\\mathrm{f}(x)$ in ascending powers of $x$, up to and including the term in $x^2$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20FM32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_FM_32_10",
+  "examRef": {
+    "year": 2020,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2020 Feb/March · Paper 32 Q10"
+  },
+  "stem": "(a) The complex numbers $v$ and $w$ satisfy the equations $v + \\mathrm{i}w = 5$ and $(1 + 2\\mathrm{i})v - w = 3\\mathrm{i}$.\nSolve the equations for $v$ and $w$, giving your answers in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (6)\n(b) (i) On an Argand diagram, sketch the locus of points representing complex numbers $z$ satisfying $|z - 2 - 3\\mathrm{i}| = 1$.\\hfill (2)\n(ii) Calculate the least value of $\\arg z$ for points on this locus.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307082
+  },
+{
+  "id": "cie_p3_20MJ31_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_MJ_31_1",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 1,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q1"
+  },
+  "stem": "Find the set of values of $x$ for which $2(3^{1 - 2x}) < 5^x$. Give your answer in a simplified exact form.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "20_MJ_31_2",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 2,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q2"
+  },
+  "stem": "(a) Expand $(2 - 3x)^{-2}$ in ascending powers of $x$, up to and including the term in $x^2$, simplifying the coefficients.\\hfill (4)\n(b) State the set of values of $x$ for which the expansion is valid.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_31_3",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 3,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q3"
+  },
+  "stem": "Express the equation $\\tan(\\theta + 60\\degree) = 2 + \\tan(60\\degree - \\theta)$ as a quadratic equation in $\\tan \\theta$, and hence solve the equation for $0\\degree \\leqslant \\theta \\leqslant 180\\degree$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_31_4",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 4,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q4"
+  },
+  "stem": "The curve with equation $y = \\mathrm{e}^{2x}(\\sin x + 3\\cos x)$ has a stationary point in the interval $0 \\leqslant x \\leqslant \\pi$.\n(a) Find the $x$-coordinate of this point, giving your answer correct to 2 decimal places.\\hfill (4)\n(b) Determine whether the stationary point is a maximum or a minimum.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "20_MJ_31_5",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 5,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q5"
+  },
+  "stem": "(a) Find the quotient and remainder when $2x^3 - x^2 + 6x + 3$ is divided by $x^2 + 3$.\\hfill (3)\n(b) Using your answer to part (a), find the exact value of $\\displaystyle\\int_{1}^{3} \\dfrac{2x^3 - x^2 + 6x + 3}{x^2 + 3} \\,\\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "20_MJ_31_6",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 6,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q6"
+  },
+  "stem": "The diagram shows a circle with centre $O$ and radius $r$. The tangents to the circle at the points $A$ and $B$ meet at $T$, and angle $AOB$ is $2x$ radians. The shaded region is bounded by the tangents $AT$ and $BT$, and by the minor arc $AB$. The area of the shaded region is equal to the area of the circle.\n(a) Show that $x$ satisfies the equation $\\tan x = \\pi + x$.\\hfill (3)\n(b) This equation has one root in the interval $0 < x < \\dfrac{1}{2}\\pi$. Verify by calculation that this root lies between $1$ and $1.4$.\\hfill (2)\n(c) Use the iterative formula $x_{n+1} = \\tan^{-1}(\\pi + x_n)$ to determine the root correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "data/images/20_MJ_31_6.png",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "20_MJ_31_7",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 7,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q7"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{\\cos x}{1 + \\sin x}$.\n(a) Show that $\\mathrm{f}'(x) < 0$ for all $x$ in the interval $-\\dfrac{1}{2}\\pi < x < \\dfrac{3}{2}\\pi$.\\hfill (4)\n(b) Find $\\displaystyle\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{2}\\pi} \\mathrm{f}(x) \\,\\mathrm{d}x$. Give your answer in a simplified exact form.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "20_MJ_31_8",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 8,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q8"
+  },
+  "stem": "A certain curve is such that its gradient at a point $(x, y)$ is proportional to $\\dfrac{y}{x\\sqrt{x}}$. The curve passes through the points with coordinates $(1, 1)$ and $(4, \\mathrm{e})$.\n(a) By setting up and solving a differential equation, find the equation of the curve, expressing $y$ in terms of $x$.\\hfill (8)\n(b) Describe what happens to $y$ as $x$ tends to infinity.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "20_MJ_31_9",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 9,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q9"
+  },
+  "stem": "With respect to the origin $O$, the vertices of a triangle $ABC$ have position vectors $\\overrightarrow{OA} = 2\\mathbf{i} + 5\\mathbf{k}$, $\\overrightarrow{OB} = 3\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k}$ and $\\overrightarrow{OC} = \\mathbf{i} + \\mathbf{j} + \\mathbf{k}$.\n(a) Using a scalar product, show that angle $ABC$ is a right angle.\\hfill (3)\n(b) Show that triangle $ABC$ is isosceles.\\hfill (2)\n(c) Find the exact length of the perpendicular from $O$ to the line through $B$ and $C$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ31_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 12,
+  "source": "20_MJ_31_10",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 10,
+    "code": "31",
+    "label": "2020 May/June · Paper 31 Q10"
+  },
+  "stem": "(a) The complex number $u$ is defined by $u = \\dfrac{3\\mathrm{i}}{a + 2\\mathrm{i}}$, where $a$ is real.\n(i) Express $u$ in the Cartesian form $x + \\mathrm{i}y$, where $x$ and $y$ are in terms of $a$.\\hfill (3)\n(ii) Find the exact value of $a$ for which $\\arg u^* = \\dfrac{1}{3}\\pi$.\\hfill (3)\n(b) (i) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z - 2\\mathrm{i}| \\leqslant |z - 1 - \\mathrm{i}|$ and $|z - 2 - \\mathrm{i}| \\leqslant 2$.\\hfill (4)\n(ii) Calculate the least value of $\\arg z$ for points in this region.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307083
+  },
+{
+  "id": "cie_p3_20MJ32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 3,
+  "source": "20_MJ_32_1",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q1"
+  },
+  "stem": "Find the quotient and remainder when $6x^4 + x^3 - x^2 + 5x - 6$ is divided by $2x^2 - x + 1$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307084
+  },
+{
+  "id": "cie_p3_20MJ32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_MJ_32_2",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q2"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the equation $y^2 = A\\mathrm{e}^{kx}$, where $A$ and $k$ are constants. The graph of $\\ln y$ against $x$ is a straight line passing through the points $(1.5, 1.2)$ and $(5.24, 2.7)$ as shown in the diagram.\nFind the values of $A$ and $k$ correct to 2 decimal places.\\hfill (5)",
+  "figure": "data/images/20_MJ_32_2.png",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_MJ_32_3",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q3"
+  },
+  "stem": "Find the exact value of $\\displaystyle\\int_{1}^{4} x^{\\frac{1}{2}} \\ln x \\,\\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_32_4",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q4"
+  },
+  "stem": "A curve has equation $y = \\cos x \\sin 2x$.\nFind the $x$-coordinate of the stationary point in the interval $0 < x < \\dfrac{1}{2}\\pi$, giving your answer correct to 3 significant figures.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_MJ_32_5",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q5"
+  },
+  "stem": "(a) Express $2\\cos x - \\sqrt{5}\\sin x$ in the form $R\\cos(x + \\alpha)$, where $R > 0$ and $0\\degree < \\alpha < 90\\degree$. Give the exact value of $R$ and the value of $\\alpha$ correct to 3 decimal places.\\hfill (3)\n(b) Hence solve the equation $2\\cos 2\\theta - \\sqrt{5}\\sin 2\\theta = 1$, for $0\\degree < \\theta < 180\\degree$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "20_MJ_32_6",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q6"
+  },
+  "stem": "The diagram shows the curve $y = \\dfrac{x}{1 + 3x^4}$, for $x \\geqslant 0$, and its maximum point $M$.\n(a) Find the $x$-coordinate of $M$, giving your answer correct to 3 decimal places.\\hfill (4)\n(b) Using the substitution $u = \\sqrt{3}x^2$, find by integration the exact area of the shaded region bounded by the curve, the $x$-axis and the line $x = 1$.\\hfill (5)",
+  "figure": "data/images/20_MJ_32_6.png",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "20_MJ_32_7",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q7"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{y - 1}{(x + 1)(x + 3)}$.\nIt is given that $y = 2$ when $x = 0$.\nSolve the differential equation, obtaining an expression for $y$ in terms of $x$.\\hfill (9)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_MJ_32_8",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q8"
+  },
+  "stem": "(a) Solve the equation $(1 + 2\\mathrm{i})w + \\mathrm{i}w^* = 3 + 5\\mathrm{i}$. Give your answer in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (4)\n(b) (i) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z - 2 - 2\\mathrm{i}| \\leqslant 1$ and $\\arg(z - 4\\mathrm{i}) \\geqslant -\\dfrac{1}{4}\\pi$.\\hfill (4)\n(ii) Find the least value of $\\mathrm{Im}\\, z$ for points in this region, giving your answer in an exact form.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "20_MJ_32_9",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q9"
+  },
+  "stem": "The diagram shows the curves $y = \\cos x$ and $y = \\dfrac{k}{1 + x}$, where $k$ is a constant, for $0 \\leqslant x \\leqslant \\dfrac{1}{2}\\pi$. The curves touch at the point where $x = p$.\n(a) Show that $p$ satisfies the equation $\\tan p = \\dfrac{1}{1 + p}$.\\hfill (5)\n(b) Use the iterative formula $p_{n+1} = \\tan^{-1}\\left(\\dfrac{1}{1 + p_n}\\right)$ to determine the value of $p$ correct to 3 decimal places. Give the result of each iteration to 5 decimal places.\\hfill (3)\n(c) Hence find the value of $k$ correct to 2 decimal places.\\hfill (2)",
+  "figure": "data/images/20_MJ_32_9.png",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 11,
+  "source": "20_MJ_32_10",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2020 May/June · Paper 32 Q10"
+  },
+  "stem": "With respect to the origin $O$, the points $A$ and $B$ have position vectors given by $\\overrightarrow{OA} = 6\\mathbf{i} + 2\\mathbf{j}$ and $\\overrightarrow{OB} = 2\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k}$. The midpoint of $OA$ is $M$. The point $N$ lying on $AB$, between $A$ and $B$, is such that $AN = 2NB$.\n(a) Find a vector equation for the line through $M$ and $N$.\\hfill (5)\nThe line through $M$ and $N$ intersects the line through $O$ and $B$ at the point $P$.\n(b) Find the position vector of $P$.\\hfill (3)\n(c) Calculate angle $OPM$, giving your answer in degrees.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307085
+  },
+{
+  "id": "cie_p3_20MJ33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_MJ_33_1",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q1"
+  },
+  "stem": "Solve the inequality $|2x - 1| > 3|x + 2|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_MJ_33_2",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q2"
+  },
+  "stem": "Find the exact value of $\\displaystyle\\int_{0}^{1} (2 - x)\\mathrm{e}^{-2x} \\,\\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_33_3",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q3"
+  },
+  "stem": "(a) Show that the equation $\\ln(1 + \\mathrm{e}^{-x}) + 2x = 0$ can be expressed as a quadratic equation in $\\mathrm{e}^x$.\\hfill (2)\n(b) Hence solve the equation $\\ln(1 + \\mathrm{e}^{-x}) + 2x = 0$, giving your answer correct to 3 decimal places.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_33_4",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q4"
+  },
+  "stem": "The equation of a curve is $y = x\\tan^{-1}\\left(\\dfrac{1}{2x}\\right)$.\n(a) Find $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$.\\hfill (3)\n(b) The tangent to the curve at the point where $x = 2$ meets the $y$-axis at the point with coordinates $(0, p)$.\nFind $p$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_MJ_33_5",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q5"
+  },
+  "stem": "By first expressing the equation $\\tan \\theta \\tan(\\theta + 45\\degree) = 2\\cot 2\\theta$ as a quadratic equation in $\\tan \\theta$, solve the equation for $0\\degree < \\theta < 90\\degree$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_MJ_33_6",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q6"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $x^5 = 2 + x$ has exactly one real root.\\hfill (2)\n(b) Show that if a sequence of values given by the iterative formula $x_{n+1} = \\dfrac{4x_n^5 + 2}{5x_n^4 - 1}$ converges, then it converges to the root of the equation in part (a).\\hfill (2)\n(c) Use the iterative formula with initial value $x_1 = 1.5$ to calculate the root correct to 3 decimal places. Give the result of each iteration to 5 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "20_MJ_33_7",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q7"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{2}{(2x - 1)(2x + 1)}$.\n(a) Express $\\mathrm{f}(x)$ in partial fractions.\\hfill (2)\n(b) Using your answer to part (a), show that $\\left(\\mathrm{f}(x)\\right)^2 = \\dfrac{1}{(2x - 1)^2} - \\dfrac{1}{2x - 1} + \\dfrac{1}{2x + 1} + \\dfrac{1}{(2x + 1)^2}$.\\hfill (2)\n(c) Hence show that $\\displaystyle\\int_{1}^{2} \\left(\\mathrm{f}(x)\\right)^2 \\,\\mathrm{d}x = \\dfrac{2}{5} + \\dfrac{1}{2}\\ln\\left(\\dfrac{5}{9}\\right)$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_MJ_33_8",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q8"
+  },
+  "stem": "Relative to the origin $O$, the points $A$, $B$ and $D$ have position vectors given by $\\overrightarrow{OA} = \\mathbf{i} + 2\\mathbf{j} + \\mathbf{k}$, $\\overrightarrow{OB} = 2\\mathbf{i} + 5\\mathbf{j} + 3\\mathbf{k}$ and $\\overrightarrow{OD} = 3\\mathbf{i} + 2\\mathbf{k}$.\nA fourth point $C$ is such that $ABCD$ is a parallelogram.\n(a) Find the position vector of $C$ and verify that the parallelogram is not a rhombus.\\hfill (5)\n(b) Find angle $BAD$, giving your answer in degrees.\\hfill (3)\n(c) Find the area of the parallelogram correct to 3 significant figures.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_MJ_33_9",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q9"
+  },
+  "stem": "(a) The complex numbers $u$ and $w$ are such that $u - w = 2\\mathrm{i}$ and $uw = 6$.\nFind $u$ and $w$, giving your answers in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real and exact.\\hfill (5)\n(b) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z - 2 - 2\\mathrm{i}| \\leqslant 2$, $0 \\leqslant \\arg z \\leqslant \\dfrac{1}{4}\\pi$ and $\\mathrm{Re}\\, z \\leqslant 3$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307086
+  },
+{
+  "id": "cie_p3_20MJ33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 12,
+  "source": "20_MJ_33_10",
+  "examRef": {
+    "year": 2020,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2020 May/June · Paper 33 Q10"
+  },
+  "stem": "A tank containing water is in the form of a hemisphere. The axis is vertical, the lowest point is $A$ and the radius is $r$, as shown in the diagram. The depth of water at time $t$ is $h$. At time $t = 0$ the tank is full and the depth of the water is $r$. At this instant a tap at $A$ is opened and water begins to flow out at a rate proportional to $\\sqrt{h}$. The tank becomes empty at time $t = 14$.\nThe volume of water in the tank is $V$ when the depth is $h$. It is given that $V = \\dfrac{1}{3}\\pi(3rh^2 - h^3)$.\n(a) Show that $h$ and $t$ satisfy a differential equation of the form $\\dfrac{\\mathrm{d}h}{\\mathrm{d}t} = -\\dfrac{B}{2rh^{\\frac{1}{2}} - h^{\\frac{3}{2}}}$, where $B$ is a positive constant.\\hfill (4)\n(b) Solve the differential equation and obtain an expression for $t$ in terms of $h$ and $r$.\\hfill (8)",
+  "figure": "data/images/20_MJ_33_10.png",
+  "solution": "",
+  "createdAt": 1784349307087
+  },
+{
+  "id": "cie_p3_20ON31_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_ON_31_1",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 1,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q1"
+  },
+  "stem": "Solve the inequality $2 - 5x > 2|x - 3|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "20_ON_31_2",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 2,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q2"
+  },
+  "stem": "On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z| \\geq 2$ and $|z - 1 + \\mathrm{i}| \\leq 1$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_ON_31_3",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 3,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q3"
+  },
+  "stem": "The parametric equations of a curve are\n$x = 3 - \\cos 2\\theta$,\n$y = 2\\theta + \\sin 2\\theta$,\nfor $0 < \\theta < \\dfrac{1}{2}\\pi$.\nShow that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\cot \\theta$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_ON_31_4",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 4,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q4"
+  },
+  "stem": "Solve the equation\n$\\log_{10}(2x + 1) = 2\\log_{10}(x + 1) - 1$.\nGive your answers correct to 3 decimal places.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_ON_31_5",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 5,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q5"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $\\mathrm{cosec}\\, x = 1 + \\mathrm{e}^{-\\frac{1}{2}x}$ has exactly two roots in the interval $0 < x < \\pi$.\\hfill (2)\n(b) The sequence of values given by the iterative formula $x_{n+1} = \\pi - \\sin^{-1}\\left(\\dfrac{1}{\\mathrm{e}^{-\\frac{1}{2}x_n} + 1}\\right)$, with initial value $x_1 = 2$, converges to one of these roots.\nUse the formula to determine this root correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_ON_31_6",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 6,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q6"
+  },
+  "stem": "(a) Express $\\sqrt{6}\\cos \\theta + 3\\sin \\theta$ in the form $R\\cos(\\theta - \\alpha)$, where $R > 0$ and $0° < \\alpha < 90°$. State the exact value of $R$ and give $\\alpha$ correct to 2 decimal places.\\hfill (3)\n(b) Hence solve the equation $\\sqrt{6}\\cos\\dfrac{1}{3}x + 3\\sin\\dfrac{1}{3}x = 2.5$, for $0° < x < 360°$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_ON_31_7",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 7,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q7"
+  },
+  "stem": "(a) Verify that $-1 + \\sqrt{5}\\,\\mathrm{i}$ is a root of the equation $2x^3 + x^2 + 6x - 18 = 0$.\\hfill (3)\n(b) Find the other roots of this equation.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_ON_31_8",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 8,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q8"
+  },
+  "stem": "The coordinates $(x, y)$ of a general point of a curve satisfy the differential equation\n$x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = (1 - 2x^2)y$,\nfor $x > 0$. It is given that $y = 1$ when $x = 1$.\nSolve the differential equation, obtaining an expression for $y$ in terms of $x$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_ON_31_9",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 9,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q9"
+  },
+  "stem": "Let $f(x) = \\dfrac{8 + 5x + 12x^2}{(1 - x)(2 + 3x)^2}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^2$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "20_ON_31_10",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 10,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q10"
+  },
+  "stem": "The diagram shows the curve $y = (2 - x)\\mathrm{e}^{-\\frac{1}{2}x}$, and its minimum point M.\n(a) Find the exact coordinates of M.\\hfill (5)\n(b) Find the area of the shaded region bounded by the curve and the axes. Give your answer in terms of $\\mathrm{e}$.\\hfill (5)",
+  "figure": "data/images/20_ON_31_10.png",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON31_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "20_ON_31_11",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 11,
+    "code": "31",
+    "label": "2020 Oct/Nov · Paper 31 Q11"
+  },
+  "stem": "Two lines have equations $\\mathbf{r} = \\mathbf{i} + 2\\mathbf{j} + \\mathbf{k} + \\mu(a\\mathbf{i} + 2\\mathbf{j} - \\mathbf{k})$ and $\\mathbf{r} = 2\\mathbf{i} + \\mathbf{j} - \\mathbf{k} + \\lambda(2\\mathbf{i} - \\mathbf{j} + \\mathbf{k})$, where $a$ is a constant.\n(a) Given that the two lines intersect, find the value of $a$ and the position vector of the point of intersection.\\hfill (5)\n(b) Given instead that the acute angle between the directions of the two lines is $\\cos^{-1}\\dfrac{1}{6}$, find the two possible values of $a$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307088
+  },
+{
+  "id": "cie_p3_20ON32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 3,
+  "source": "20_ON_32_1",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q1"
+  },
+  "stem": "Solve the equation\n$\\ln(1 + \\mathrm{e}^{-3x}) = 2$.\nGive the answer correct to 3 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 5,
+  "source": "20_ON_32_2",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q2"
+  },
+  "stem": "(a) Expand $\\sqrt[3]{1 + 6x}$ in ascending powers of $x$, up to and including the term in $x^3$, simplifying the coefficients.\\hfill (4)\n(b) State the set of values of $x$ for which the expansion is valid.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_ON_32_3",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q3"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the relation $2^y = 3^{1 - 2x}$.\n(a) By taking logarithms, show that the graph of $y$ against $x$ is a straight line. State the exact value of the gradient of this line.\\hfill (3)\n(b) Find the exact $x$-coordinate of the point of intersection of this line with the line $y = 3x$. Give your answer in the form $\\dfrac{\\ln a}{\\ln b}$, where $a$ and $b$ are integers.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_ON_32_4",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q4"
+  },
+  "stem": "(a) Show that the equation $\\tan(\\theta + 60°) = 2\\cot \\theta$ can be written in the form $\\tan^2\\theta + 3\\sqrt{3}\\tan \\theta - 2 = 0$.\\hfill (3)\n(b) Hence solve the equation $\\tan(\\theta + 60°) = 2\\cot \\theta$, for $0° < \\theta < 180°$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 7,
+  "source": "20_ON_32_5",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q5"
+  },
+  "stem": "The diagram shows the curve with parametric equations\n$x = \\tan \\theta$,\n$y = \\cos^2\\theta$,\nfor $-\\dfrac{1}{2}\\pi < \\theta < \\dfrac{1}{2}\\pi$.\n(a) Show that the gradient of the curve at the point with parameter $\\theta$ is $-2\\sin \\theta \\cos^3\\theta$.\\hfill (3)\nThe gradient of the curve has its maximum value at the point P.\n(b) Find the exact value of the $x$-coordinate of P.\\hfill (4)",
+  "figure": "data/images/20_ON_32_5.png",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "20_ON_32_6",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q6"
+  },
+  "stem": "The complex number $u$ is defined by\n$u = \\dfrac{7 + \\mathrm{i}}{1 - \\mathrm{i}}$.\n(a) Express $u$ in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (3)\n(b) Show on a sketch of an Argand diagram the points A, B and C representing $u$, $7 + \\mathrm{i}$ and $1 - \\mathrm{i}$ respectively.\\hfill (2)\n(c) By considering the arguments of $7 + \\mathrm{i}$ and $1 - \\mathrm{i}$, show that $\\tan^{-1}\\dfrac{4}{3} = \\tan^{-1}\\dfrac{1}{7} + \\dfrac{1}{4}\\pi$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "20_ON_32_7",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q7"
+  },
+  "stem": "The variables $x$ and $t$ satisfy the differential equation\n$\\mathrm{e}^{3t}\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = \\cos^2 2x$,\nfor $t \\geq 0$. It is given that $x = 0$ when $t = 0$.\n(a) Solve the differential equation and obtain an expression for $x$ in terms of $t$.\\hfill (7)\n(b) State what happens to the value of $x$ when $t$ tends to infinity.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_ON_32_8",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q8"
+  },
+  "stem": "With respect to the origin O, the position vectors of the points A, B, C and D are given by\n$\\overrightarrow{OA} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 5 \\end{pmatrix}$, $\\overrightarrow{OB} = \\begin{pmatrix} 4 \\\\ -1 \\\\ 1 \\end{pmatrix}$, $\\overrightarrow{OC} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$ and $\\overrightarrow{OD} = \\begin{pmatrix} 3 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\n(a) Show that $AB = 2CD$.\\hfill (3)\n(b) Find the angle between the directions of $\\overrightarrow{AB}$ and $\\overrightarrow{CD}$.\\hfill (3)\n(c) Show that the line through A and B does not intersect the line through C and D.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "20_ON_32_9",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q9"
+  },
+  "stem": "Let $f(x) = \\dfrac{7x + 18}{(3x + 2)(x^2 + 4)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence find the exact value of $\\displaystyle\\int_0^2 f(x) \\, \\mathrm{d}x$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307089
+  },
+{
+  "id": "cie_p3_20ON32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 12,
+  "source": "20_ON_32_10",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2020 Oct/Nov · Paper 32 Q10"
+  },
+  "stem": "The diagram shows the curve $y = \\sqrt{x}\\cos x$, for $0 \\leq x \\leq \\dfrac{3}{2}\\pi$, and its minimum point M, where $x = a$.\nThe shaded region between the curve and the $x$-axis is denoted by R.\n(a) Show that $a$ satisfies the equation $\\tan a = \\dfrac{1}{2a}$.\\hfill (3)\n(b) The sequence of values given by the iterative formula $a_{n+1} = \\pi + \\tan^{-1}\\left(\\dfrac{1}{2a_n}\\right)$, with initial value $a_1 = 3$, converges to $a$.\nUse this formula to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)\n(c) Find the volume of the solid obtained when the region R is rotated completely about the $x$-axis.\nGive your answer in terms of $\\pi$.\\hfill (6)",
+  "figure": "data/images/20_ON_32_10.png",
+  "solution": "",
+  "createdAt": 1784349307090
+  },
+{
+  "id": "cie_p3_20ON33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "20_ON_33_1",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q1"
+  },
+  "stem": "Solve the inequality $2-5x>2|x-3|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "20_ON_33_2",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q2"
+  },
+  "stem": "On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z| \\geq 2$ and $|z-1+\\mathrm{i}| \\leq 1$.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_ON_33_3",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q3"
+  },
+  "stem": "The parametric equations of a curve are\n$x=3-\\cos 2\\theta,$\n$y=2\\theta+\\sin 2\\theta,$\nfor $0<\\theta<\\dfrac{1}{2}\\pi$.\nShow that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\cot\\theta$.\n\n\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_ON_33_4",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q4"
+  },
+  "stem": "Solve the equation\n$\\log_{10}(2x+1)=2\\log_{10}(x+1)-1$.\nGive your answers correct to 3 decimal places.\n\n\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "20_ON_33_5",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q5"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $\\mathrm{cosec}\\, x=1+\\mathrm{e}^{-\\frac{1}{2}x}$ has exactly two roots in the interval $0<x<\\pi$.\\hfill (2)\n(b) The sequence of values given by the iterative formula\n$x_{n+1}=\\pi-\\sin^{-1}\\left(\\dfrac{1}{\\mathrm{e}^{-\\frac{1}{2}x_n}+1}\\right),$ with initial value $x_1=2$, converges to one of these roots.\nUse the formula to determine this root correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\n\n\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_ON_33_6",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q6"
+  },
+  "stem": "(a) Express $\\sqrt{6}\\cos\\theta+3\\sin\\theta$ in the form $R\\cos(\\theta-\\alpha)$, where $R>0$ and $0\\degree<\\alpha<90\\degree$. State the exact value of $R$ and give $\\alpha$ correct to 2 decimal places.\n\n\\hfill (3)\n(b) Hence solve the equation\n$\\sqrt{6}\\cos\\frac{1}{3}x+3\\sin\\frac{1}{3}x=2.5$, for $0\\degree<x<360\\degree$.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "20_ON_33_7",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q7"
+  },
+  "stem": "(a) Verify that $-1+\\sqrt{5}\\,\\mathrm{i}$ is a root of the equation $2x^3+x^2+6x-18=0$.\n\n\\hfill (3)\n(b) Find the other roots of this equation.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "20_ON_33_8",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q8"
+  },
+  "stem": "The coordinates $(x,y)$ of a general point of a curve satisfy the differential equation\n$x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=(1-2x^2)y,$\nfor $x>0$. It is given that $y=1$ when $x=1$.\nSolve the differential equation, obtaining an expression for $y$ in terms of $x$.\n\n\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "20_ON_33_9",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q9"
+  },
+  "stem": "Let $f(x)=\\dfrac{8+5x+12x^2}{(1-x)(2+3x)^2}$.\n(a) Express $f(x)$ in partial fractions.\n\n\\hfill (5)\n(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^2$.\n\n\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "20_ON_33_10",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q10"
+  },
+  "stem": "The diagram shows the curve $y=(2-x)\\mathrm{e}^{-\\frac{1}{2}x}$, and its minimum point $M$.\n(a) Find the exact coordinates of $M$.\n\n\\hfill (5)\n(b) Find the area of the shaded region bounded by the curve and the axes. Give your answer in terms of $\\mathrm{e}$.\n\n\\hfill (5)",
+  "figure": "data/images/20_ON_33_10.png",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_20ON33_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "20_ON_33_11",
+  "examRef": {
+    "year": 2020,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 11,
+    "code": "33",
+    "label": "2020 Oct/Nov · Paper 33 Q11"
+  },
+  "stem": "Two lines have equations $\\mathbf{r}=\\mathbf{i}+2\\mathbf{j}+\\mathbf{k}+\\lambda(a\\mathbf{i}+2\\mathbf{j}-\\mathbf{k})$ and $\\mathbf{r}=2\\mathbf{i}+\\mathbf{j}-\\mathbf{k}+\\mu(2\\mathbf{i}-\\mathbf{j}+\\mathbf{k})$, where $a$ is a constant.\n(a) Given that the two lines intersect, find the value of $a$ and the position vector of the point of intersection.\n\n\\hfill (5)\n(b) Given instead that the acute angle between the directions of the two lines is $\\cos^{-1}\\dfrac{1}{6}$, find the two possible values of $a$.\n\n\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307091
+  },
+{
+  "id": "cie_p3_21FM32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 3,
+  "source": "21_FM_32_1",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q1"
+  },
+  "stem": "Solve the equation $\\ln(x^3 - 3) = 3\\ln x - \\ln 3$. Give your answer correct to 3 significant figures.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_FM_32_2",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q2"
+  },
+  "stem": "The polynomial $ax^3 + 5x^2 - 4x + b$, where $a$ and $b$ are constants, is denoted by $\\mathrm{p}(x)$. It is given that $(x + 2)$ is a factor of $\\mathrm{p}(x)$ and that when $\\mathrm{p}(x)$ is divided by $(x + 1)$ the remainder is $2$.\nFind the values of $a$ and $b$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_FM_32_3",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q3"
+  },
+  "stem": "By first expressing the equation $\\tan(x + 45\\degree) = 2\\cot x + 1$ as a quadratic equation in $\\tan x$, solve the equation for $0\\degree < x < 180\\degree$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_FM_32_4",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q4"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation $(1 - \\cos x)\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = y\\sin x$.\nIt is given that $y = 4$ when $x = \\pi$.\n(a) Solve the differential equation, obtaining an expression for $y$ in terms of $x$.\\hfill (6)\n(b) Sketch the graph of $y$ against $x$ for $0 < x < 2\\pi$.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "21_FM_32_5",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q5"
+  },
+  "stem": "(a) Express $\\sqrt{7}\\sin x + 2\\cos x$ in the form $R\\sin(x + \\alpha)$, where $R > 0$ and $0\\degree < \\alpha < 90\\degree$. State the exact value of $R$ and give $\\alpha$ correct to 2 decimal places.\\hfill (3)\n(b) Hence solve the equation $\\sqrt{7}\\sin 2\\theta + 2\\cos 2\\theta = 1$, for $0\\degree < \\theta < 180\\degree$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_FM_32_6",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q6"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{5a}{(2x - a)(3a - x)}$, where $a$ is a positive constant.\n(a) Express $\\mathrm{f}(x)$ in partial fractions.\\hfill (3)\n(b) Hence show that $\\displaystyle\\int_{a}^{2a} \\mathrm{f}(x) \\,\\mathrm{d}x = \\ln 6$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "21_FM_32_7",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q7"
+  },
+  "stem": "Two lines have equations $\\mathbf{r} = \\begin{pmatrix} 1 \\\\ 3 \\\\ 2 \\end{pmatrix} + s\\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ and $\\mathbf{r} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 4 \\end{pmatrix} + t\\begin{pmatrix} 1 \\\\ -1 \\\\ 4 \\end{pmatrix}$.\n(a) Show that the lines are skew.\\hfill (5)\n(b) Find the acute angle between the directions of the two lines.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "21_FM_32_8",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q8"
+  },
+  "stem": "The complex numbers $u$ and $v$ are defined by $u = -4 + 2\\mathrm{i}$ and $v = 3 + \\mathrm{i}$.\n(a) Find $\\dfrac{u}{v}$ in the form $x + \\mathrm{i}y$, where $x$ and $y$ are real.\\hfill (3)\n(b) Hence express $\\dfrac{u}{v}$ in the form $r\\mathrm{e}^{\\mathrm{i}\\theta}$, where $r$ and $\\theta$ are exact.\\hfill (2)\nIn an Argand diagram, with origin $O$, the points $A$, $B$ and $C$ represent the complex numbers $u$, $v$ and $2u + v$ respectively.\n(c) State fully the geometrical relationship between $OA$ and $BC$.\\hfill (2)\n(d) Prove that angle $AOB = \\dfrac{3}{4}\\pi$.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "21_FM_32_9",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q9"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{\\mathrm{e}^{2x} + 1}{\\mathrm{e}^{2x} - 1}$, for $x > 0$.\n(a) The equation $x = \\mathrm{f}(x)$ has one root, denoted by $\\alpha$.\nVerify by calculation that $\\alpha$ lies between $1$ and $1.5$.\\hfill (2)\n(b) Use an iterative formula based on the equation in part (a) to determine $\\alpha$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)\n(c) Find $\\mathrm{f}'(x)$. Hence find the exact value of $x$ for which $\\mathrm{f}'(x) = -8$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21FM32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "21_FM_32_10",
+  "examRef": {
+    "year": 2021,
+    "month": "Feb/March",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2021 Feb/March · Paper 32 Q10"
+  },
+  "stem": "The diagram shows the curve $y = \\sin 2x \\cos^2 x$ for $0 \\leqslant x \\leqslant \\dfrac{1}{2}\\pi$, and its maximum point $M$.\n(a) Using the substitution $u = \\sin x$, find the exact area of the region bounded by the curve and the $x$-axis.\\hfill (5)\n(b) Find the exact $x$-coordinate of $M$.\\hfill (6)",
+  "figure": "data/images/21_FM_32_10.png",
+  "solution": "",
+  "createdAt": 1784349307092
+  },
+{
+  "id": "cie_p3_21MJ31_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_MJ_31_1",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 1,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q1"
+  },
+  "stem": "Solve the inequality $2|3x - 1| < |x + 1|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_MJ_31_2",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 2,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q2"
+  },
+  "stem": "Find the real root of the equation $\\dfrac{2\\mathrm{e}^x + \\mathrm{e}^{-x}}{2 + \\mathrm{e}^x} = 3$, giving your answer correct to 3 decimal places.\nYour working should show clearly that the equation has only one real root.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_MJ_31_3",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 3,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q3"
+  },
+  "stem": "(a) Given that $\\cos(x - 30°) = 2\\sin(x + 30°)$, show that $\\tan x = \\dfrac{2 - \\sqrt{3}}{1 - 2\\sqrt{3}}$.\\hfill (4)\n(b) Hence solve the equation $\\cos(x - 30°) = 2\\sin(x + 30°)$, for $0° < x < 360°$.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_MJ_31_4",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 4,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q4"
+  },
+  "stem": "(a) Prove that $\\dfrac{1 - \\cos 2\\theta}{1 + \\cos 2\\theta} \\equiv \\tan^2\\theta$.\\hfill (2)\n(b) Hence find the exact value of $\\displaystyle\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{3}\\pi} \\dfrac{1 - \\cos 2\\theta}{1 + \\cos 2\\theta} \\, \\mathrm{d}\\theta$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_31_5",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 5,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q5"
+  },
+  "stem": "(a) Solve the equation $z^2 - 2p\\mathrm{i}z - q = 0$, where $p$ and $q$ are real constants.\\hfill (2)\nIn an Argand diagram with origin O, the roots of this equation are represented by the distinct points A and B.\n(b) Given that A and B lie on the imaginary axis, find a relation between $p$ and $q$.\\hfill (2)\n(c) Given instead that triangle OAB is equilateral, express $q$ in terms of $p$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "21_MJ_31_6",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 6,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q6"
+  },
+  "stem": "The parametric equations of a curve are\n$x = \\ln(2 + 3t)$,\n$y = \\dfrac{t}{2 + 3t}$.\n(a) Show that the gradient of the curve is always positive.\\hfill (5)\n(b) Find the equation of the tangent to the curve at the point where it intersects the $y$-axis.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307093
+  },
+{
+  "id": "cie_p3_21MJ31_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "21_MJ_31_7",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 7,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q7"
+  },
+  "stem": "The diagram shows the curve $y = \\dfrac{\\tan^{-1}x}{\\sqrt{x}}$ and its maximum point M where $x = a$.\n(a) Show that $a$ satisfies the equation $a = \\tan\\left(\\dfrac{2a}{1 + a^2}\\right)$.\\hfill (4)\n(b) Verify by calculation that $a$ lies between 1.3 and 1.5.\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "data/images/21_MJ_31_7.png",
+  "solution": "",
+  "createdAt": 1784349307094
+  },
+{
+  "id": "cie_p3_21MJ31_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "21_MJ_31_8",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 8,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q8"
+  },
+  "stem": "With respect to the origin O, the points A and B have position vectors given by $\\overrightarrow{OA} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix}$ and $\\overrightarrow{OB} = \\begin{pmatrix} 3 \\\\ 1 \\\\ -2 \\end{pmatrix}$. The line $l$ has equation $\\mathbf{r} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 1 \\end{pmatrix} + \\lambda\\begin{pmatrix} 1 \\\\ -2 \\\\ 1 \\end{pmatrix}$.\n(a) Find the acute angle between the directions of AB and $l$.\\hfill (4)\n(b) Find the position vector of the point P on $l$ such that $AP = BP$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307094
+  },
+{
+  "id": "cie_p3_21MJ31_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_MJ_31_9",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 9,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q9"
+  },
+  "stem": "The equation of a curve is $y = x^{-\\frac{2}{3}} \\ln x$ for $x > 0$. The curve has one stationary point.\n(a) Find the exact coordinates of the stationary point.\\hfill (5)\n(b) Show that $\\displaystyle\\int_1^8 y \\, \\mathrm{d}x = 18\\ln 2 - 9$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307094
+  },
+{
+  "id": "cie_p3_21MJ31_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "21_MJ_31_10",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "31",
+    "qno": 10,
+    "code": "31",
+    "label": "2021 May/June · Paper 31 Q10"
+  },
+  "stem": "The variables $x$ and $t$ satisfy the differential equation $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t} = x^2(1 + 2x)$, and $x = 1$ when $t = 0$.\nUsing partial fractions, solve the differential equation, obtaining an expression for $t$ in terms of $x$.\\hfill (11)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307094
+  },
+{
+  "id": "cie_p3_21MJ32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_MJ_32_1",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q1"
+  },
+  "stem": "Solve the inequality $|2x - 1| < 3|x + 1|$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "21_MJ_32_2",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q2"
+  },
+  "stem": "On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z + 1 - \\mathrm{i}| \\leq 1$ and $\\arg(z - 1) \\leq \\dfrac{3}{4}\\pi$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_MJ_32_3",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q3"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the equation $x = A(3^{-y})$, where $A$ is a constant.\n(a) Explain why the graph of $y$ against $\\ln x$ is a straight line and state the exact value of the gradient of the line.\\hfill (3)\nIt is given that the line intersects the $y$-axis at the point where $y = 1.3$.\n(b) Calculate the value of $A$, giving your answer correct to 2 decimal places.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_MJ_32_4",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q4"
+  },
+  "stem": "Using integration by parts, find the exact value of $\\displaystyle\\int_0^2 \\tan^{-1}\\left(\\dfrac{1}{2}x\\right) \\, \\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_MJ_32_5",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q5"
+  },
+  "stem": "The complex number $u$ is given by $u = 10 - 4\\sqrt{6}\\,\\mathrm{i}$.\nFind the two square roots of $u$, giving your answers in the form $a + \\mathrm{i}b$, where $a$ and $b$ are real and exact.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_32_6",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q6"
+  },
+  "stem": "(a) Prove that $\\mathrm{cosec}\\, 2\\theta - \\cot 2\\theta \\equiv \\tan \\theta$.\\hfill (3)\n(b) Hence show that $\\displaystyle\\int_{\\frac{1}{4}\\pi}^{\\frac{1}{3}\\pi} (\\mathrm{cosec}\\, 2\\theta - \\cot 2\\theta) \\, \\mathrm{d}\\theta = \\dfrac{1}{2}\\ln 2$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_32_7",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q7"
+  },
+  "stem": "A curve is such that the gradient at a general point with coordinates $(x, y)$ is proportional to $\\dfrac{y}{x + 1}$.\nThe curve passes through the points with coordinates $(0, 1)$ and $(3, \\mathrm{e})$.\nBy setting up and solving a differential equation, find the equation of the curve, expressing $y$ in terms of $x$.\\hfill (7)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "21_MJ_32_8",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q8"
+  },
+  "stem": "The equation of a curve is $y = \\mathrm{e}^{-5x} \\tan 2x$ for $-\\dfrac{1}{2}\\pi < x < \\dfrac{1}{2}\\pi$.\nFind the $x$-coordinates of the stationary points of the curve. Give your answers correct to 3 decimal places where appropriate.\\hfill (8)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "21_MJ_32_9",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q9"
+  },
+  "stem": "Let $f(x) = \\dfrac{14 - 3x + 2x^2}{(2 + x)(3 + x^2)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (5)\n(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^2$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_MJ_32_10",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q10"
+  },
+  "stem": "The diagram shows a trapezium ABCD in which AD = BC = $r$ and AB = $2r$. The acute angles BAD and ABC are both equal to $x$ radians. Circular arcs of radius $r$ with centres A and B meet at M, the midpoint of AB.\n(a) Given that the sum of the areas of the shaded sectors is 90% of the area of the trapezium, show that $x$ satisfies the equation $x = 0.9(2 - \\cos x)\\sin x$.\\hfill (3)\n(b) Verify by calculation that $x$ lies between 0.5 and 0.7.\\hfill (2)\n(c) Show that if a sequence of values in the interval $0 < x < \\dfrac{1}{2}\\pi$ given by the iterative formula $x_{n+1} = \\cos^{-1}\\left(2 - \\dfrac{x_n}{0.9\\sin x_n}\\right)$ converges, then it converges to the root of the equation in part (a).\\hfill (2)\n(d) Use this iterative formula to determine $x$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "data/images/21_MJ_32_10.png",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ32_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_MJ_32_11",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "32",
+    "qno": 11,
+    "code": "32",
+    "label": "2021 May/June · Paper 32 Q11"
+  },
+  "stem": "With respect to the origin O, the points A and B have position vectors given by $\\overrightarrow{OA} = 2\\mathbf{i} - \\mathbf{j}$ and $\\overrightarrow{OB} = \\mathbf{j} - 2\\mathbf{k}$.\n(a) Show that $OA = OB$ and use a scalar product to calculate angle AOB in degrees.\\hfill (4)\nThe midpoint of AB is M. The point P on the line through O and M is such that $PA : OA = \\sqrt{7} : 1$.\n(b) Find the possible position vectors of P.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307095
+  },
+{
+  "id": "cie_p3_21MJ33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_MJ_33_1",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q1"
+  },
+  "stem": "Expand $(1 + 3x)^{\\frac{2}{3}}$ in ascending powers of $x$, up to and including the term in $x^3$, simplifying the coefficients.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_MJ_33_2",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q2"
+  },
+  "stem": "Solve the equation $4^x = 3 + 4^{-x}$. Give your answer correct to 3 decimal places.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 7,
+  "source": "21_MJ_33_3",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q3"
+  },
+  "stem": "The parametric equations of a curve are\n$x = t + \\ln(t + 2)$,\n$y = (t - 1)\\mathrm{e}^{-2t}$,\nwhere $t > -2$.\n(a) Express $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ in terms of $t$, simplifying your answer.\\hfill (5)\n(b) Find the exact $y$-coordinate of the stationary point of the curve.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_33_4",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q4"
+  },
+  "stem": "Let $f(x) = \\dfrac{15 - 6x}{(1 + 2x)(4 - x)}$.\n(a) Express $f(x)$ in partial fractions.\\hfill (3)\n(b) Hence find $\\displaystyle\\int_1^2 f(x) \\, \\mathrm{d}x$, giving your answer in the form $\\ln\\left(\\dfrac{a}{b}\\right)$, where $a$ and $b$ are integers.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_33_5",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q5"
+  },
+  "stem": "(a) By first expanding $\\tan(2\\theta + 2\\theta)$, show that the equation $\\tan 4\\theta = \\dfrac{1}{2}\\tan \\theta$ may be expressed as $\\tan^4\\theta + 2\\tan^2\\theta - 7 = 0$.\\hfill (4)\n(b) Hence solve the equation $\\tan 4\\theta = \\dfrac{1}{2}\\tan \\theta$, for $0° < \\theta < 180°$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_MJ_33_6",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q6"
+  },
+  "stem": "(a) By sketching a suitable pair of graphs, show that the equation $\\cot\\dfrac{1}{2}x = 1 + \\mathrm{e}^{-x}$ has exactly one root in the interval $0 < x \\leq \\pi$.\\hfill (2)\n(b) Verify by calculation that this root lies between 1 and 1.5.\\hfill (2)\n(c) Use the iterative formula $x_{n+1} = 2\\tan^{-1}\\left(\\dfrac{1}{1 + \\mathrm{e}^{-x_n}}\\right)$ to determine the root correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "21_MJ_33_7",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q7"
+  },
+  "stem": "The diagram shows the curve and its normal at point P with coordinates $(x, y)$ meeting the $x$-axis at N. The point M is the foot of the perpendicular from P to the $x$-axis. The curve is such that for all values of $x$ in the interval $0 \\leq x < \\dfrac{1}{2}\\pi$, the area of triangle PMN is equal to $\\tan x$.\n(a) (i) Show that $\\dfrac{MN}{y} = \\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$.\\hfill (1)\n(ii) Hence show that $x$ and $y$ satisfy the differential equation $\\dfrac{1}{2}y^2\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\tan x$.\\hfill (2)\n(b) Given that $y = 1$ when $x = 0$, solve this differential equation to find the equation of the curve, expressing $y$ in terms of $x$.\\hfill (6)",
+  "figure": "data/images/21_MJ_33_7.png",
+  "solution": "",
+  "createdAt": 1784349307096
+  },
+{
+  "id": "cie_p3_21MJ33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_MJ_33_8",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q8"
+  },
+  "stem": "The diagram shows the curve $y = \\dfrac{\\ln x}{x^4}$ and its maximum point M.\n(a) Find the exact coordinates of M.\\hfill (4)\n(b) By using integration by parts, show that for all $a > 1$, $\\displaystyle\\int_1^a \\dfrac{\\ln x}{x^4} \\, \\mathrm{d}x < \\dfrac{1}{9}$.\\hfill (6)",
+  "figure": "data/images/21_MJ_33_8.png",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21MJ33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "21_MJ_33_9",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q9"
+  },
+  "stem": "The quadrilateral ABCD is a trapezium in which AB and DC are parallel. With respect to the origin O, the position vectors of A, B and C are given by $\\overrightarrow{OA} = -\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k}$, $\\overrightarrow{OB} = \\mathbf{i} + 3\\mathbf{j} + \\mathbf{k}$ and $\\overrightarrow{OC} = 2\\mathbf{i} + 2\\mathbf{j} - 3\\mathbf{k}$.\n(a) Given that $\\overrightarrow{DC} = 3\\overrightarrow{AB}$, find the position vector of D.\\hfill (3)\n(b) State a vector equation for the line through A and B.\\hfill (1)\n(c) Find the distance between the parallel sides and hence find the area of the trapezium.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21MJ33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "21_MJ_33_10",
+  "examRef": {
+    "year": 2021,
+    "month": "May/June",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2021 May/June · Paper 33 Q10"
+  },
+  "stem": "(a) Verify that $-1 + \\sqrt{2}\\,\\mathrm{i}$ is a root of the equation $z^4 + 3z^2 + 2z + 12 = 0$.\\hfill (3)\n(b) Find the other roots of this equation.\\hfill (7)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "21_ON_31_1",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 1,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q1"
+  },
+  "stem": "Solve the equation $4|5^x-1|=5^x$, giving your answers correct to 3 decimal places.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_ON_31_2",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 2,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q2"
+  },
+  "stem": "(a) Express $5\\sin x-3\\cos x$ in the form $R\\sin(x-\\alpha)$, where $R&gt;0$ and $0&lt;\\alpha&lt;\\dfrac{1}{2}\\pi$. Give the exact value of $R$ and give $\\alpha$ correct to 2 decimal places.\n\n\\hfill (3)\n(b) Hence state the greatest and least possible values of $(5\\sin x-3\\cos x)^2$.\n\n\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_31_3",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 3,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q3"
+  },
+  "stem": "The curve with equation $y=x\\mathrm{e}^{1-2x}$ has one stationary point.\n(a) Find the coordinates of this point.\n\n\\hfill (4)\n(b) Determine whether the stationary point is a maximum or a minimum.\n\n\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_31_4",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 4,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q4"
+  },
+  "stem": "Using the substitution $u=\\sqrt{x}$, find the exact value of\n$\\displaystyle\\int_{3}^{\\infty}\\dfrac{1}{(x+1)\\sqrt{x}}\\,\\mathrm{d}x$.\n\n\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_31_5",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 5,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q5"
+  },
+  "stem": "(a) Show that the equation\n$\\cot 2\\theta+\\cot\\theta=2$\ncan be expressed as a quadratic equation in $\\tan\\theta$.\n\n\\hfill (3)\n(b) Hence solve the equation $\\cot 2\\theta+\\cot\\theta=2$, for $0&lt;\\theta&lt;\\pi$, giving your answers correct to 3 decimal places.\n\n\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_31_6",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 6,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q6"
+  },
+  "stem": "When $(a+bx)\\sqrt{1+4x}$, where $a$ and $b$ are constants, is expanded in ascending powers of $x$, the coefficients of $x$ and $x^2$ are $3$ and $-6$ respectively.\nFind the values of $a$ and $b$.\n\n\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "21_ON_31_7",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 7,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q7"
+  },
+  "stem": "(a) Given that $y=\\ln(\\ln x)$, show that\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{x\\ln x}$.\n\n\\hfill (1)\nThe variables $x$ and $t$ satisfy the differential equation\n$x\\ln x+t\\dfrac{\\mathrm{d}x}{\\mathrm{d}t}=0$.\nIt is given that $x=\\mathrm{e}$ when $t=2$.\n(b) Solve the differential equation obtaining an expression for $x$ in terms of $t$, simplifying your answer.\n\n\\hfill (7)\n(c) Hence state what happens to the value of $x$ as $t$ tends to infinity.\n\n\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_ON_31_8",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 8,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q8"
+  },
+  "stem": "The constant $a$ is such that $\\displaystyle\\int_{1}^{a}\\dfrac{\\ln x}{\\sqrt{x}}\\,\\mathrm{d}x=6$.\n(a) Show that $a=\\exp\\left(\\dfrac{1}{\\sqrt{a}}+2\\right)$.\n\n\\hfill (5)\n(b) Verify by calculation that $a$ lies between 9 and 11.\n\n\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\n\n\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 11,
+  "source": "21_ON_31_9",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 9,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q9"
+  },
+  "stem": "Two lines $l$ and $m$ have equations $\\mathbf{r}=3\\mathbf{i}+2\\mathbf{j}+5\\mathbf{k}+s(4\\mathbf{i}-\\mathbf{j}+3\\mathbf{k})$ and $\\mathbf{r}=\\mathbf{i}-\\mathbf{j}-2\\mathbf{k}+t(-\\mathbf{i}+2\\mathbf{j}+2\\mathbf{k})$ respectively.\n(a) Show that $l$ and $m$ are perpendicular.\n\n\\hfill (2)\n(b) Show that $l$ and $m$ intersect and state the position vector of the point of intersection.\n\n\\hfill (5)\n(c) Show that the length of the perpendicular from the origin to the line $m$ is $\\dfrac{1}{3}\\sqrt{5}$.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON31_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 12,
+  "source": "21_ON_31_10",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "31",
+    "qno": 10,
+    "code": "31",
+    "label": "2021 Oct/Nov · Paper 31 Q10"
+  },
+  "stem": "The complex number $1+2\\mathrm{i}$ is denoted by $u$. The polynomial $2x^3+ax^2+4x+b$, where $a$ and $b$ are real constants, is denoted by $p(x)$. It is given that $u$ is a root of the equation $p(x)=0$.\n(a) Find the values of $a$ and $b$.\n\n\\hfill (4)\n(b) State a second complex root of this equation.\n\n\\hfill (1)\n(c) Find the real factors of $p(x)$.\n\n\\hfill (2)\n(d) (i) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z-u| \\leq \\sqrt{5}$ and $\\arg z \\leq \\dfrac{1}{4}\\pi$.\n\n\\hfill (4)\n(d) (ii) Find the least value of $\\operatorname{Im} z$ for points in the shaded region. Give your answer in an exact form.\n\n\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307097
+  },
+{
+  "id": "cie_p3_21ON32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_ON_32_1",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q1"
+  },
+  "stem": "Find the value of $x$ for which $3(2^{1-x})=7^x$. Give your answer in the form $\\dfrac{\\ln a}{\\ln b}$, where $a$ and $b$ are integers.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_ON_32_2",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q2"
+  },
+  "stem": "Solve the inequality $|3x-a|>2|x+2a|$, where $a$ is a positive constant.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_32_3",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q3"
+  },
+  "stem": "(a) Given the complex numbers $u=a+\\mathrm{i}b$ and $w=c+\\mathrm{i}d$, where $a$, $b$, $c$ and $d$ are real, prove that $(u+w)^*=u^*+w^*$.\n\n\\hfill (2)\n(b) Solve the equation $(z+2+\\mathrm{i})^*+(2+\\mathrm{i})z=0$, giving your answer in the form $x+\\mathrm{i}y$ where $x$ and $y$ are real.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_ON_32_4",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q4"
+  },
+  "stem": "Express $\\dfrac{4x^2-13x+13}{(2x-1)(x-3)}$ in partial fractions.\n\n\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_ON_32_5",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q5"
+  },
+  "stem": "(a) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z-3-2\\mathrm{i}| \\leq 1$ and $\\operatorname{Im}z \\geq 2$.\n\n\\hfill (4)\n(b) Find the greatest value of $\\arg z$ for points in the shaded region, giving your answer in degrees.\n\n\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "21_ON_32_6",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q6"
+  },
+  "stem": "(a) Using the expansions of $\\sin(3x+2x)$ and $\\sin(3x-2x)$, show that\n$\\dfrac{1}{2}(\\sin 5x+\\sin x) \\equiv \\sin 3x \\cos 2x$.\n\n\\hfill (3)\n(b) Hence show that $\\displaystyle\\int_{0}^{\\frac{1}{4}\\pi}\\sin 3x \\cos 2x\\,\\mathrm{d}x=\\dfrac{1}{5}(3-\\sqrt{2})$.\n\n\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_ON_32_7",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q7"
+  },
+  "stem": "The variables $x$ and $y$ satisfy the differential equation\n$\\mathrm{e}^{2x}\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=4xy^2,$\nand it is given that $y=1$ when $x=0$.\nSolve the differential equation, obtaining an expression for $y$ in terms of $x$.\n\n\\hfill (7)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_ON_32_8",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q8"
+  },
+  "stem": "(a) By first expanding $(\\cos^2\\theta+\\sin^2\\theta)^2$, show that\n$\\cos^4\\theta+\\sin^4\\theta \\equiv 1-\\dfrac{1}{2}\\sin^2 2\\theta$.\n\n\\hfill (3)\n(b) Hence solve the equation\n$\\cos^4\\theta+\\sin^4\\theta=\\dfrac{5}{9}$,\nfor $0\\degree<\\theta<180\\degree$.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 8,
+  "source": "21_ON_32_9",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q9"
+  },
+  "stem": "The equation of a curve is $y\\mathrm{e}^{2x}-y^2\\mathrm{e}^{x}=2$.\n(a) Show that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{2y\\mathrm{e}^x-y^2}{2y-\\mathrm{e}^x}$.\n\n\\hfill (4)\n(b) Find the exact coordinates of the point on the curve where the tangent is parallel to the $y$-axis.\n\n\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "21_ON_32_10",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q10"
+  },
+  "stem": "With respect to the origin $O$, the position vectors of the points $A$ and $B$ are given by $\\overrightarrow{OA}=\\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}$ and $\\overrightarrow{OB}=\\begin{pmatrix}0\\\\3\\\\1\\end{pmatrix}$.\n(a) Find a vector equation for the line $l$ through $A$ and $B$.\n\n\\hfill (3)\n(b) The point $C$ lies on $l$ and is such that $\\overrightarrow{AC}=3\\overrightarrow{AB}$. Find the position vector of $C$.\n\n\\hfill (2)\n(c) Find the possible position vectors of the point $P$ on $l$ such that $|OP|=\\sqrt{14}$.\n\n\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON32_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "21_ON_32_11",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 11,
+    "code": "32",
+    "label": "2021 Oct/Nov · Paper 32 Q11"
+  },
+  "stem": "The equation of a curve is $y=\\sqrt{\\tan x}$, for $0 \\leq x<\\dfrac{1}{2}\\pi$.\n(a) Express $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ in terms of $\\tan x$, and verify that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=1$ when $x=\\dfrac{1}{4}\\pi$.\n\n\\hfill (4)\nThe value of $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ is also $1$ at another point on the curve where $x=a$, as shown in the diagram.\n(b) Show that $t^3+t^2+3t-1=0$, where $t=\\tan a$.\n\n\\hfill (4)\n(c) Use the iterative formula\n$a_{n+1}=\\tan^{-1}\\left(\\dfrac{1}{3(1-\\tan^2 a_n-\\tan^3 a_n)}\\right)$\nto determine $a$ correct to 2 decimal places, giving the result of each iteration to 4 decimal places.\n\n\\hfill (3)",
+  "figure": "data/images/21_ON_32_11.png",
+  "solution": "",
+  "createdAt": 1784349307098
+  },
+{
+  "id": "cie_p3_21ON33_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 3,
+  "source": "21_ON_33_1",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 1,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q1"
+  },
+  "stem": "Find the quotient and remainder when $2x^4+1$ is divided by $x^2-x+2$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (modulus functions)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "21_ON_33_2",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 2,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q2"
+  },
+  "stem": "(a) Sketch the graph of $y=|2x-3|$. \\hfill (1)\n(b) Solve the inequality $|2x-3|<3x+2$.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 4,
+  "source": "21_ON_33_3",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 3,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q3"
+  },
+  "stem": "Solve the equation $4^{x-2}=4^x-4^2$, giving your answer correct to 3 decimal places.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_ON_33_4",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 4,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q4"
+  },
+  "stem": "Find the exact value of $\\displaystyle\\int_{\\frac{1}{3}\\pi}^{\\pi} x\\sin\\dfrac{1}{2}x\\,\\mathrm{d}x$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 5,
+  "source": "21_ON_33_5",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 5,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q5"
+  },
+  "stem": "Solve the equation $\\sin\\theta=3\\cos 2\\theta+2$, for $0\\degree \\leq \\theta \\leq 360\\degree$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 7,
+  "source": "21_ON_33_6",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 6,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q6"
+  },
+  "stem": "(a) By first expanding $\\cos(x-60\\degree)$, show that the expression\n$2\\cos(x-60\\degree)+\\cos x$\ncan be written in the form $R\\cos(x-\\alpha)$, where $R>0$ and $0\\degree<\\alpha<90\\degree$. Give the exact value of $R$ and the value of $\\alpha$ correct to 2 decimal places.\\hfill (5)\n(b) Hence find the value of $x$ in the interval $0\\degree<x<360\\degree$ for which $2\\cos(x-60\\degree)+\\cos x$ takes its least possible value.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 7,
+  "source": "21_ON_33_7",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 7,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q7"
+  },
+  "stem": "The equation of a curve is $\\ln(x+y)=x-2y$.\n(a) Show that $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{x+y-1}{2(x+y)+1}$.\\hfill (4)\n(b) Find the coordinates of the point on the curve where the tangent is parallel to the $x$-axis.\\hfill (3)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307099
+  },
+{
+  "id": "cie_p3_21ON33_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 9,
+  "source": "21_ON_33_8",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 8,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q8"
+  },
+  "stem": "In the diagram, $OABCD$ is a pyramid with vertex $D$. The horizontal base $OABC$ is a square of side $4$ units. The edge $OD$ is vertical and $OD=4$ units. The unit vectors $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$ are parallel to $OA$, $OC$ and $OD$ respectively.\nThe midpoint of $AB$ is $M$ and the point $N$ on $CD$ is such that $DN=3NC$.\n(a) Find a vector equation for the line through $M$ and $N$.\\hfill (5)\n(b) Show that the length of the perpendicular from $O$ to $MN$ is $\\dfrac{1}{3}\\sqrt{82}$.\\hfill (4)",
+  "figure": "data/images/21_ON_33_8.png",
+  "solution": "",
+  "createdAt": 1784349307100
+  },
+{
+  "id": "cie_p3_21ON33_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 10,
+  "source": "21_ON_33_9",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 9,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q9"
+  },
+  "stem": "Let $f(x)=\\dfrac{1}{(9-x)\\sqrt{x}}$.\n(a) Find the $x$-coordinate of the stationary point of the curve with equation $y=f(x)$.\\hfill (4)\n(b) Using the substitution $u=\\sqrt{x}$, show that $\\displaystyle\\int_{0}^{4} f(x)\\,\\mathrm{d}x=\\dfrac{1}{3}\\ln 5$.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307100
+  },
+{
+  "id": "cie_p3_21ON33_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations",
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 11,
+  "source": "21_ON_33_10",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 10,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q10"
+  },
+  "stem": "A large plantation of area $20\\text{ km}^2$ is becoming infected with a plant disease. At time $t$ years the area infected is $x\\text{ km}^2$ and the rate of increase of $x$ is proportional to the ratio of the area infected to the area not yet infected.\nWhen $t=0$, $x=1$ and $\\dfrac{\\mathrm{d}x}{\\mathrm{d}t}=1$.\n(a) Show that $x$ and $t$ satisfy the differential equation\n$\\dfrac{\\mathrm{d}x}{\\mathrm{d}t}=\\dfrac{19x}{20-x}$.\\hfill (2)\n(b) Solve the differential equation and show that when $t=1$ the value of $x$ satisfies the equation $x=\\mathrm{e}^{0.9+0.05x}$.\\hfill (5)\n(c) Use an iterative formula based on the equation in part (b), with an initial value of $2$, to determine $x$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\\hfill (3)\n(d) Calculate the value of $t$ at which the entire plantation becomes infected.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307100
+  },
+{
+  "id": "cie_p3_21ON33_q11",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "21_ON_33_11",
+  "examRef": {
+    "year": 2021,
+    "month": "Oct/Nov",
+    "paper": "33",
+    "qno": 11,
+    "code": "33",
+    "label": "2021 Oct/Nov · Paper 33 Q11"
+  },
+  "stem": "The complex number $-\\sqrt{3}+\\mathrm{i}$ is denoted by $u$.\n(a) Express $u$ in the form $r\\mathrm{e}^{\\mathrm{i}\\theta}$, where $r>0$ and $-\\pi<\\theta\\leq\\pi$, giving the exact values of $r$ and $\\theta$.\\hfill (2)\n(b) Hence show that $u^6$ is real and state its value.\\hfill (2)\n(c) (i) On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $0 \\leq \\arg(z-u) \\leq \\dfrac{1}{4}\\pi$ and $\\operatorname{Re} z \\leq 2$.\\hfill (4)\n(c) (ii) Find the greatest value of $|z|$ for points in the shaded region. Give your answer correct to 3 significant figures.\\hfill (2)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784349307100
+  }
 ];
 
 
