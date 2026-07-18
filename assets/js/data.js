@@ -4761,6 +4761,248 @@ const SEED_QUESTIONS = [
   "solution": "",
   "createdAt": 1784343156573
 }
+,
+{
+  "id": "cie_p3_22ON32_q1",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Logarithmic and exponential functions"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 4,
+  "source": "22_ON_32_1",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 1,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q1"
+  },
+  "stem": "Solve the equation $2^{3x-1} = 5 \\times 3^{1-x}$. Give your answer in the form $\\dfrac{\\ln a}{\\ln b}$ where $a$ and $b$ are integers.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q2",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (factor theorem and remainder theorem)"
+  ],
+  "topics": [],
+  "difficulty": 3,
+  "marks": 6,
+  "source": "22_ON_32_2",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 2,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q2"
+  },
+  "stem": "The polynomial $\\mathrm{p}(x) = 2x^{3}-x^{2}+a$, where $a$ is a constant. It is given that $2x+3$ is a factor of $\\mathrm{p}(x)$.\n(a) Find the value of $a$.\\hfill (2)\n(b) When $a$ has this value, solve the inequality $\\mathrm{p}(x) < 0$.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q3",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differentiation"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 6,
+  "source": "22_ON_32_3",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 3,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q3"
+  },
+  "stem": "The equation of a curve is $y = \\sin x \\sin 2x$. The curve has a stationary point in the interval $0 < x < \\dfrac{1}{2}\\pi$.\nFind the $x$-coordinate of this point, giving your answer correct to 3 significant figures.\\hfill (6)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q4",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Trigonometry"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_32_4",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 4,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q4"
+  },
+  "stem": "(a) Express $4\\cos x - \\sin x$ in the form $R\\cos(x+\\alpha)$, where $R > 0$ and $0 < \\alpha < 90$. State the exact value of $R$ and give $\\alpha$ correct to 2 decimal places.\\hfill (3)\n(b) Hence solve the equation $4\\cos 2x - \\sin 2x = 3$ for $0 < x < 180$.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q5",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Complex numbers"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_32_5",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 5,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q5"
+  },
+  "stem": "(a) Solve the equation $z^{2}-6\\mathrm{i}z-12 = 0$, giving the answers in the form $x+\\mathrm{i}y$, where $x$ and $y$ are real and exact.\\hfill (3)\n(b) On a sketch of an Argand diagram with origin $O$, show points $A$ and $B$ representing the roots of the equation in part (a).\\hfill (1)\n(c) Find the exact modulus and argument of each root.\\hfill (3)\n(d) Hence show that the triangle $OAB$ is equilateral.\\hfill (1)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q6",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Vectors"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_32_6",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 6,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q6"
+  },
+  "stem": "Relative to the origin $O$, the points $A$, $B$ and $C$ have position vectors given by\n$\\overrightarrow{OA} = \\begin{pmatrix} 1 \\\\ 3 \\\\ 1 \\end{pmatrix}$, $\\overrightarrow{OB} = \\begin{pmatrix} 3 \\\\ 1 \\\\ 2 \\end{pmatrix}$ and $\\overrightarrow{OC} = \\begin{pmatrix} 5 \\\\ 3 \\\\ -2 \\end{pmatrix}$.\n(a) Using a scalar product, find the cosine of angle $BAC$.\\hfill (4)\n(b) Hence find the area of triangle $ABC$. Give your answer in a simplified exact form.\\hfill (4)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q7",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Differential equations"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_32_7",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 7,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q7"
+  },
+  "stem": "The variables $x$ and $\\theta$ satisfy the differential equation\n$x \\sin^{2}\\theta \\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta} = \\tan^{2}\\theta - 2\\cot\\theta$,\nfor $0 < \\theta < \\dfrac{1}{2}\\pi$ and $x > 0$. It is given that $x = 2$ when $\\theta = \\dfrac{1}{4}\\pi$.\n(a) Show that $\\dfrac{\\mathrm{d}}{\\mathrm{d}\\theta}(\\cot^{2}\\theta) = \\dfrac{-2\\cot\\theta}{\\sin^{2}\\theta}$.\n(You may assume without proof that the derivative of $\\cot\\theta$ with respect to $\\theta$ is $-\\mathrm{cosec}^{2}\\theta$.)\\hfill (1)\n(b) Solve the differential equation and find the value of $x$ when $\\theta = \\dfrac{1}{6}\\pi$.\\hfill (7)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q8",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 8,
+  "source": "22_ON_32_8",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 8,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q8"
+  },
+  "stem": "The diagram shows part of the curve $y = \\sin \\sqrt{x}$. This part of the curve intersects the $x$-axis at the point where $x = a$.\n(a) State the exact value of $a$.\\hfill (1)\n(b) Using the substitution $u = \\sqrt{x}$, find the exact area of the shaded region in the first quadrant bounded by this part of the curve and the $x$-axis.\\hfill (7)",
+  "figure": "data/images/22_ON_32_8.png",
+  "solution": "",
+  "createdAt": 1784343888571
+},
+{
+  "id": "cie_p3_22ON32_q9",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Numerical solution of equations"
+  ],
+  "topics": [],
+  "difficulty": 5,
+  "marks": 9,
+  "source": "22_ON_32_9",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 9,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q9"
+  },
+  "stem": "The diagram shows a semicircle with diameter $AB$, centre $O$ and radius $r$. The shaded region is the minor segment on the chord $AC$ and its area is one third of the area of the semicircle. The angle $CAB$ is $\\theta$ radians.\n(a) Show that $\\theta = \\dfrac{1}{3}(\\pi - 1.5\\sin 2\\theta)$.\\hfill (4)\n(b) Verify by calculation that $0.5 < \\theta < 0.7$.\\hfill (2)\n(c) Use an iterative formula based on the equation in part (a) to determine $\\theta$ correct to 3 decimal places. Give the result of each iteration to 5 decimal places.\\hfill (3)",
+  "figure": "data/images/22_ON_32_9.png",
+  "solution": "",
+  "createdAt": 1784343888572
+},
+{
+  "id": "cie_p3_22ON32_q10",
+  "board": "CIE",
+  "subject": "P3",
+  "chapter": [
+    "Algebra (partial fractions and binomial expansions)",
+    "Integration"
+  ],
+  "topics": [],
+  "difficulty": 4,
+  "marks": 10,
+  "source": "22_ON_32_10",
+  "examRef": {
+    "year": 2022,
+    "month": "Oct/Nov",
+    "paper": "32",
+    "qno": 10,
+    "code": "32",
+    "label": "2022 Oct/Nov · Paper 32 Q10"
+  },
+  "stem": "Let $\\mathrm{f}(x) = \\dfrac{4-x+x^{2}}{(1+x)(2+x^{2})}$.\n(a) Express $\\mathrm{f}(x)$ in partial fractions.\\hfill (5)\n(b) Find the exact value of $\\displaystyle\\int_{0}^{4} \\mathrm{f}(x) \\mathrm{d}x$. Give your answer as a single logarithm.\\hfill (5)",
+  "figure": "",
+  "solution": "",
+  "createdAt": 1784343888572
+}
 ];
 
 

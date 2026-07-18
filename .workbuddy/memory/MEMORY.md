@@ -8,7 +8,8 @@
 - **来源月份全称**：examRef.month 用全称 — FM=`"Feb/March"`，MJ=`"May/June"`，ON=`"Oct/Nov"`（label 同理含 "2024 Oct/Nov · Paper 31 Q1" 格式）。⚠️ 历史记忆曾误记成 "Oct/Nav"，以库内已录入数据（`24ON31` 等用 `"Oct/Nov"`）为准。
 - **小问序号不加粗**：`(a)``(b)` 等纯文本，**绝不**用 `**(a)**`。
 - **换行符（2026-07-17 修正）**：题干换行**只靠真实换行**——Excel 单元格内用 **Alt+Enter** 输入真实换行符；json.dumps 写出为 JS 源码里的 `\n`，浏览器加载时解析为真实换行，`mdToHtml` 按「行内 `\n`→`<br>`、连续 `\n{2,}`→分段 `<p>`」渲染。**严禁**在 Excel 里写字面转义 `\newline` 或 `\n\n` 当换行——录入时必须把这些**字面文本删除**（不转真实换行）。即：真实换行保留，字面 `\newline`/`\n\n` 删除。
-- 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。
+- 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。注入时另带 `topics: []`（与库内 25 系列题一致；老 23/24 系列题无此字段，JS 容忍）。
+- **批量录入 Excel 模板列结构（CIE P3 新模板）**：表头 9 列 = `考试局/科目 / 来源 / 题干 / 配图 / 章节 / 考点 / 难度 / 分值 / 解析`。说明：①「考试局/科目」仅首行填（如 `CIE/P3`），其余行沿用；②「配图」列填 `DISPIMG("ID_...")` 才提取嵌入图（存 `data/images/{来源}.png`），若填纯数字占位（如 `4/5/6`）且无嵌入图则 `figure` 留空；③「章节/考点/难度/分值/解析」可空——**空则推断**：章节按题干内容+`Differentiation` 规则判定，难度给合理 1–5 值，`marks` 从题干 `\hfill(N)` 求和，solution 留空。注入脚本应「优先读列、空则回退推断」（参考 `.workbuddy/inject_22on33.py`）。
 - ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
 - 章节权威清单（FP1 8章 / FP2 8章 / **CIE P3 11章**，含 `Differentiation`）在 data.js `CHAPTER_PRESETS`，录入严格对应。
 - ✅ **CIE P3 `Differentiation` 章已加入（2026-07-17）**：隐函数求导、参数方程求导、求 maximum/minimum（含驻点）的题目**都归属 `Differentiation`**。归类细则：① 纯微分法（隐函数/参数方程/令 dy/dx=0 解极值）单标签 `["Differentiation"]`；② 先求极值再求面积/体积的多问大题双标签 `["Differentiation","Integration"]`；③ 用迭代/数值法定位驻点的题双标签 `["Differentiation","Numerical solution of equations"]`（保留数值法身份）。微分方程求解仍归 `"Differential equations"`、复平面 |z| 极值仍归 `"Complex numbers"`、求给定梯度后积分的题（如 `25MJ35_q7`）仍归 `"Integration"`。
