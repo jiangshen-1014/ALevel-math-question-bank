@@ -501,7 +501,8 @@
   }
 
   function vlTypeset(node, i) {
-    const parts = [node.querySelector(".q-top"), node.querySelector(".q-stem"), node.querySelector(".q-tags")].filter(Boolean);
+    // .q-tags 已在 .q-stem 内部，单独传入会导致 MathJax 对标签里的公式重复排版
+    const parts = [node.querySelector(".q-top"), node.querySelector(".q-stem")].filter(Boolean);
     typeset(parts, () => { renderTikz(node); vlMeasure(node, i); });
   }
 
