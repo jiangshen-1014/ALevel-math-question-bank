@@ -634,8 +634,8 @@
     const inBasket = state.basket.includes(q.id);
     const checked = state.selected.includes(q.id);
     const figHtml = figureHtml(q.figure, "q-fig");
-    const tags = (q.topics || []).map(t => `<span class="tag">#${mathInner(t, kw)}</span>`).join("");
     const kw = state.search;
+    const tags = (q.topics || []).map(t => `<span class="tag">#${mathInner(t, kw)}</span>`).join("");
     return `<div class="q-card ${checked ? "selected" : ""}" data-id="${q.id}">
       <div class="q-top">
         <label class="q-check" title="勾选此题（可多选，再用顶部「加入组卷篮」批量加入）"><input type="checkbox" class="sel-chk" ${checked ? "checked" : ""} /><span></span></label>
