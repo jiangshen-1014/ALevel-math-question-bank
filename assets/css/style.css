@@ -350,7 +350,7 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .paper-qline .pq-num { font-weight: 700; flex: 0 0 auto; }
 .paper-qline .pq-stem { flex: 1 1 auto; }
 .paper-qline .pq-marks { flex: 0 0 auto; color: var(--text-soft); font-weight: 600; white-space: nowrap; }
-.paper-q .pq-fig { text-align: center; margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.paper-q .pq-fig { text-align: center; margin: 14px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .paper-q .pq-fig img { max-width: 360px; border: 1px solid var(--border); border-radius: 6px; }
 /* 画图格纸（S1 hasGrid / hasSmallGrid） */
 .paper-grid { text-align: center; margin: 14px 0 6px; }
