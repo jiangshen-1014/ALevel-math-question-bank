@@ -657,6 +657,7 @@
         <div class="mathrender">${mdToHtml(q.solution, kw)}</div></div>` : ""}
       <div class="q-actions">
         ${q.solution ? `<button class="btn sm ghost sol-toggle" data-act="sol">👁 查看解析</button>` : ""}
+        <button class="btn sm ai-btn" data-act="ai">🤖 AI 解析</button>
         <button class="btn sm ${inBasket ? "on" : ""}" data-act="basket">${inBasket ? "✓ 已加入组卷" : "＋ 加入组卷"}</button>
         <button class="btn sm ghost" data-act="edit">✏️ 编辑</button>
         <button class="btn sm ghost danger" data-act="del">🗑</button>
@@ -689,6 +690,9 @@
         toggleBasket(id);
       } else if (act === "edit") {
         openEdit(id);
+      } else if (act === "ai") {
+        const q = Store.all().find(x => x.id === id);
+        if (q) sendQuestionToAI(q);
       } else if (act === "del") {
         confirmDialog("确定删除这道题？").then(ok => {
           if (!ok) return;
@@ -698,6 +702,148 @@
         });
       }
     });
+  }
+
+  /* ---------- AI 题目解析（前端直连用户自有 API） ---------- */
+  const AI_CFG_KEY = "aiConfig";
+  let aiHistory = [];   // 对话历史：[{role:'user'|'assistant', content: string | array}]
+
+  function loadAIConfig() {
+    try { return JSON.parse(localStorage.getItem(AI_CFG_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveAIConfig(cfg) { localStorage.setItem(AI_CFG_KEY, JSON.stringify(cfg)); }
+
+  function openAIChat() { const c = $("#aiChat"); c.classList.add("open"); const i = $("#aiInput"); if (i) i.focus(); }
+  function closeAIChat() { $("#aiChat").classList.remove("open"); }
+  function toggleAIChat() { $("#aiChat").classList.contains("open") ? closeAIChat() : openAIChat(); }
+
+  function openAISettings() {
+    const c = loadAIConfig();
+    $("#aiBaseUrl").value = c.baseUrl || "";
+    $("#aiApiKey").value = c.apiKey || "";
+    $("#aiModel").value = c.model || "";
+    $("#aiSystem").value = c.systemPrompt ||
+      "你是一位耐心的中学数学辅导老师，用中文讲解，给出清晰的解题思路与逐步推导，必要时使用 LaTeX 公式（行内用 $...$，独立公式用 $$...$$）。";
+    $("#aiSettingsOverlay").classList.add("open");
+  }
+  function closeAISettings() { $("#aiSettingsOverlay").classList.remove("open"); }
+
+  function appendAIBubble(role, html) {
+    const wrap = document.createElement("div");
+    wrap.className = "ai-msg " + (role === "user" ? "ai-user" : "ai-bot");
+    const body = document.createElement("div");
+    body.className = "ai-msg-body";
+    body.innerHTML = html;
+    wrap.appendChild(body);
+    $("#aiMessages").appendChild(wrap);
+    const box = $("#aiMessages");
+    box.scrollTop = box.scrollHeight;
+    return wrap;
+  }
+
+  function normalizeFigures(fig) {
+    if (!fig) return [];
+    return (Array.isArray(fig) ? fig : [fig]).filter(Boolean);
+  }
+  function blobToDataURL(blob) {
+    return new Promise((res, rej) => {
+      const fr = new FileReader();
+      fr.onload = () => res(fr.result);
+      fr.onerror = rej;
+      fr.readAsDataURL(blob);
+    });
+  }
+  // 组装 messages content：文本 + 尽量把题目配图转 base64 作为多模态（失败则降级纯文本并提示）
+  async function buildAIContent(text, figures) {
+    const figs = normalizeFigures(figures);
+    if (!figs.length) return text;
+    const parts = [{ type: "text", text: text }];
+    let attached = 0;
+    for (const f of figs) {
+      try {
+        const url = (/^https?:|^data:/.test(f)) ? f : (location.origin + "/" + f.replace(/^\//, ""));
+        const r = await fetch(url);
+        if (!r.ok) continue;
+        const b64 = await blobToDataURL(await r.blob());
+        parts.push({ type: "image_url", image_url: { url: b64 } });
+        attached++;
+      } catch (e) { /* file:// 下跨域等无法读取的图，忽略 */ }
+    }
+    if (!attached) {
+      parts[0].text += "\n\n（注：本题配有图片 " + figs.length + " 张，但我无法读取，请仅依据上述文本推理。）";
+    }
+    return parts;
+  }
+
+  async function aiSend(userText, opts) {
+    userText = (userText || "").trim();
+    if (!userText) return;
+    const cfg = loadAIConfig();
+    if (!cfg.apiKey || !cfg.baseUrl) {
+      toast("请先配置 AI 接口");
+      openAISettings();
+      return;
+    }
+    appendAIBubble("user", escapeHtml(userText).replace(/\n/g, "<br>"));
+    const content = await buildAIContent(userText, opts && opts.figure);
+    aiHistory.push({ role: "user", content: content });
+
+    const bubble = appendAIBubble("assistant", "<span class=\"ai-think\">思考中…</span>");
+    const body = bubble.querySelector(".ai-msg-body");
+    const box = $("#aiMessages");
+    let acc = "";
+    try {
+      const url = cfg.baseUrl.replace(/\/+$/, "") + "/chat/completions";
+      const msgs = (cfg.systemPrompt ? [{ role: "system", content: cfg.systemPrompt }] : []).concat(aiHistory);
+      const resp = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + cfg.apiKey },
+        body: JSON.stringify({ model: cfg.model || "gpt-4o-mini", messages: msgs, stream: true })
+      });
+      if (!resp.ok) {
+        const errTxt = await resp.text().catch(() => "");
+        throw new Error("HTTP " + resp.status + " " + (errTxt || "").slice(0, 400));
+      }
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop();
+        for (const line of lines) {
+          const t = line.trim();
+          if (!t || !t.startsWith("data:")) continue;
+          const data = t.slice(5).trim();
+          if (data === "[DONE]") continue;
+          try {
+            const json = JSON.parse(data);
+            const delta = json.choices && json.choices[0] && json.choices[0].delta && json.choices[0].delta.content;
+            if (delta) { acc += delta; body.innerHTML = mdToHtml(acc); typeset(body); box.scrollTop = box.scrollHeight; }
+          } catch (e) { /* 忽略不完整片段 */ }
+        }
+      }
+      if (!acc) body.innerHTML = "<span class=\"ai-err\">（模型未返回内容）</span>";
+      aiHistory.push({ role: "assistant", content: acc });
+    } catch (err) {
+      body.innerHTML = "<span class=\"ai-err\">请求失败：" + escapeHtml(String(err && err.message ? err.message : err)) + "</span>";
+      aiHistory.pop();  // 失败不计历史，便于重试
+    }
+  }
+
+  function sendQuestionToAI(q) {
+    openAIChat();
+    const prompt = "请详细解析以下题目：给出解题思路、关键步骤与最终答案。题目如下：\n\n" + (q.stem || "");
+    aiSend(prompt, { figure: q.figure });
+  }
+
+  function aiSendCurrent() {
+    const list = filteredQuestions();
+    if (!list.length) { toast("当前没有可发送的题目"); return; }
+    openAIChat();
+    aiSend("请解析以下题目：\n\n" + (list[0].stem || ""), { figure: list[0].figure });
   }
 
   /* ---------- 组卷篮 ---------- */
@@ -1388,6 +1534,33 @@
     $("#btnExport").onclick = exportJSON;
     $("#btnImport").onclick = () => $("#importFile").click();
     $("#btnBatch").onclick = () => $("#batchFile").click();
+
+    // AI 对话
+    $("#btnAIChat").onclick = toggleAIChat;
+    $("#btnAISettings").onclick = openAISettings;
+    $("#aiSettingsClose").onclick = closeAISettings;
+    $("#aiSettingsSave").onclick = () => {
+      saveAIConfig({
+        baseUrl: $("#aiBaseUrl").value.trim(),
+        apiKey: $("#aiApiKey").value.trim(),
+        model: $("#aiModel").value.trim(),
+        systemPrompt: $("#aiSystem").value.trim()
+      });
+      closeAISettings();
+      toast("AI 配置已保存");
+    };
+    $("#aiSettingsClear").onclick = () => {
+      localStorage.removeItem(AI_CFG_KEY);
+      $("#aiBaseUrl").value = ""; $("#aiApiKey").value = ""; $("#aiModel").value = ""; $("#aiSystem").value = "";
+      toast("已清除 AI 配置");
+    };
+    $("#aiClose").onclick = closeAIChat;
+    $("#aiClear").onclick = () => { aiHistory = []; $("#aiMessages").innerHTML = ""; };
+    $("#aiSend").onclick = () => { const v = $("#aiInput").value; $("#aiInput").value = ""; aiSend(v); };
+    $("#aiSendCurrent").onclick = aiSendCurrent;
+    $("#aiInput").addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); const v = $("#aiInput").value; $("#aiInput").value = ""; aiSend(v); }
+    });
     $("#batchFile").onchange = e => { if (e.target.files[0]) importBatchFile(e.target.files[0]); e.target.value = ""; };
     $("#importFile").onchange = e => { if (e.target.files[0]) importJSON(e.target.files[0]); e.target.value = ""; };
 
@@ -1461,7 +1634,7 @@
     $$(".overlay").forEach(o => o.addEventListener("click", e => { if (e.target === o) o.classList.remove("open"); }));
     // ESC 关闭
     document.addEventListener("keydown", e => {
-      if (e.key === "Escape") { $$(".overlay.open").forEach(o => o.classList.remove("open")); $("#drawer").classList.remove("open"); }
+      if (e.key === "Escape") { $$(".overlay.open").forEach(o => o.classList.remove("open")); $("#drawer").classList.remove("open"); $("#aiChat").classList.remove("open"); }
     });
 
     // 配图点击放大（事件委托，重渲染后依然有效）

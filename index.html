@@ -42,6 +42,8 @@
       <button class="btn sm ghost" id="btnExport">导出</button>
       <button class="btn sm primary" id="btnAdd">＋ 新增题目</button>
       <button class="btn sm basket-btn" id="btnBasket">🧺 组卷篮 <span class="n" id="basketN" style="display:none">0</span></button>
+      <button class="btn sm ai-btn" id="btnAIChat" title="打开 AI 对话">🤖 AI 对话</button>
+      <button class="btn sm ghost" id="btnAISettings" title="配置 AI 接口">⚙ AI 设置</button>
     </div>
   </header>
 
@@ -267,6 +269,51 @@
   <div class="lightbox-inner">
     <button class="lightbox-close" id="imgLightboxClose" title="关闭 (Esc)">✕</button>
     <img id="imgLightboxImg" src="" alt="放大配图" />
+  </div>
+</div>
+
+<!-- AI 接口设置弹窗 -->
+<div class="overlay" id="aiSettingsOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>AI 接口设置</h3>
+      <button class="btn sm ghost" id="aiSettingsClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="fld">API 地址（Base URL）</label>
+      <input type="text" id="aiBaseUrl" placeholder="https://api.openai.com/v1" />
+      <div class="hint" style="margin:2px 0 10px">OpenAI 兼容接口，如 DeepSeek / 通义 / OpenRouter 等填其 /v1 地址。</div>
+      <label class="fld">API Key</label>
+      <input type="password" id="aiApiKey" placeholder="sk-..." />
+      <div class="hint" style="margin:2px 0 10px">仅保存在本浏览器 localStorage，不会上传到任何服务器。</div>
+      <label class="fld">模型名（Model）</label>
+      <input type="text" id="aiModel" placeholder="gpt-4o-mini" />
+      <label class="fld" style="margin-top:10px">系统提示词（可选）</label>
+      <textarea id="aiSystem" placeholder="你是一位耐心的中学数学辅导老师……"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="aiSettingsClear">清除配置</button>
+      <button class="btn primary" id="aiSettingsSave">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- AI 对话面板 -->
+<div class="ai-chat" id="aiChat">
+  <div class="ai-head">
+    <span>🤖 AI 题目解析</span>
+    <div class="ai-head-actions">
+      <button class="btn sm ghost" id="aiClear" title="清空对话">清空</button>
+      <button class="btn sm ghost" id="aiClose" title="关闭">✕</button>
+    </div>
+  </div>
+  <div class="ai-messages" id="aiMessages"></div>
+  <div class="ai-input">
+    <textarea id="aiInput" placeholder="输入问题，或点「发送当前题目」…（Enter 发送，Shift+Enter 换行）"></textarea>
+    <div class="ai-input-actions">
+      <button class="btn sm ghost" id="aiSendCurrent" title="把当前列表第一题发给 AI">📨 发送当前题目</button>
+      <button class="btn sm primary" id="aiSend">发送</button>
+    </div>
   </div>
 </div>
 
