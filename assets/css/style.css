@@ -185,7 +185,7 @@ a { color: var(--brand); }
 .q-body { display: flex; gap: 14px; }
 .q-stem { flex: 1; min-width: 0; }
 .q-stem .mathrender { color: var(--text); font-size: 14px; }
-.q-fig { flex-shrink: 0; width: 180px; }
+.q-fig { flex-shrink: 0; width: 180px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .q-fig img { max-width: 100%; border: 1px solid var(--border); border-radius: 8px; background:#fff; }
 
 .q-tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
@@ -248,6 +248,14 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .modal-head .x { margin-left: auto; }
 .modal-body { padding: 18px 20px; max-height: 70vh; overflow-y: auto; }
 .modal-foot { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; gap: 8px; justify-content: flex-end; }
+
+/* 配图点击放大 lightbox */
+.zoom-img { cursor: zoom-in; }
+#imgLightbox { background: rgba(15,23,42,.82); z-index: 80; align-items: center; justify-content: center; overflow: hidden; }
+#imgLightbox .lightbox-inner { position: relative; max-width: 94vw; max-height: 94vh; display: flex; align-items: center; justify-content: center; }
+#imgLightbox img { max-width: 94vw; max-height: 94vh; width: auto; height: auto; border-radius: 8px; box-shadow: 0 12px 48px rgba(0,0,0,.55); background: #fff; cursor: zoom-out; }
+.lightbox-close { position: fixed; top: 20px; right: 24px; width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,.18); color: #fff; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+.lightbox-close:hover { background: rgba(255,255,255,.34); }
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
 .form-grid .full { grid-column: 1 / -1; }
@@ -312,6 +320,15 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .switch input:checked + .track { background: var(--green); }
 .switch input:checked + .track::before { transform: translateX(18px); }
 
+/* 随章节随机组卷 */
+.rand-paper { margin-top: 14px; border-top: 1px dashed var(--border); padding-top: 12px; }
+.rand-paper .divider { display: flex; align-items: center; color: var(--text-2); font-size: 12px; font-weight: 600; }
+.rand-paper .divider::before, .rand-paper .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); margin: 0 8px; }
+.rand-paper .rand-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.rand-paper select.mini { flex: 1; min-width: 88px; padding: 6px 8px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--panel); color: var(--text); font-size: 13px; }
+.rand-paper .rand-full { font-size: 12px; color: var(--green); font-weight: 600; white-space: nowrap; }
+
 .empty { text-align: center; color: var(--text-mute); padding: 60px 20px; }
 .empty .big { font-size: 40px; margin-bottom: 10px; }
 
@@ -331,11 +348,20 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .paper-qline .pq-num { font-weight: 700; flex: 0 0 auto; }
 .paper-qline .pq-stem { flex: 1 1 auto; }
 .paper-qline .pq-marks { flex: 0 0 auto; color: var(--text-soft); font-weight: 600; white-space: nowrap; }
-.paper-q .pq-fig { text-align: center; margin: 14px 0; }
+.paper-q .pq-fig { text-align: center; margin: 14px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .paper-q .pq-fig img { max-width: 360px; border: 1px solid var(--border); border-radius: 6px; }
+/* 画图格纸（S1 hasGrid / hasSmallGrid） */
+.paper-grid { text-align: center; margin: 14px 0 6px; }
+.paper-grid img { max-width: 340px; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; background: #fff; }
+.paper-grid-small { margin: 10px 0 4px; }
+.paper-grid-small img { max-width: 220px; }
 .paper-sol { margin-top: 16px; padding: 10px 14px; background: var(--green-soft);
   border-left: 3px solid var(--green); border-radius: 4px; }
 .paper-sol .sl { font-weight: 700; color: var(--green); font-size: 12px; margin-bottom: 4px; }
+.paper-sol .pq-src { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
+.paper-sol .pq-src::before { content: "📌 "; }
+.paper-src { font-size: 12px; color: var(--text-mute); margin: 8px 0 0; }
+.paper-src::before { content: "📌 来源："; }
 /* 学生版：题目后只留白，不加横线 */
 .paper-blank { flex: 1 1 auto; min-height: 220px; }
 .paper-end { margin-top: 18px; text-align: center; color: #94a3b8; font-size: 12px; }
@@ -352,24 +378,24 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .mathrender p:last-child { margin-bottom: 0; }
 .mathrender strong { color: var(--text); }
 .mathrender code { background: var(--panel-2); padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+/* markdown 表格 */
+.md-table { border-collapse: collapse; margin: 12px auto; width: auto; max-width: 100%; font-size: 14px; }
+.md-table th, .md-table td { border: 1px solid var(--border, #d0d7de); padding: 6px 12px; vertical-align: top; }
+.md-table th { background: var(--panel-2, #f1f5f9); font-weight: 600; text-align: left; }
+.md-table tbody tr:nth-child(even) { background: rgba(15, 23, 42, .03); }
+.md-table td:empty::after { content: "\00a0"; }
 /* \hfill 文本模式排版：一行内左右拉开（脱离 $...$ 也能用） */
 .hfill-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; width: 100%; }
 .hfill-line > span { min-width: 0; }
 
-/* ====== MathJax 3 字重归一化（SVG 模式 v5）======
- * 症状：含行内数学多的题目（复数/极坐标）整段比纯文字题显粗
- * 历史尝试：CHTML 选择器错误→webfont字重无效→scale缩小被否→切SVG模式
- * v5 方案：对 SVG 输出的 <text> 全量覆盖 font-family + font-weight，
- *        不再区分 mtext/mi/mn/mo——所有数学字符统一走系统正文管线 */
-
-/* 1) 所有数学 SVG 文本强制使用系统正文字体 + 正常字重 */
-.MathJax_SVG text {
-  font-family: "Segoe UI", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 400 !important;
-}
-
-/* 2) 行内数学容器基线微调 */
-svg.MathJax { vertical-align: -0.15em; }
+/* ====== MathJax 3 数学字重（CHTML 模式）======
+ * 已切到 tex-chtml-full.js：数学是真正的 HTML 文字（用 MathJax webfont），
+ * 因此 CSS font-weight 真正生效——这是唯一能让数学变细的可靠方式
+ * （SVG 模式字形是矢量路径，font-weight / fontCache / 换字体均无效）。
+ * 默认 MathJax webfont 在 400 下显得比 Segoe UI 正文粗，故强制 300 细字重。 */
+mjx-container { font-weight: 300 !important; }
+.mjx-chtml { font-weight: 300 !important; }
+/* TikZ 图（由 TikZJax 渲染成 SVG，黑色线条，放白底容器居中） */
 
 /* TikZ 图（由 TikZJax 渲染成 SVG，黑色线条，放白底容器居中） */
 .tikz-block { margin: 12px 0; text-align: center; overflow-x: auto; }
@@ -407,6 +433,13 @@ mark {
     page-break-after: always; break-after: page; page-break-inside: avoid; }
   .paper-q:last-child { page-break-after: auto; break-after: auto; }
   .paper-sol { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* 画图格纸：打印时放大到接近页面宽度，方便学生作图 */
+  .paper-grid img { max-width: 100% !important; width: 460px !important; }
+  .paper-grid-small img { max-width: 100% !important; width: 300px !important; }
+  /* 打印时表格边框用深色、字号略缩，保证清晰可读 */
+  .md-table { font-size: 11px; }
+  .md-table th, .md-table td { border-color: #999 !important; padding: 4px 8px; }
+  .md-table th { background: #eef2f7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .no-print, .paper-hint { display: none !important; }
 }
 

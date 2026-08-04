@@ -122,8 +122,13 @@
     // 5) 轻量 markdown
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
-    // 6) 分段（空行分隔）
-    const blocks = s.split(/\n{2,}/).map(b => `<p>${b.replace(/\n/g, "<br>")}</p>`);
+    // 5.5) markdown 表格：识别含分隔行（|---|---|）的连续表格块
+    s = mdTable(s);
+    // 6) 分段（空行分隔）；表格块（以 <table 开头）不包 <p>
+    const blocks = s.split(/\n{2,}/).map(b => {
+      if (/^\s*<table[\s>]/.test(b)) return b;
+      return `<p>${b.replace(/\n/g, "<br>")}</p>`;
+    });
     s = blocks.join("");
     // 6.5) 关键词高亮：先把数学区/ TikZ 占位符临时换成不会被匹配的保护符，
     //      高亮结束再还原，避免关键词“MATH/TIKZ/数字”误伤占位符导致数学/配图无法还原。
@@ -150,6 +155,58 @@
     return s;
   }
 
+  /* markdown 表格解析（GFM 风格：表头行 + 分隔行 + 数据行；支持省略首尾 | 与列对齐 :-- / :--: / --:）
+     单元格内文本已是转义后的 HTML，含数学占位符 \u0001MATHx\u0001（后续步骤会还原），$...$ 在表格里同样可用。 */
+  function mdTable(src) {
+    const lines = src.split("\n");
+    const out = [];
+    let i = 0;
+    while (i < lines.length) {
+      const t = collectTable(lines, i);
+      if (t) { out.push(t.html); i = t.end; continue; }
+      out.push(lines[i]); i++;
+    }
+    return out.join("\n");
+  }
+  function collectTable(lines, start) {
+    if (start + 1 >= lines.length) return null;
+    const header = lines[start], sep = lines[start + 1];
+    if (!header.includes("|") || !isSepRow(sep)) return null;
+    const rows = [header, sep];
+    let j = start + 2;
+    while (j < lines.length && lines[j].includes("|") && lines[j].trim() !== "") { rows.push(lines[j]); j++; }
+    return { html: buildTable(rows), end: j };
+  }
+  function isSepRow(line) {
+    let t = line.trim();
+    if (t.includes("|")) { if (t.startsWith("|")) t = t.slice(1); if (t.endsWith("|")) t = t.slice(0, -1); }
+    const cells = t.split("|").map(c => c.trim());
+    return cells.length > 0 && cells.every(c => /^:?-+:?$/.test(c));
+  }
+  function splitCells(line) {
+    let t = line.trim();
+    if (t.startsWith("|")) t = t.slice(1);
+    if (t.endsWith("|")) t = t.slice(0, -1);
+    return t.split("|").map(c => c.trim());
+  }
+  function buildTable(rows) {
+    const header = splitCells(rows[0]);
+    const aligns = splitCells(rows[1]).map(c => {
+      const l = c.startsWith(":"), r = c.endsWith(":");
+      return l && r ? "center" : r ? "right" : l ? "left" : "";
+    });
+    let h = '<table class="md-table"><thead><tr>';
+    header.forEach((c, k) => { h += `<th${aligns[k] ? ` style="text-align:${aligns[k]}"` : ""}>${c}</th>`; });
+    h += "</tr></thead><tbody>";
+    for (let r = 2; r < rows.length; r++) {
+      const cells = splitCells(rows[r]);
+      h += "<tr>";
+      header.forEach((_, k) => { h += `<td${aligns[k] ? ` style="text-align:${aligns[k]}"` : ""}>${cells[k] !== undefined ? cells[k] : ""}</td>`; });
+      h += "</tr>";
+    }
+    return h + "</tbody></table>";
+  }
+
   /* 属性值转义（用于 <img src alt> 等，防止 " 破坏属性或注入） */
   function escapeAttr(s) {
     return String(s || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -158,7 +215,6 @@
   let _typesetQueue = Promise.resolve();
   function typeset(el, cb) {
     if (!window.MathJax || !window.MathJax.typesetPromise) {
-      // MathJax 尚未加载完成，稍后重试
       setTimeout(() => typeset(el, cb), 300); return;
     }
     _typesetQueue = _typesetQueue.then(() =>
@@ -541,11 +597,19 @@
     pager.innerHTML = html;
   }
 
+  // figure 兼容：单字符串 或 字符串数组（S1 一道题可挂多张配图）
+  function figureHtml(fig, cls) {
+    if (!fig) return "";
+    const arr = Array.isArray(fig) ? fig.filter(Boolean) : [fig];
+    if (!arr.length) return "";
+    const imgs = arr.map(p => `<img src="${p}" alt="配图" class="zoom-img" />`).join("");
+    return `<div class="${cls}">${imgs}</div>`;
+  }
+
   function cardHtml(q) {
     const inBasket = state.basket.includes(q.id);
     const checked = state.selected.includes(q.id);
-    const figHtml = q.figure
-      ? `<div class="q-fig"><img src="${q.figure}" alt="配图" /></div>` : "";
+    const figHtml = figureHtml(q.figure, "q-fig");
     const tags = (q.topics || []).map(t => highlightHtml(`<span class="tag">#${escapeHtml(t)}</span>`, state.search)).join("");
     const kw = state.search;
     return `<div class="q-card ${checked ? "selected" : ""}" data-id="${q.id}">
@@ -742,36 +806,37 @@
   }
 
   /* ---------- 试卷生成 ---------- */
-  function generatePaper() {
-    if (!state.basket.length) { toast("组卷篮为空"); return; }
-    const inc = $("#incSolution").checked;
-    const title = $("#paperTitle").value.trim() || "数学练习卷";
-    const all = Store.all();
-    const qs = state.basket.map(id => all.find(x => x.id === id)).filter(Boolean);
+  // 纯渲染：把 qs 渲染成试卷并打开预览（组卷篮 / 随机组卷共用）
+  function renderPaper(qs, opts) {
+    opts = opts || {};
+    const inc = !!opts.incSolution;
+    const incSrc = !!opts.incSource;
+    const title = opts.title || "数学练习卷";
+    const boards = opts.boards || [...new Set(qs.map(q => q.board + " " + q.subject))].join(" / ");
     const totalMarks = qs.reduce((s, q) => s + (Number(q.marks) || 0), 0);
-    const boards = [...new Set(qs.map(q => q.board + " " + q.subject))].join(" / ");
 
     let html = `<div class="paper-view">`;
 
     qs.forEach((q, i) => {
       const isFirst = i === 0;
-      const isLast = i === qs.length - 1;
+      const srcText = q.examRef ? q.examRef.label : (q.source || "");
       html += `<div class="paper-q">
         ${isFirst ? `<div class="paper-head">
           <h1>${escapeHtml(title)}</h1>
-          <div class="pmeta">${boards} &nbsp;|&nbsp; 共 ${qs.length} 题 &nbsp;|&nbsp; 满分 ${totalMarks} marks
-            &nbsp;|&nbsp; ${inc ? "教师版（含解析）" : "学生版"}</div>
+          <div class="pmeta">${escapeHtml(boards)} &nbsp;|&nbsp; 共 ${qs.length} 题 &nbsp;|&nbsp; 满分 ${totalMarks} marks
+            &nbsp;|&nbsp; ${inc ? "教师版（含解析）" : "学生版"}${incSrc ? " · 含来源" : ""}</div>
           <div class="pmeta" style="margin-top:6px">姓名 Name: ____________ &nbsp;&nbsp; 日期 Date: ____________</div>
         </div>` : ""}
         <div class="paper-qbody">
           <div class="paper-qline">
             <span class="pq-num">${i + 1}.</span>
             <span class="mathrender pq-stem">${mdToHtml(q.stem, state.search)}</span>
-            <span class="pq-marks">${(() => {
-            return `[${q.marks || "—"} marks]`;
-            })()}</span>
+            <span class="pq-marks">[${q.marks || "—"} marks]</span>
           </div>
-          ${q.figure ? `<div class="pq-fig"><img src="${q.figure}" alt="配图"></div>` : ""}
+          ${incSrc && srcText ? `<div class="paper-src">${escapeHtml(srcText)}</div>` : ""}
+          ${figureHtml(q.figure, "pq-fig")}
+          ${q.hasGrid ? `<div class="paper-grid"><img src="data/images/grid_s1.png" alt="Graph paper grid" /></div>` : ""}
+          ${q.hasSmallGrid ? `<div class="paper-grid paper-grid-small"><img src="data/images/grid_s1_small.png" alt="Small graph paper grid" /></div>` : ""}
           ${inc
             ? `<div class="paper-sol"><div class="sl">Solution / 解析</div>
                 <div class="mathrender">${mdToHtml(q.solution || "（暂无解析）", state.search)}</div></div>`
@@ -785,6 +850,91 @@
     openOverlay("#paperOverlay");
     typeset($("#printArea"));
     renderTikz($("#printArea"));
+  }
+
+  function generatePaper() {
+    if (!state.basket.length) { toast("组卷篮为空"); return; }
+    const inc = $("#incSolution").checked;
+    const incSrc = $("#incSource").checked;
+    const title = $("#paperTitle").value.trim() || "数学练习卷";
+    const all = Store.all();
+    const qs = state.basket.map(id => all.find(x => x.id === id)).filter(Boolean);
+    renderPaper(qs, { title, incSolution: inc, incSource: incSrc });
+  }
+
+  /* ---------- 随章节随机组卷 ---------- */
+  // 官方满分：纯数 Pure（科目以 P 开头）75 分；力学/统计（M*/S*）50 分（CIE / Edexcel 同规则）
+  function officialFullMarks(subject) {
+    return /^P/i.test(subject || "") ? 75 : 50;
+  }
+  function questionsOfChapter(pool, chapter) {
+    return pool.filter(q => {
+      const ch = Array.isArray(q.chapter) ? q.chapter : [q.chapter];
+      return ch.indexOf(chapter) !== -1;
+    });
+  }
+  function generateRandomPaper(board, subject) {
+    const all = Store.all();
+    const pool = all.filter(q => q.board === board && q.subject === subject);
+    if (!pool.length) { toast(`题库中暂无 ${board} ${subject} 的题目`); return; }
+    // 章节清单：优先用预设；无预设则按题库中实际出现的章节去重
+    let chapters = (CHAPTER_PRESETS[board + "|" + subject] || []).slice();
+    if (!chapters.length) {
+      const set = new Set();
+      pool.forEach(q => (Array.isArray(q.chapter) ? q.chapter : [q.chapter]).forEach(c => c && set.add(c)));
+      chapters = [...set];
+    }
+    if (!chapters.length) { toast(`${board} ${subject} 的题目未标注章节，无法随机组卷`); return; }
+
+    const full = officialFullMarks(subject);
+    const marksOf = q => Number(q.marks) || 0;
+    const picked = [];
+    const ids = new Set();
+    let total = 0;
+    const pick = q => { picked.push(q); ids.add(q.id); total += marksOf(q); };
+
+    // 第一遍：每个章节抽 1 题（尽量不与已抽重复）
+    for (const ch of chapters) {
+      let cand = questionsOfChapter(pool, ch).filter(q => !ids.has(q.id));
+      if (!cand.length) cand = questionsOfChapter(pool, ch); // 题目不足时允许复用
+      if (!cand.length) continue;                            // 该章节无题则跳过
+      pick(cand[Math.floor(Math.random() * cand.length)]);
+    }
+    if (!picked.length) { toast(`${board} ${subject} 无可用题目`); return; }
+
+    // 第二遍：满分未满则随机重复某章节的题目补足
+    let guard = 0;
+    while (total < full && guard < 500) {
+      guard++;
+      const avail = chapters.filter(c => questionsOfChapter(pool, c).length);
+      if (!avail.length) break;
+      const ch = avail[Math.floor(Math.random() * avail.length)];
+      const cand = questionsOfChapter(pool, ch);
+      pick(cand[Math.floor(Math.random() * cand.length)]);
+    }
+
+    // 按分值从小到大排序（稳定排序，保证同分题相对顺序）
+    picked.sort((a, b) => marksOf(a) - marksOf(b));
+
+    const title = ($("#randPaperTitle").value.trim()) || `${board} ${subject} 随章节随机卷（满分 ${full}）`;
+    renderPaper(picked, { title, incSolution: $("#incSolution").checked, incSource: $("#incSource").checked, boards: `${board} ${subject}` });
+    toast(`已生成：${picked.length} 题，合计 ${total} marks（满分 ${full}）`);
+  }
+
+  function fillRandSelects() {
+    const b = $("#f_randBoard");
+    if (!b) return;
+    b.innerHTML = Object.keys(TAXONOMY).map(k => `<option value="${k}">${k}</option>`).join("");
+    b.value = state.board || "CIE";
+    const s = $("#f_randSubject");
+    s.innerHTML = TAXONOMY[b.value].subjects.map(x => `<option value="${x.code}">${x.code} — ${x.name}</option>`).join("");
+    s.value = state.subject || TAXONOMY[b.value].subjects[0].code;
+    updateRandFullMarks();
+  }
+  function updateRandFullMarks() {
+    const el = $("#randFullMarks");
+    if (!el) return;
+    el.textContent = `满分 ${officialFullMarks($("#f_randSubject").value)} marks`;
   }
 
   /* ---------- 新增/编辑 ---------- */
@@ -829,6 +979,11 @@
     $("#f_stem").value = q.stem || "";
     $("#f_solution").value = q.solution || "";
     editingFig = q.figure || "";
+    // 画图格纸选项：仅 S1 显示（S1 频数分布图/累积频数/散点图等需作图）
+    const isS1 = ($("#f_subject").value || "").toUpperCase().includes("S1");
+    $("#gridOptionRow").style.display = isS1 ? "" : "none";
+    $("#f_hasGrid").checked = !!q.hasGrid;
+    $("#f_hasSmallGrid").checked = !!q.hasSmallGrid;
     renderFigPreview();
     updatePreview();
     renderSolImgList();
@@ -838,7 +993,9 @@
   function renderFigPreview() {
     const p = $("#imgPreview");
     if (editingFig) {
-      p.innerHTML = `<img src="${editingFig}" alt="配图预览"/>
+      const arr = Array.isArray(editingFig) ? editingFig : [editingFig];
+      const imgs = arr.map(p => `<img src="${p}" alt="配图预览" style="max-width:160px;margin:4px;border:1px solid var(--border);border-radius:6px"/>`).join("");
+      p.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:6px">${imgs}</div>
         <div><button class="btn sm ghost danger" id="rmFig" style="margin-top:6px">移除配图</button></div>`;
       $("#rmFig").onclick = () => { editingFig = ""; renderFigPreview(); };
     } else p.innerHTML = "";
@@ -875,6 +1032,8 @@
       examRef: parseExamRef($("#f_source").value) || undefined,
       stem,
       figure: editingFig,
+      hasGrid: $("#f_hasGrid").checked || undefined,
+      hasSmallGrid: $("#f_hasSmallGrid").checked || undefined,
       solution: $("#f_solution").value.trim(),
       createdAt: Date.now(),
       _edited: true // 标记为用户在网页中编辑/新增的内容，Store 合并时绝不覆盖
@@ -1135,6 +1294,14 @@
   function openOverlay(sel) { $(sel).classList.add("open"); }
   function closeOverlay(sel) { $(sel).classList.remove("open"); }
 
+  /* ---------- 配图点击放大 ---------- */
+  function openLightbox(src) {
+    const lb = $("#imgLightbox");
+    if (!lb || !src) return;
+    $("#imgLightboxImg").src = src;
+    lb.classList.add("open");
+  }
+
   /* ---------- 刷新 ---------- */
   function refresh() {
     renderSidebar();
@@ -1178,19 +1345,33 @@
     $("#importFile").onchange = e => { if (e.target.files[0]) importJSON(e.target.files[0]); e.target.value = ""; };
 
     // 组卷抽屉
-    $("#btnBasket").onclick = () => { renderDrawer(); $("#drawer").classList.add("open"); };
+    $("#btnBasket").onclick = () => { renderDrawer(); fillRandSelects(); $("#drawer").classList.add("open"); };
     $("#drawerClose").onclick = () => $("#drawer").classList.remove("open");
     $("#clearBasket").onclick = () => confirmDialog("清空组卷篮？").then(ok => {
       if (!ok) return;
       state.basket = []; saveBasket(); updateBasketBadge(); renderDrawer(); renderList();
     });
     $("#genPaper").onclick = generatePaper;
+    // 随章节随机组卷
+    fillRandSelects();
+    $("#genRandomPaper").onclick = () => generateRandomPaper($("#f_randBoard").value, $("#f_randSubject").value);
+    $("#f_randBoard").onchange = e => {
+      const s = $("#f_randSubject");
+      s.innerHTML = TAXONOMY[e.target.value].subjects.map(x => `<option value="${x.code}">${x.code} — ${x.name}</option>`).join("");
+      s.value = TAXONOMY[e.target.value].subjects[0].code;
+      updateRandFullMarks();
+    };
+    $("#f_randSubject").onchange = updateRandFullMarks;
 
     // 编辑弹窗
     $("#editClose").onclick = $("#editCancel").onclick = () => closeOverlay("#editOverlay");
     $("#editSave").onclick = saveEdit;
     $("#f_board").onchange = e => { fillSubjectSelect(e.target.value); fillChapterDatalist(e.target.value, $("#f_subject").value); };
-    $("#f_subject").onchange = e => fillChapterDatalist($("#f_board").value, e.target.value);
+    $("#f_subject").onchange = e => { fillChapterDatalist($("#f_board").value, e.target.value);
+      // S1 显示画图格纸选项
+      const isS1 = (e.target.value || "").toUpperCase().includes("S1");
+      $("#gridOptionRow").style.display = isS1 ? "" : "none";
+    };
     let previewTimer;
     ["#f_stem", "#f_solution"].forEach(s => $(s).addEventListener("input", () => {
       clearTimeout(previewTimer); previewTimer = setTimeout(updatePreview, 350);
@@ -1235,6 +1416,15 @@
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") { $$(".overlay.open").forEach(o => o.classList.remove("open")); $("#drawer").classList.remove("open"); }
     });
+
+    // 配图点击放大（事件委托，重渲染后依然有效）
+    document.addEventListener("click", e => {
+      const img = e.target.closest("img.zoom-img");
+      if (img) { e.preventDefault(); openLightbox(img.getAttribute("src")); return; }
+      // 在放大层里点击图片本身也关闭
+      if (e.target && e.target.id === "imgLightboxImg") closeOverlay("#imgLightbox");
+    });
+    $("#imgLightboxClose").onclick = () => closeOverlay("#imgLightbox");
   }
 
   /* ---------- 启动 ---------- */
