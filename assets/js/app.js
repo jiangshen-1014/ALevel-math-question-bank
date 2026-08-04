@@ -1431,7 +1431,10 @@
   document.addEventListener("DOMContentLoaded", () => {
     bindEvents();
     // 先异步初始化存储层（IndexedDB 合并），再渲染；失败则降级 localStorage 仍可用
-    Store.init().then(() => refresh()).catch(err => {
+    Store.init().then(() => {
+      if (Store.remote) toast("已连接本地文件：编辑将保存到 data/store.json");
+      refresh();
+    }).catch(err => {
       console.error("题库初始化失败", err);
       try { refresh(); } catch (e2) { /* fallback 已建缓存，通常不会到这里 */ }
     });
