@@ -831,6 +831,7 @@
       paint();   // 流结束强制完整渲染（含公式排版）
       if (!acc) body.innerHTML = "<span class=\"ai-err\">（模型未返回内容）</span>";
       aiHistory.push({ role: "assistant", content: acc });
+      if (opts && typeof opts.onDone === "function") opts.onDone(acc);   // 回写题目等后续处理
     } catch (err) {
       body.innerHTML = "<span class=\"ai-err\">请求失败：" + escapeHtml(String(err && err.message ? err.message : err)) + "</span>";
       aiHistory.pop();  // 失败不计历史，便于重试
@@ -839,8 +840,33 @@
 
   function sendQuestionToAI(q) {
     openAIChat();
-    const prompt = "请详细解析以下题目：给出解题思路、关键步骤与最终答案。题目如下：\n\n" + (q.stem || "");
-    aiSend(prompt, { figure: q.figure });
+    const prompt = "请详细解析以下题目：给出解题思路、关键步骤与最终答案。只输出解析正文，不要寒暄或结尾客套话。题目如下：\n\n" + (q.stem || "");
+    aiSend(prompt, { figure: q.figure, onDone: (text) => saveAIToSolution(q, text) });
+  }
+
+  // AI 解析回写题目：原无解析直接写入；已有解析则询问是否替换
+  function saveAIToSolution(q, text) {
+    if (!text || !text.trim()) return;
+    const cur = Store.all().find(x => x.id === q.id) || q;
+    const hasExisting = cur.solution && cur.solution.trim();
+    const apply = () => {
+      const updated = Object.assign({}, cur, { solution: text, _edited: true });
+      Store.upsert(updated);
+      if (VL.active) {
+        const inView = VL.items.some(x => x.id === updated.id);
+        const stillMatches = filteredQuestions().some(x => x.id === updated.id);
+        if (inView && stillMatches) vlUpdateItem(updated);
+        else refresh();
+      } else refresh();
+      toast(hasExisting ? "已用 AI 解析替换原有解析" : "已将 AI 解析写入本题");
+    };
+    if (hasExisting) {
+      confirmDialog("本题已有解析，是否用 AI 生成的解析替换原有解析？").then(ok => {
+        if (ok) apply(); else toast("已保留原解析");
+      });
+    } else {
+      apply();
+    }
   }
 
   function aiSendCurrent() {
