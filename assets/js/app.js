@@ -775,6 +775,21 @@
     return parts;
   }
 
+  // AI 文本专用：把"单 $ 包裹、内部含多行换行(\\\\)或 LaTeX 环境(\\begin{...})"的公式升级为 $$ 显示模式。
+  // 否则 MathJax 行内模式无法渲染 array/matrix/cases/aligned 等多行环境（不显示或报错）。
+  function upgradeMathDelimiters(text) {
+    if (!text) return text;
+    const dbl = [];
+    let s = String(text).replace(/\$\$([\s\S]+?)\$\$/g, (m) => { dbl.push(m); return "\u0004DBL" + (dbl.length - 1) + "\u0004"; });
+    // 单 $ 包裹的多行公式（常由 AI 误用行内定界符）：含 \\ 换行或 \begin{...} 环境则升级为 $$ 显示模式
+    s = s.replace(/\$\s*([\s\S]+?)\s*\$/g, (m, body) => {
+      if (/\\begin\{/.test(body) || /\\\\/.test(body)) return "$$" + body + "$$";
+      return m;
+    });
+    s = s.replace(/\u0004DBL(\d+)\u0004/g, (m, i) => dbl[+i]);
+    return s;
+  }
+
   async function aiSend(userText, opts) {
     userText = (userText || "").trim();
     if (!userText) return;
@@ -794,7 +809,7 @@
     let acc = "";
     let lastPaint = 0;
     const PAINT_MS = 120;   // 节流：流式每 120ms 最多重排一次，避免高频 MathJax 全量重排卡死
-    const paint = () => { body.innerHTML = mdToHtml(acc); typeset(body); box.scrollTop = box.scrollHeight; };
+    const paint = () => { body.innerHTML = mdToHtml(upgradeMathDelimiters(acc)); typeset(body); box.scrollTop = box.scrollHeight; };
     try {
       const url = cfg.baseUrl.replace(/\/+$/, "") + "/chat/completions";
       const msgs = (cfg.systemPrompt ? [{ role: "system", content: cfg.systemPrompt }] : []).concat(aiHistory);
@@ -847,10 +862,11 @@
   // AI 解析回写题目：原无解析直接写入；已有解析则询问是否替换
   function saveAIToSolution(q, text) {
     if (!text || !text.trim()) return;
+    const safe = upgradeMathDelimiters(text);
     const cur = Store.all().find(x => x.id === q.id) || q;
     const hasExisting = cur.solution && cur.solution.trim();
     const apply = () => {
-      const updated = Object.assign({}, cur, { solution: text, _edited: true });
+      const updated = Object.assign({}, cur, { solution: safe, _edited: true });
       Store.upsert(updated);
       if (VL.active) {
         const inView = VL.items.some(x => x.id === updated.id);
