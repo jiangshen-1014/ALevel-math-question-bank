@@ -884,7 +884,14 @@
     const incSrc = $("#incSource").checked;
     const title = $("#paperTitle").value.trim() || "数学练习卷";
     const all = Store.all();
-    const qs = state.basket.map(id => all.find(x => x.id === id)).filter(Boolean);
+    let qs = state.basket.map(id => all.find(x => x.id === id)).filter(Boolean);
+    const sortMode = $("#sortMarks").value;
+    if (sortMode) {
+      qs = qs.slice().sort((a, b) => {
+        const ma = Number(a.marks) || 0, mb = Number(b.marks) || 0;
+        return sortMode === "asc" ? ma - mb : mb - ma;
+      });
+    }
     renderPaper(qs, { title, incSolution: inc, incSource: incSrc });
   }
 
@@ -939,8 +946,9 @@
       pick(cand[Math.floor(Math.random() * cand.length)]);
     }
 
-    // 按分值从小到大排序（稳定排序，保证同分题相对顺序）
-    picked.sort((a, b) => marksOf(a) - marksOf(b));
+    // 按分值排序：选择器指定方向优先；未指定（含 asc）时保持原有「从小到大」默认
+    const sortMode = $("#sortMarks").value;
+    picked.sort((a, b) => sortMode === "desc" ? marksOf(b) - marksOf(a) : marksOf(a) - marksOf(b));
 
     const title = ($("#randPaperTitle").value.trim()) || `${board} ${subject} 随章节随机卷（满分 ${full}）`;
     renderPaper(picked, { title, incSolution: $("#incSolution").checked, incSource: $("#incSource").checked, boards: `${board} ${subject}` });

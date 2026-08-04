@@ -116,7 +116,13 @@
         <div class="hint" style="margin:0">在每题下标注真题出处（如 2024 May/June · Paper 32 Q1）</div>
       </div>
     </div>
-    <label class="fld" style="margin-top:4px">试卷标题</label>
+    <label class="fld" style="margin-top:12px">题目排序</label>
+    <select id="sortMarks" class="mini" style="width:100%">
+      <option value="">不排序（保持加入顺序）</option>
+      <option value="asc">按分值升序（小 → 大）</option>
+      <option value="desc">按分值降序（大 → 小）</option>
+    </select>
+    <label class="fld" style="margin-top:12px">试卷标题</label>
     <input type="text" id="paperTitle" placeholder="例：CIE P1 单元测验" />
     <div style="display:flex;gap:8px;margin-top:12px">
       <button class="btn" id="clearBasket" style="flex:0 0 auto">清空</button>
