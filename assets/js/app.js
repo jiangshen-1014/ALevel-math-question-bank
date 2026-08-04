@@ -878,6 +878,14 @@
     renderTikz($("#printArea"));
   }
 
+  // 真题年份（用于按年份排序）；回退：解析 id 中的两位年份（如 cie_p3_20FM32 → 2020）
+  function yearOf(q) {
+    const y = q.examRef && q.examRef.year;
+    if (y) return Number(y) || 0;
+    const m = String(q.id || q.source || "").match(/_?(\d{2})(?:[A-Z]{2}\d{2})?_/);
+    return m ? 2000 + Number(m[1]) : 0;
+  }
+
   function generatePaper() {
     if (!state.basket.length) { toast("组卷篮为空"); return; }
     const inc = $("#incSolution").checked;
@@ -888,6 +896,7 @@
     const sortMode = $("#sortMarks").value;
     if (sortMode) {
       qs = qs.slice().sort((a, b) => {
+        if (sortMode === "year") return yearOf(a) - yearOf(b);
         const ma = Number(a.marks) || 0, mb = Number(b.marks) || 0;
         return sortMode === "asc" ? ma - mb : mb - ma;
       });
@@ -946,9 +955,13 @@
       pick(cand[Math.floor(Math.random() * cand.length)]);
     }
 
-    // 按分值排序：选择器指定方向优先；未指定（含 asc）时保持原有「从小到大」默认
+    // 排序：按年份排序优先；否则按分值（选择器指定降序用降序，其余保持原有「从小到大」默认）
     const sortMode = $("#sortMarks").value;
-    picked.sort((a, b) => sortMode === "desc" ? marksOf(b) - marksOf(a) : marksOf(a) - marksOf(b));
+    if (sortMode === "year") {
+      picked.sort((a, b) => yearOf(a) - yearOf(b));
+    } else {
+      picked.sort((a, b) => sortMode === "desc" ? marksOf(b) - marksOf(a) : marksOf(a) - marksOf(b));
+    }
 
     const title = ($("#randPaperTitle").value.trim()) || `${board} ${subject} 随章节随机卷（满分 ${full}）`;
     renderPaper(picked, { title, incSolution: $("#incSolution").checked, incSource: $("#incSource").checked, boards: `${board} ${subject}` });
