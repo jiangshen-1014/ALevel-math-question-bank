@@ -155,6 +155,29 @@
     return s;
   }
 
+  /* 章节 / 考点等短标签 → 渲染为可含行内公式（$...$）的安全内部 HTML。
+     保留 $...$ 交给 MathJax，其余转义；关键词高亮时先保护数学占位符，
+     避免把 $...$ 内部字符（如变量名）误当成关键词包裹，破坏公式。
+     返回不含外层包裹的内部 HTML，调用方自行套 <span class="...">。 */
+  function mathInner(str, kw) {
+    if (!str) return "";
+    const math = [];
+    const MT = i => "\u0001MATH" + i + "\u0001";
+    let s = String(str)
+      .replace(/\$\$([\s\S]+?)\$\$/g, m => { math.push(m); return MT(math.length - 1); })
+      .replace(/\$(?!\s)([^$\n]+?)\$/g, m => { math.push(m); return MT(math.length - 1); });
+    s = escapeHtml(s);
+    if (kw) {
+      const saved = [];
+      const protect = m => { saved.push(m); return "\u0002" + (saved.length - 1) + "\u0002"; };
+      s = s.replace(/\u0001MATH(\d+)\u0001/g, protect);
+      s = highlightHtml(s, kw);
+      s = s.replace(/\u0002(\d+)\u0002/g, (m, i) => saved[+i]);
+    }
+    s = s.replace(/\u0001MATH(\d+)\u0001/g, (m, i) => math[+i] || "");
+    return s;
+  }
+
   /* markdown 表格解析（GFM 风格：表头行 + 分隔行 + 数据行；支持省略首尾 | 与列对齐 :-- / :--: / --:）
      单元格内文本已是转义后的 HTML，含数学占位符 \u0001MATHx\u0001（后续步骤会还原），$...$ 在表格里同样可用。 */
   function mdTable(src) {
@@ -213,12 +236,13 @@
   }
 
   let _typesetQueue = Promise.resolve();
-  function typeset(el, cb) {
+  function typeset(els, cb) {
     if (!window.MathJax || !window.MathJax.typesetPromise) {
-      setTimeout(() => typeset(el, cb), 300); return;
+      setTimeout(() => typeset(els, cb), 300); return;
     }
+    const list = Array.isArray(els) ? els.filter(Boolean) : (els ? [els] : undefined);
     _typesetQueue = _typesetQueue.then(() =>
-      window.MathJax.typesetPromise(el ? [el] : undefined)
+      window.MathJax.typesetPromise(list)
         .then(() => { if (cb) cb(); })
         .catch(e => { console.warn(e); if (cb) cb(); })
     );
@@ -477,8 +501,8 @@
   }
 
   function vlTypeset(node, i) {
-    const stem = node.querySelector(".q-stem") || node;
-    typeset(stem, () => { renderTikz(stem); vlMeasure(node, i); });
+    const parts = [node.querySelector(".q-top"), node.querySelector(".q-stem"), node.querySelector(".q-tags")].filter(Boolean);
+    typeset(parts, () => { renderTikz(node); vlMeasure(node, i); });
   }
 
   function vlRender() {
@@ -610,14 +634,14 @@
     const inBasket = state.basket.includes(q.id);
     const checked = state.selected.includes(q.id);
     const figHtml = figureHtml(q.figure, "q-fig");
-    const tags = (q.topics || []).map(t => highlightHtml(`<span class="tag">#${escapeHtml(t)}</span>`, state.search)).join("");
+    const tags = (q.topics || []).map(t => `<span class="tag">#${mathInner(t, kw)}</span>`).join("");
     const kw = state.search;
     return `<div class="q-card ${checked ? "selected" : ""}" data-id="${q.id}">
       <div class="q-top">
         <label class="q-check" title="勾选此题（可多选，再用顶部「加入组卷篮」批量加入）"><input type="checkbox" class="sel-chk" ${checked ? "checked" : ""} /><span></span></label>
         <span class="q-badge board-${q.board}">${q.board}</span>
         <span class="q-badge subj">${q.subject}</span>
-        ${(Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).map(c => highlightHtml(`<span class="q-badge chap">${escapeHtml(c)}</span>`, kw)).join("")}
+        ${(Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).map(c => `<span class="q-badge chap">${mathInner(c, kw)}</span>`).join("")}
         ${q.examRef ? highlightHtml(`<span class="q-badge exam">${escapeHtml(q.examRef.label)}</span>`, kw) : ""}
         ${diffDots(q.difficulty)}
         ${q.marks ? `<span class="marks">[${q.marks} marks]</span>` : ""}
@@ -710,7 +734,7 @@
       return `<div class="basket-item" data-id="${id}">
         <div class="bi-idx">${idx + 1}</div>
         <div class="bi-main">
-          <div class="bi-meta">${q.board} · ${q.subject} ${(Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).length ? "· " + escapeHtml((Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).join(" / ")) : ""} ${q.marks ? "· " + q.marks + "m" : ""}</div>
+          <div class="bi-meta">${q.board} · ${q.subject} ${(Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).length ? "· " + (Array.isArray(q.chapter) ? q.chapter : [q.chapter]).filter(Boolean).map(c => mathInner(c)).join(" / ") : ""} ${q.marks ? "· " + q.marks + "m" : ""}</div>
           <div class="bi-stem">${escapeHtml((q.stem || "").replace(/\$|\*|\\/g, "").slice(0, 80))}</div>
         </div>
         <div class="bi-ctrl">
@@ -721,6 +745,7 @@
       </div>`;
     }).join("");
     body.innerHTML = `<div class="list-meta"><span>共 ${state.basket.length} 题</span><span>总分 ${totalMarks} marks</span></div>` + html;
+    typeset(body); renderTikz(body);
 
     $$(".basket-item", body).forEach(it => {
       const id = it.dataset.id;
