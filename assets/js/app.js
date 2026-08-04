@@ -782,18 +782,31 @@
     return parts;
   }
 
-  // AI 文本专用：把"单 $ 包裹、内部含多行换行(\\\\)或 LaTeX 环境(\\begin{...})"的公式升级为 $$ 显示模式。
-  // 否则 MathJax 行内模式无法渲染 array/matrix/cases/aligned 等多行环境（不显示或报错）。
+  // AI 文本专用：修正 AI 误用的 LaTeX 定界符。
+  // 1) 单 $ 包裹的多行公式（含 \\ 换行或 \begin{...} 环境）升级为 $$ 显示模式；
+  // 2) 完全没有 $ 包裹的裸环境（如 \begin{array}...\end{array}）自动补 $$。
+  // MathJax 行内模式无法渲染 array/matrix/cases/aligned 等多行环境（不显示或报错）。
   function upgradeMathDelimiters(text) {
     if (!text) return text;
-    const dbl = [];
-    let s = String(text).replace(/\$\$([\s\S]+?)\$\$/g, (m) => { dbl.push(m); return "\u0004DBL" + (dbl.length - 1) + "\u0004"; });
-    // 单 $ 包裹的多行公式（常由 AI 误用行内定界符）：含 \\ 换行或 \begin{...} 环境则升级为 $$ 显示模式
+    const saved = [];
+    const SAVE = m => { saved.push(m); return "\u0004MATH" + (saved.length - 1) + "\u0004"; };
+    let s = String(text);
+    // 1. 保护已有的 $$...$$
+    s = s.replace(/\$\$([\s\S]+?)\$\$/g, SAVE);
+    // 2. 保护所有单 $...$（避免裸环境正则误伤行内公式），并把需要升级的暂存为升级后的串
+    const single = [];
+    const SS = m => { single.push(m); return "\u0004SIN" + (single.length - 1) + "\u0004"; };
     s = s.replace(/\$\s*([\s\S]+?)\s*\$/g, (m, body) => {
-      if (/\\begin\{/.test(body) || /\\\\/.test(body)) return "$$" + body + "$$";
-      return m;
+      if (/\\begin\{/.test(body) || /\\\\/.test(body)) return SS("$$" + body + "$$");
+      return SS(m);
     });
-    s = s.replace(/\u0004DBL(\d+)\u0004/g, (m, i) => dbl[+i]);
+    // 3. 裸数学环境补 $$（array/matrix/cases/aligned/align/equation/gather/split/multline）
+    const nakedEnvRe = /\\begin\{(array|matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align\*|align|equation\*|equation|gather\*|gather|split|multline\*|multline)\}([\s\S]*?)\\end\{\1\}/g;
+    s = s.replace(nakedEnvRe, m => `$$${m}$$`);
+    // 4. 还原单 $（未升级的原样，已升级的已是 $$）
+    s = s.replace(/\u0004SIN(\d+)\u0004/g, (m, i) => single[+i] || "");
+    // 5. 还原原始 $$
+    s = s.replace(/\u0004MATH(\d+)\u0004/g, (m, i) => saved[+i] || "");
     return s;
   }
 
