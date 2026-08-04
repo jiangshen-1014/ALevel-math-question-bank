@@ -854,13 +854,13 @@
           <div class="pmeta" style="margin-top:6px">姓名 Name: ____________ &nbsp;&nbsp; 日期 Date: ____________</div>
         </div>` : ""}
         <div class="paper-qbody">
+          ${figureHtml(q.figure, "pq-fig")}
           <div class="paper-qline">
             <span class="pq-num">${i + 1}.</span>
             <span class="mathrender pq-stem">${mdToHtml(q.stem, state.search)}</span>
             <span class="pq-marks">[${q.marks || "—"} marks]</span>
           </div>
           ${incSrc && srcText ? `<div class="paper-src">${escapeHtml(srcText)}</div>` : ""}
-          ${figureHtml(q.figure, "pq-fig")}
           ${q.hasGrid ? `<div class="paper-grid"><img src="data/images/grid_s1.png" alt="Graph paper grid" /></div>` : ""}
           ${q.hasSmallGrid ? `<div class="paper-grid paper-grid-small"><img src="data/images/grid_s1_small.png" alt="Small graph paper grid" /></div>` : ""}
           ${inc
