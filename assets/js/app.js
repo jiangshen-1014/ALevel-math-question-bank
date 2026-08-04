@@ -792,6 +792,9 @@
     const body = bubble.querySelector(".ai-msg-body");
     const box = $("#aiMessages");
     let acc = "";
+    let lastPaint = 0;
+    const PAINT_MS = 120;   // 节流：流式每 120ms 最多重排一次，避免高频 MathJax 全量重排卡死
+    const paint = () => { body.innerHTML = mdToHtml(acc); typeset(body); box.scrollTop = box.scrollHeight; };
     try {
       const url = cfg.baseUrl.replace(/\/+$/, "") + "/chat/completions";
       const msgs = (cfg.systemPrompt ? [{ role: "system", content: cfg.systemPrompt }] : []).concat(aiHistory);
@@ -821,10 +824,11 @@
           try {
             const json = JSON.parse(data);
             const delta = json.choices && json.choices[0] && json.choices[0].delta && json.choices[0].delta.content;
-            if (delta) { acc += delta; body.innerHTML = mdToHtml(acc); typeset(body); box.scrollTop = box.scrollHeight; }
+            if (delta) { acc += delta; const now = Date.now(); if (now - lastPaint >= PAINT_MS) { lastPaint = now; paint(); } }
           } catch (e) { /* 忽略不完整片段 */ }
         }
       }
+      paint();   // 流结束强制完整渲染（含公式排版）
       if (!acc) body.innerHTML = "<span class=\"ai-err\">（模型未返回内容）</span>";
       aiHistory.push({ role: "assistant", content: acc });
     } catch (err) {
