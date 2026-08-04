@@ -95,6 +95,10 @@
     const MT = i => "\u0001MATH" + i + "\u0001";
     s = s.replace(/\$\$([\s\S]+?)\$\$/g, (m) => { math.push(m); return MT(math.length - 1); });
     s = s.replace(/\$(?!\s)([^$\n]+?)\$/g, (m) => { math.push(m); return MT(math.length - 1); });
+    // 2.1) 保护 LaTeX 原生命令定界符 \[...\]（显示）与 \(...\)（行内），MathJax 已启用二者；
+    //      不保护则内部 \\ 换行会被文本步骤破坏、定界符被当普通文本
+    s = s.replace(/\\\[([\s\S]+?)\\\]/g, (m) => { math.push(m); return MT(math.length - 1); });
+    s = s.replace(/\\\(([\s\S]+?)\\\)/g, (m) => { math.push(m); return MT(math.length - 1); });
     // 2.5) 抽取图片 markdown ![alt](src)，避免被转义 / 关键词高亮 / 数学逻辑破坏
     //      src 可为 data: 数据 URI（网页上传的配图）或 data/images/xxx.png 路径（种子入库图）
     const imgs = [];
@@ -172,7 +176,9 @@
     const MT = i => "\u0001MATH" + i + "\u0001";
     let s = String(str)
       .replace(/\$\$([\s\S]+?)\$\$/g, m => { math.push(m); return MT(math.length - 1); })
-      .replace(/\$(?!\s)([^$\n]+?)\$/g, m => { math.push(m); return MT(math.length - 1); });
+      .replace(/\$(?!\s)([^$\n]+?)\$/g, m => { math.push(m); return MT(math.length - 1); })
+      .replace(/\\\[([\s\S]+?)\\\]/g, m => { math.push(m); return MT(math.length - 1); })
+      .replace(/\\\(([\s\S]+?)\\\)/g, m => { math.push(m); return MT(math.length - 1); });
     s = escapeHtml(s);
     if (kw) {
       const saved = [];
