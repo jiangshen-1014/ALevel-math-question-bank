@@ -122,13 +122,20 @@
     // 5) 轻量 markdown
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    // 5.3) markdown 标题：# ~ ######（块级，单独成行 → <h1>~<h6>，前后补空行使独立成块）
+    s = s.replace(/^(#{1,6})\s*(.+?)\s*$/gm, (m, hashes, text) => {
+      const lv = hashes.length;
+      return `\n\n<h${lv}>${text}</h${lv}>\n\n`;
+    });
     // 5.5) markdown 表格：识别含分隔行（|---|---|）的连续表格块
     s = mdTable(s);
-    // 6) 分段（空行分隔）；表格块（以 <table 开头）不包 <p>
+    // 6) 分段（空行分隔）；表格块、标题块不包 <p>，空块跳过
     const blocks = s.split(/\n{2,}/).map(b => {
+      if (!b.trim()) return "";
       if (/^\s*<table[\s>]/.test(b)) return b;
+      if (/^\s*<h[1-6]>/.test(b)) return b;
       return `<p>${b.replace(/\n/g, "<br>")}</p>`;
-    });
+    }).filter(Boolean);
     s = blocks.join("");
     // 6.5) 关键词高亮：先把数学区/ TikZ 占位符临时换成不会被匹配的保护符，
     //      高亮结束再还原，避免关键词“MATH/TIKZ/数字”误伤占位符导致数学/配图无法还原。

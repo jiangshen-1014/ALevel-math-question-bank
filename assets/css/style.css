@@ -479,6 +479,19 @@ mark {
 .ai-bot .ai-msg-body { background: var(--panel-2); border: 1px solid var(--border); border-bottom-left-radius: 3px; }
 .ai-msg-body pre { white-space: pre-wrap; background: rgba(15,23,42,.06); padding: 8px; border-radius: 8px; overflow-x: auto; }
 .ai-msg-body code { font-family: Consolas, monospace; font-size: 12.5px; }
+/* markdown 标题（AI 回答 / 题目解析 / 组卷均复用 mdToHtml） */
+.ai-msg-body h1, .ai-msg-body h2, .ai-msg-body h3, .ai-msg-body h4, .ai-msg-body h5, .ai-msg-body h6,
+.q-solution h1, .q-solution h2, .q-solution h3, .q-solution h4, .q-solution h5, .q-solution h6,
+.paper-q h1, .paper-q h2, .paper-q h3, .paper-q h4, .paper-q h5, .paper-q h6,
+#f_preview h1, #f_preview h2, #f_preview h3, #f_preview h4, #f_preview h5, #f_preview h6 {
+  margin: 14px 0 8px; font-weight: 600; line-height: 1.4; color: var(--text);
+}
+.ai-msg-body h1, .q-solution h1, .paper-q h1, #f_preview h1 { font-size: 1.5em; }
+.ai-msg-body h2, .q-solution h2, .paper-q h2, #f_preview h2 { font-size: 1.3em; }
+.ai-msg-body h3, .q-solution h3, .paper-q h3, #f_preview h3 { font-size: 1.15em; }
+.ai-msg-body h4, .q-solution h4, .paper-q h4, #f_preview h4 { font-size: 1.05em; }
+.ai-msg-body h5, .q-solution h5, .paper-q h5, #f_preview h5 { font-size: 1em; }
+.ai-msg-body h6, .q-solution h6, .paper-q h6, #f_preview h6 { font-size: .92em; color: var(--text-mute); }
 .ai-think { color: var(--text-mute); font-style: italic; }
 .ai-err { color: #dc2626; font-size: 12.5px; }
 .ai-input { border-top: 1px solid var(--border); padding: 10px 12px; background: var(--panel); }
