@@ -42,6 +42,7 @@
       <button class="btn sm ghost" id="btnExport">导出</button>
       <button class="btn sm primary" id="btnAdd">＋ 新增题目</button>
       <button class="btn sm basket-btn" id="btnBasket">🧺 组卷篮 <span class="n" id="basketN" style="display:none">0</span></button>
+      <button class="btn sm basket-btn" id="btnPapers">📄 试卷库</button>
       <button class="btn sm ai-btn" id="btnAIChat" title="打开 AI 对话">🤖 AI 对话</button>
       <button class="btn sm ghost" id="btnAISettings" title="配置 AI 接口">⚙ AI 设置</button>
     </div>
@@ -130,6 +131,11 @@
     <div style="display:flex;gap:8px;margin-top:12px">
       <button class="btn" id="clearBasket" style="flex:0 0 auto">清空</button>
       <button class="btn primary" id="genPaper" style="flex:1">生成试卷</button>
+    </div>
+    <label class="fld" style="margin-top:12px">保存试卷（命名后可在「试卷库」反复调用）</label>
+    <div style="display:flex;gap:8px">
+      <input type="text" id="paperSaveName" placeholder="试卷名称，如 CIE P1 单元测验" style="flex:1" />
+      <button class="btn ghost" id="savePaper" style="flex:0 0 auto">💾 保存</button>
     </div>
     <div class="rand-paper">
       <div class="divider"><span>🎲 随章节随机组卷</span></div>
@@ -249,6 +255,20 @@
     <div class="modal-body">
       <div class="paper-hint no-print">🖨️ 打印 / 导出 PDF 时，请在浏览器的打印对话框中取消勾选「<b>页眉和页脚</b>」（Headers and footers），即可去除每页自动添加的网址 / 日期 / 页码。</div>
       <div id="printArea"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 试卷库 弹窗 -->
+<div class="overlay" id="papersOverlay">
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2>📄 试卷库</h2>
+      <button class="btn sm ghost x" id="papersClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="hint" style="margin:0 0 12px">这里列出你保存的组卷方案。可勾选「带解析 / 带来源」、选择排序方式后直接【生成预览】；或【载入组卷篮】回到组卷抽屉继续编辑再生成。</div>
+      <div id="papersList"></div>
     </div>
   </div>
 </div>

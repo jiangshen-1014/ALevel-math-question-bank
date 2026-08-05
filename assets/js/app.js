@@ -35,6 +35,15 @@
   }
   function saveBlankAfter() { localStorage.setItem("mathbank_blank_after", JSON.stringify(state.blankAfter)); }
 
+  /* ---------- 试卷库（保存的组卷方案）---------- */
+  // 一份试卷保存：题目顺序 + 每题 blankAfter + 标题 + 生成选项默认值
+  function loadPapers() {
+    try { return JSON.parse(localStorage.getItem("mathbank_papers") || "[]"); }
+    catch (e) { return []; }
+  }
+  function savePapers(arr) { localStorage.setItem("mathbank_papers", JSON.stringify(arr)); }
+  function newPaperId() { return "paper_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
   function toast(msg) {
     const t = $("#toast"); t.textContent = msg; t.classList.add("show");
     clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("show"), 2000);
@@ -1090,6 +1099,8 @@
     const title = opts.title || "数学练习卷";
     const boards = opts.boards || [...new Set(qs.map(q => q.board + " " + q.subject))].join(" / ");
     const totalMarks = qs.reduce((s, q) => s + (Number(q.marks) || 0), 0);
+    // blankAfter：优先用调用方传入的映射（从保存的试卷生成预览时），否则回退全局组卷篮设置
+    const blankMap = opts.blankAfter || state.blankAfter;
 
     let html = `<div class="paper-view">`;
 
@@ -1118,10 +1129,8 @@
             : `<div class="paper-blank"></div>`}
         </div>
       </div>`;
-      if (state.blankAfter[q.id]) {
-        html += `<div class="paper-q paper-blank-page">
-          <div class="paper-blank-page-content">空白答题页<br><span class="paper-blank-sub">Blank Page for Question ${i + 1}</span></div>
-        </div>`;
+      if (blankMap[q.id]) {
+        html += `<div class="paper-q paper-blank-page"></div>`;
       }
     });
     html += `</div>`;
@@ -1156,6 +1165,154 @@
       });
     }
     renderPaper(qs, { title, incSolution: inc, incSource: incSrc });
+  }
+
+  /* ---------- 试卷库（保存 / 调用组卷方案）---------- */
+  // 日期格式化（createdAt ISO → YYYY-MM-DD）
+  function fmtDate(iso) {
+    try {
+      const d = new Date(iso);
+      if (isNaN(d)) return "";
+      const p = n => String(n).padStart(2, "0");
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+    } catch (e) { return ""; }
+  }
+
+  // 把当前组卷篮保存为命名试卷
+  function saveCurrentPaper() {
+    if (!state.basket.length) { toast("组卷篮为空，无法保存"); return; }
+    const name = $("#paperSaveName").value.trim() || "未命名试卷";
+    const paper = {
+      id: newPaperId(),
+      name: name,
+      items: state.basket.map(id => ({ id: id, blankAfter: !!state.blankAfter[id] })),
+      title: $("#paperTitle").value.trim() || name,
+      options: {
+        incSolution: $("#incSolution").checked,
+        incSource: $("#incSource").checked,
+        sortMode: $("#sortMarks").value
+      },
+      createdAt: new Date().toISOString()
+    };
+    const list = loadPapers();
+    list.unshift(paper);
+    savePapers(list);
+    $("#paperSaveName").value = "";
+    toast(`已保存试卷：${name}`);
+    renderPapersList();
+  }
+
+  // 渲染试卷库列表
+  function renderPapersList() {
+    const wrap = $("#papersList");
+    if (!wrap) return;
+    const list = loadPapers();
+    if (!list.length) {
+      wrap.innerHTML = `<div class="empty"><div class="big">📄</div>还没有保存的试卷<br>
+        <span style="font-size:12px">在「组卷篮」里点击「💾 保存」即可把当前组卷存为试卷，随时反复调用</span></div>`;
+      return;
+    }
+    const sortOpts = v => `
+      <option value="">保持加入顺序</option>
+      <option value="asc"${v === "asc" ? " selected" : ""}>分值升序</option>
+      <option value="desc"${v === "desc" ? " selected" : ""}>分值降序</option>
+      <option value="year"${v === "year" ? " selected" : ""}>按年份排序</option>`;
+    wrap.innerHTML = list.map(p => {
+      const n = (p.items || []).length;
+      const o = p.options || {};
+      return `<div class="paper-card" data-id="${p.id}">
+        <div class="pc-head">
+          <div class="pc-name">${escapeHtml(p.name || "未命名试卷")}</div>
+          <div class="pc-meta">${n} 题 · ${fmtDate(p.createdAt)}</div>
+        </div>
+        <div class="pc-opts">
+          <label class="pc-opt"><input type="checkbox" class="pc-inc" ${o.incSolution ? "checked" : ""}/> 带解析</label>
+          <label class="pc-opt"><input type="checkbox" class="pc-src" ${o.incSource ? "checked" : ""}/> 带来源</label>
+          <select class="pc-sort mini">${sortOpts(o.sortMode)}</select>
+        </div>
+        <div class="pc-actions">
+          <button class="btn sm primary" data-act="gen">生成预览</button>
+          <button class="btn sm" data-act="load">载入组卷篮</button>
+          <button class="btn sm ghost" data-act="rename">重命名</button>
+          <button class="btn sm ghost danger" data-act="del">删除</button>
+        </div>
+      </div>`;
+    }).join("");
+
+    wrap.querySelectorAll(".paper-card").forEach(card => {
+      const id = card.dataset.id;
+      const paper = list.find(x => x.id === id);
+      if (!paper) return;
+      card.querySelector('[data-act="gen"]').onclick = () => {
+        const inc = card.querySelector(".pc-inc").checked;
+        const incSrc = card.querySelector(".pc-src").checked;
+        const sortMode = card.querySelector(".pc-sort").value;
+        const all = Store.all();
+        let qs = (paper.items || []).map(it => all.find(x => x.id === (it.id || it))).filter(Boolean);
+        if (sortMode) {
+          qs = qs.slice().sort((a, b) => {
+            if (sortMode === "year") return yearOf(a) - yearOf(b);
+            const ma = Number(a.marks) || 0, mb = Number(b.marks) || 0;
+            return sortMode === "asc" ? ma - mb : mb - ma;
+          });
+        }
+        const blankMap = {};
+        (paper.items || []).forEach(it => { if (it.blankAfter) blankMap[it.id || it] = true; });
+        const title = paper.title || paper.name || "数学练习卷";
+        renderPaper(qs, { title, incSolution: inc, incSource: incSrc, blankAfter: blankMap });
+      };
+      card.querySelector('[data-act="load"]').onclick = () => loadPaperToBasket(paper);
+      card.querySelector('[data-act="rename"]').onclick = () => {
+        const nameEl = card.querySelector(".pc-name");
+        if (!nameEl || card.querySelector(".pc-rename-input")) return; // 已在编辑中
+        const old = paper.name || "";
+        nameEl.innerHTML = `<input class="pc-rename-input" type="text" value="${escapeAttr(old)}" />
+          <span class="pc-rename-btns"><button class="btn sm primary" data-r="ok">✓</button><button class="btn sm ghost" data-r="cancel">✕</button></span>`;
+        const input = nameEl.querySelector(".pc-rename-input");
+        input.focus(); input.select();
+        const commit = () => {
+          const nm = input.value.trim();
+          if (nm) {
+            const lst = loadPapers();
+            const t = lst.find(x => x.id === id);
+            if (t) { t.name = nm; savePapers(lst); }
+            toast("已重命名");
+          }
+          renderPapersList();
+        };
+        nameEl.querySelector('[data-r="ok"]').onclick = commit;
+        nameEl.querySelector('[data-r="cancel"]').onclick = () => renderPapersList();
+        input.addEventListener("keydown", e => {
+          if (e.key === "Enter") commit();
+          else if (e.key === "Escape") renderPapersList();
+        });
+      };
+      card.querySelector('[data-act="del"]').onclick = () => {
+        confirmDialog(`确定删除试卷「${paper.name || "未命名试卷"}」？`).then(ok => {
+          if (!ok) return;
+          savePapers(loadPapers().filter(x => x.id !== id));
+          renderPapersList(); toast("已删除");
+        });
+      };
+    });
+  }
+
+  // 把保存的试卷载入组卷篮（恢复顺序 / blankAfter / 生成选项默认值），并打开组卷抽屉
+  function loadPaperToBasket(paper) {
+    state.basket = (paper.items || []).map(it => it.id || it);
+    state.blankAfter = {};
+    (paper.items || []).forEach(it => { if (it.blankAfter) state.blankAfter[it.id || it] = true; });
+    saveBasket(); saveBlankAfter(); updateBasketBadge();
+    $("#paperTitle").value = paper.title || paper.name || "";
+    $("#paperSaveName").value = paper.name || "";
+    const o = paper.options || {};
+    $("#incSolution").checked = !!o.incSolution;
+    $("#incSource").checked = !!o.incSource;
+    $("#sortMarks").value = o.sortMode || "";
+    closeOverlay("#papersOverlay");
+    renderDrawer();
+    $("#drawer").classList.add("open");
+    toast(`已载入「${paper.name || "未命名试卷"}」到组卷篮`);
   }
 
   /* ---------- 随章节随机组卷 ---------- */
@@ -1680,6 +1837,10 @@
       state.basket = []; state.blankAfter = {}; saveBasket(); saveBlankAfter(); updateBasketBadge(); renderDrawer(); renderList();
     });
     $("#genPaper").onclick = generatePaper;
+    $("#savePaper").onclick = saveCurrentPaper;
+    // 试卷库
+    $("#btnPapers").onclick = () => { renderPapersList(); openOverlay("#papersOverlay"); };
+    $("#papersClose").onclick = () => closeOverlay("#papersOverlay");
     // 随章节随机组卷
     fillRandSelects();
     $("#genRandomPaper").onclick = () => generateRandomPaper($("#f_randBoard").value, $("#f_randSubject").value);
