@@ -1472,51 +1472,59 @@
       return;
     }
 
-    // 构建树 board → subject → year → season → [entries]
+    // 构建树 board → subject → year → { _direct: [直接挂在年份下的 er/gt], _seasons: { season: [entries] } }
     const t = {};
     visible.forEach(function (e) {
-      const b = e.board || "未分类", sj = e.subject || "未分类", y = e.year || "未分类", se = e.season || "未分类";
-      t[b] = t[b] || {}; t[b][sj] = t[b][sj] || {};
-      t[b][sj][y] = t[b][sj][y] || {}; t[b][sj][y][se] = t[b][sj][y][se] || [];
-      t[b][sj][y][se].push(e);
+      const b = e.board || "未分类", sj = e.subject || "未分类", y = e.year || "未分类";
+      t[b] = t[b] || {}; t[b][sj] = t[b][sj] || {}; t[b][sj][y] = t[b][sj][y] || { _direct: [], _seasons: {} };
+      if (!e.season && (e.type === "er" || e.type === "gt")) {
+        t[b][sj][y]._direct.push(e);
+      } else {
+        const se = e.season || "未分考季";
+        t[b][sj][y]._seasons[se] = t[b][sj][y]._seasons[se] || [];
+        t[b][sj][y]._seasons[se].push(e);
+      }
     });
+
+    function fileRow(e) {
+      const typeBadge = e.type === "ms"
+        ? '<span class="badge b-ms">官方 MS</span>'
+        : e.type === "er"
+        ? '<span class="badge b-er">Exam report</span>'
+        : e.type === "gt"
+        ? '<span class="badge b-gt">Grade threshold</span>'
+        : '<span class="badge b-paper">原卷</span>';
+      const srcBadge = e.source === "folder"
+        ? '<span class="badge b-folder">📁 文件夹</span>'
+        : '<span class="badge b-lib">💾 本地</span>';
+      const delBtn = e.source === "lib"
+        ? '<button class="btn sm ghost" data-act="del" data-id="' + _esc(e.id) + '">删除</button>'
+        : "";
+      return '<div class="lib-file" data-id="' + _esc(e.id) + '" data-source="' + e.source + '">'
+        + '<span class="lib-ico">📄</span>'
+        + '<span class="lib-name" title="' + _esc(e.name) + '">' + _esc(e.name) + "</span>"
+        + typeBadge + srcBadge
+        + (e.size ? '<span class="lib-size">' + fmtSize(e.size) + "</span>" : "")
+        + '<span class="lib-actions">'
+        + '<button class="btn sm" data-act="open" data-id="' + _esc(e.id) + '">打开</button>'
+        + delBtn
+        + "</span></div>";
+    }
 
     let html = "";
     Object.keys(t).sort().forEach(function (b) {
       let boardCount = 0;
-      Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { Object.keys(t[b][sj][y]).forEach(function (se) { boardCount += t[b][sj][y][se].length; }); }); });
+      Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { boardCount += t[b][sj][y]._direct.length + Object.keys(t[b][sj][y]._seasons).reduce(function (sum, se) { return sum + t[b][sj][y]._seasons[se].length; }, 0); }); });
       html += '<details class="lib-node" open><summary><span class="ln-ico">📁</span><b>' + _esc(b) + '</b> <span class="ln-count">' + boardCount + "</span></summary>";
       Object.keys(t[b]).sort().forEach(function (sj) {
         html += '<details class="lib-node" open><summary><span class="ln-ico">📂</span>' + _esc(sj) + "</summary>";
         Object.keys(t[b][sj]).sort().forEach(function (y) {
           html += '<details class="lib-node" open><summary>' + _esc(y) + "</summary>";
-          Object.keys(t[b][sj][y]).sort().forEach(function (se) {
+          t[b][sj][y]._direct.forEach(function (e) { html += fileRow(e); });
+          Object.keys(t[b][sj][y]._seasons).sort().forEach(function (se) {
             const seLabel = libSeasonLabel(se) || se;
             html += '<details class="lib-node" open><summary>' + (seLabel ? _esc(seLabel) : "未分考季") + "</summary>";
-            t[b][sj][y][se].forEach(function (e) {
-              const typeBadge = e.type === "ms"
-                ? '<span class="badge b-ms">官方 MS</span>'
-                : e.type === "er"
-                ? '<span class="badge b-er">Exam report</span>'
-                : e.type === "gt"
-                ? '<span class="badge b-gt">Grade threshold</span>'
-                : '<span class="badge b-paper">原卷</span>';
-              const srcBadge = e.source === "folder"
-                ? '<span class="badge b-folder">📁 文件夹</span>'
-                : '<span class="badge b-lib">💾 本地</span>';
-              const delBtn = e.source === "lib"
-                ? '<button class="btn sm ghost" data-act="del" data-id="' + _esc(e.id) + '">删除</button>'
-                : "";
-              html += '<div class="lib-file" data-id="' + _esc(e.id) + '" data-source="' + e.source + '">'
-                + '<span class="lib-ico">📄</span>'
-                + '<span class="lib-name" title="' + _esc(e.name) + '">' + _esc(e.name) + "</span>"
-                + typeBadge + srcBadge
-                + (e.size ? '<span class="lib-size">' + fmtSize(e.size) + "</span>" : "")
-                + '<span class="lib-actions">'
-                + '<button class="btn sm" data-act="open" data-id="' + _esc(e.id) + '">打开</button>'
-                + delBtn
-                + "</span></div>";
-            });
+            t[b][sj][y]._seasons[se].forEach(function (e) { html += fileRow(e); });
             html += "</details>";
           });
           html += "</details>";

@@ -64,10 +64,17 @@ function scanPapersDir(rootDir) {
     let type = typeFromParent(segs);
     if (!type) type = classify(name);
     if (segs.length === 4) {
-      const letter = (name.match(/_([msw])\d{2}_/i) || [, ''])[1];
-      season = SEASON_FROM_LETTER[(letter || '').toLowerCase()] || '';
-      if (/_er$/i.test(name)) type = 'er';
-      else if (/_gt$/i.test(name)) type = 'gt';
+      // er / gt 直接放在年份目录，不属于某个具体考季，season 留空
+      if (/_er$/i.test(name)) {
+        type = 'er';
+        season = '';
+      } else if (/_gt$/i.test(name)) {
+        type = 'gt';
+        season = '';
+      } else {
+        const letter = (name.match(/_([msw])\d{2}_/i) || [, ''])[1];
+        season = SEASON_FROM_LETTER[(letter || '').toLowerCase()] || '';
+      }
     }
     out.push({
       id: 'folder:' + rel,
