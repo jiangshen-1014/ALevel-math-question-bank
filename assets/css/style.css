@@ -357,12 +357,14 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 
 /* ---------- 资料库 ---------- */
 .lib-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; }
-.lib-toolbar .search { min-width: 160px; }
+.lib-toolbar .search { flex: 1; min-width: 160px; position: relative; }
+.lib-toolbar .search input { width: 100%; padding-left: 32px; }
+.lib-toolbar .search .ico { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-mute); }
 .lib-tree { margin-top: 6px; max-height: 62vh; overflow: auto; border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; background: var(--bg-card, #fff); }
 .lib-node { margin: 2px 0; }
 .lib-node > summary {
   cursor: pointer; list-style: none; padding: 5px 6px; border-radius: 6px;
-  font-size: 14px; color: var(--text); user-select: none; position: sticky; top: 0; background: inherit;
+  font-size: 14px; color: var(--text); user-select: none;
 }
 .lib-node > summary::-webkit-details-marker { display: none; }
 .lib-node > summary::before { content: "▸"; display: inline-block; width: 16px; color: var(--text-mute); transition: transform .12s; }
