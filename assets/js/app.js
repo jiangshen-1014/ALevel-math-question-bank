@@ -90,6 +90,8 @@
     //   b) 裸 tikzpicture（可带前置 \usetikzlibrary / \tikzset 行）
     s = s.replace(/(?:\\usetikzlibrary\s*\{[^}]*\}\s*|\\tikzset\s*\{[\s\S]*?\}\s*)*\\begin\{tikzpicture\}[\s\S]*?\\end\{tikzpicture\}/g,
       (m) => { tikz.push(m); return TOK(tikz.length - 1); });
+    // 1.5) 先归一化嵌套数学定界符（如 \[ $$...$$ \] 套在一起），否则多重定界符会让 MathJax 渲染失败
+    s = collapseNestedMath(s);
     // 2) 保护 $...$ / $$...$$ 数学区，避免其中的反斜杠命令被当成文本排版指令处理
     const math = [];
     const MT = i => "\u0001MATH" + i + "\u0001";
@@ -792,11 +794,26 @@
   // 1) 单 $ 包裹的多行公式（含 \\ 换行或 \begin{...} 环境）升级为 $$ 显示模式；
   // 2) 完全没有 $ 包裹的裸环境（如 \begin{array}...\end{array}）自动补 $$。
   // MathJax 行内模式无法渲染 array/matrix/cases/aligned 等多行环境（不显示或报错）。
+  // 归一化嵌套的数学定界符：AI 常把 \[ 与 $$...$$ 套在一起（如 \[$$\begin{aligned}...\end{aligned}$$\]），
+  // 导致 MathJax 在显示公式内又遇 $$ 而渲染失败。这里把多重定界符折叠成单一整套。
+  function collapseNestedMath(text) {
+    let s = String(text);
+    // \[ $$...$$ \] → $$...$$（去外层 \[ \]）
+    s = s.replace(/\\\[\s*(\$\$[\s\S]*?\$\$)\s*\\\]/g, "$1");
+    // $$ \[...\] $$ → \[...\]（去外层 $$ $$）
+    s = s.replace(/\$\$\s*(\\\[[\s\S]*?\\\])\s*\$\$/g, "$1");
+    // \[ $...$ \] → $$...$$（内部行内 $ 提升为显示模式，MathJax 行内不允许多行环境）
+    s = s.replace(/\\\[\s*(\$[^$\n]+?\$)\s*\\\]/g, (m, inner) => "$$" + inner.slice(1, -1) + "$$");
+    return s;
+  }
+
   function upgradeMathDelimiters(text) {
     if (!text) return text;
     const saved = [];
     const SAVE = m => { saved.push(m); return "\u0004MATH" + (saved.length - 1) + "\u0004"; };
     let s = String(text);
+    // 0. 先归一化嵌套定界符（必须在保护 $$ 之前，否则外层 \[ \] 残留导致渲染失败）
+    s = collapseNestedMath(s);
     // 1. 保护已有的 $$...$$
     s = s.replace(/\$\$([\s\S]+?)\$\$/g, SAVE);
     // 2. 保护所有单 $...$（避免裸环境正则误伤行内公式），并把需要升级的暂存为升级后的串
