@@ -75,6 +75,7 @@ const MIME = {
   '.jpg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.pdf': 'application/pdf',
 };
 function sendFile(res, filePath) {
   fs.readFile(filePath, (err, buf) => {
