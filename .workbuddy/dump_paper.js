@@ -1,0 +1,22 @@
+const fs = require("fs"), vm = require("vm");
+let code = fs.readFileSync("assets/js/data.js", "utf8");
+code += "\n;globalThis.__SEED=SEED_QUESTIONS;";
+const s = { console, setTimeout, clearTimeout, window: {}, document: { getElementById: () => null, querySelector: () => null, addEventListener: () => {} }, localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} }, indexedDB: { open: () => ({}) } };
+s.window = s; s.self = s; s.globalThis = s; vm.createContext(s);
+vm.runInContext(code, s, { filename: "data.js" });
+const SEED = s.__SEED;
+const prefix = process.argv[2];
+const qs = SEED.filter(q => q && q.id && q.id.includes(prefix)).sort((a,b)=>a.id.localeCompare(b.id));
+let out = "";
+qs.forEach(q => {
+  out += `\n========== ${q.id} ==========\n`;
+  out += `chapter: ${JSON.stringify(q.chapter)}\n`;
+  out += `marks: ${q.marks}\n`;
+  out += `examRef: ${JSON.stringify(q.examRef)}\n`;
+  out += `figure: ${JSON.stringify(q.figure)}\n`;
+  out += `source: ${q.source}\n`;
+  out += `stem:\n${q.stem}\n`;
+  out += `--- solution existing ---\n${q.solution || "(empty)"}\n`;
+});
+fs.writeFileSync(`.workbuddy/dump_${prefix}.txt`, out);
+console.log(`dumped ${qs.length} questions to .workbuddy/dump_${prefix}.txt`);

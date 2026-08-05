@@ -1,0 +1,144 @@
+
+========== cie_p3_23FM32_q1 ==========
+chapter: ["Logarithmic and exponential functions"]
+marks: 3
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":1,"code":"32","label":"2023 Feb/March · Paper 32 Q1"}
+figure: ""
+source: 23_FM_32_1
+stem:
+It is given that $x=\ln(2y-3)-\ln(y+4)$.
+Express $y$ in terms of $x$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q10 ==========
+chapter: ["Vectors"]
+marks: 9
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":10,"code":"32","label":"2023 Feb/March · Paper 32 Q10"}
+figure: ""
+source: 23_FM_32_10
+stem:
+With respect to the origin $O$, the points $A$, $B$, $C$ and $D$ have position vectors given by
+$\overrightarrow{OA}=\begin{pmatrix}3\\-1\\2\end{pmatrix}$, $\overrightarrow{OB}=\begin{pmatrix}1\\2\\-3\end{pmatrix}$, $\overrightarrow{OC}=\begin{pmatrix}1\\-2\\5\end{pmatrix}$ and $\overrightarrow{OD}=\begin{pmatrix}5\\-6\\11\end{pmatrix}$.
+(a) Find the obtuse angle between the vectors $\overrightarrow{OA}$ and $\overrightarrow{OB}$.\hfill (3)
+(b) The line $l$ passes through the points $A$ and $B$. Find a vector equation for the line $l$.\hfill (2)
+(c) Find the position vector of the point of intersection of the line $l$ and the line passing through $C$ and $D$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q11 ==========
+chapter: ["Algebra (partial fractions and binomial expansions)"]
+marks: 10
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":11,"code":"32","label":"2023 Feb/March · Paper 32 Q11"}
+figure: ""
+source: 23_FM_32_11
+stem:
+Let $f(x)=\dfrac{5x^2+x+11}{(4+x^2)(1+x)}$.
+(a) Express $f(x)$ in partial fractions.\hfill (5)
+(b) Hence show that $\displaystyle\int_0^2 f(x)\mathrm{d}x=\ln 54-\dfrac{1}{8}\pi$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q2 ==========
+chapter: ["Complex numbers"]
+marks: 5
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":2,"code":"32","label":"2023 Feb/March · Paper 32 Q2"}
+figure: ""
+source: 23_FM_32_2
+stem:
+(a) On an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $-\dfrac{1}{3}\pi\leq\arg(z-1-2\mathrm{i})\leq\dfrac{1}{3}\pi$ and $\mathrm{Re}\,z\leq 3$.\hfill (3)
+(b) Calculate the least value of $\arg z$ for points in the region from (a). Give your answer in radians correct to 3 decimal places.\hfill (2)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q3 ==========
+chapter: ["Algebra (factor theorem and remainder theorem)"]
+marks: 5
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":3,"code":"32","label":"2023 Feb/March · Paper 32 Q3"}
+figure: ""
+source: 23_FM_32_3
+stem:
+The polynomial $2x^4+ax^3+bx-1$, where $a$ and $b$ are constants, is denoted by $\mathrm{p}(x)$. When $\mathrm{p}(x)$ is divided by $x^2-x+1$ the remainder is $3x+2$.
+Find the values of $a$ and $b$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q4 ==========
+chapter: ["Complex numbers"]
+marks: 5
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":4,"code":"32","label":"2023 Feb/March · Paper 32 Q4"}
+figure: ""
+source: 23_FM_32_4
+stem:
+Solve the equation
+$\dfrac{5z}{1+2\mathrm{i}}-zz^*+30+10\mathrm{i}=0$,
+giving your answers in the form $x+\mathrm{i}y$, where $x$ and $y$ are real.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q5 ==========
+chapter: ["Differentiation"]
+marks: 6
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":5,"code":"32","label":"2023 Feb/March · Paper 32 Q5"}
+figure: ""
+source: 23_FM_32_5
+stem:
+The parametric equations of a curve are
+$x=te^{2t}$, $y=t^2+t+3$.
+(a) Show that $\dfrac{\mathrm{d}y}{\mathrm{d}x}=e^{-2t}$.\hfill (3)
+(b) Hence show that the normal to the curve, where $t=-1$, passes through the point $\left(0, 3-\dfrac{1}{e^4}\right)$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q6 ==========
+chapter: ["Trigonometry"]
+marks: 7
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":6,"code":"32","label":"2023 Feb/March · Paper 32 Q6"}
+figure: ""
+source: 23_FM_32_6
+stem:
+(a) Express $5\sin\theta+12\cos\theta$ in the form $R\cos(\theta-\alpha)$, where $R>0$ and $0<\alpha<\dfrac{1}{2}\pi$.\hfill (3)
+(b) Hence solve the equation $5\sin 2x+12\cos 2x=6$ for $0\leq x\leq\pi$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q7 ==========
+chapter: ["Numerical solution of equations"]
+marks: 9
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":7,"code":"32","label":"2023 Feb/March · Paper 32 Q7"}
+figure: "data/images/23_FM_32_7.png"
+source: 23_FM_32_7
+stem:
+The diagram shows a circle with centre $O$ and radius $r$. The angle of the minor sector $AOB$ of the circle is $x$ radians. The area of the major sector of the circle is 3 times the area of the shaded region.
+(a) Show that $x=\dfrac{3}{4}\sin x+\dfrac{1}{2}\pi$.\hfill (4)
+(b) Show by calculation that the root of the equation in (a) lies between $2$ and $2.5$.\hfill (2)
+(c) Use an iterative formula based on the equation in (a) to calculate this root correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q8 ==========
+chapter: ["Differentiation","Integration"]
+marks: 9
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":8,"code":"32","label":"2023 Feb/March · Paper 32 Q8"}
+figure: "data/images/23_FM_32_8.png"
+source: 23_FM_32_8
+stem:
+The diagram shows the curve $y=x^3\ln x$, for $x>0$, and its minimum point $M$.
+(a) Find the exact coordinates of $M$.\hfill (4)
+(b) Find the exact area of the shaded region bounded by the curve, the $x$-axis and the line $x=\dfrac{1}{2}$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23FM32_q9 ==========
+chapter: ["Differential equations"]
+marks: 7
+examRef: {"year":2023,"month":"Feb/March","paper":"32","qno":9,"code":"32","label":"2023 Feb/March · Paper 32 Q9"}
+figure: ""
+source: 23_FM_32_9
+stem:
+The variables $x$ and $y$ satisfy the differential equation
+$\dfrac{\mathrm{d}y}{\mathrm{d}x}=e^{3y}\sin^2 2x$.
+It is given that $y=0$ when $x=0$.
+Solve the differential equation and find the value of $y$ when $x=\dfrac{1}{2}$.\hfill (7)
+--- solution existing ---
+(empty)

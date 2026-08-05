@@ -1,0 +1,130 @@
+
+========== cie_p3_24MJ32_q1 ==========
+chapter: ["Algebra (modulus functions)"]
+marks: 3
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":1,"code":"32","label":"2024 May/June · Paper 32 Q1"}
+figure: ""
+source: 24_MJ_32_1
+stem:
+(a) Sketch the graph of $y = |x - 2a|$, where $a$ is a positive constant.\hfill (1)
+(b) Solve the inequality $2x - 3a < |x - 2a|$.\hfill (2)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q10 ==========
+chapter: ["Differential equations"]
+marks: 10
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":10,"code":"32","label":"2024 May/June · Paper 32 Q10"}
+figure: ""
+source: 24_MJ_32_10
+stem:
+(a) By writing $y = \sec^{3}\theta$ as $\dfrac{1}{\cos^{3}\theta}$, show that $\dfrac{\mathrm{d}y}{\mathrm{d}\theta} = 3\sin\theta\sec^{4}\theta$.\hfill (2)
+(b) The variables $x$ and $\theta$ satisfy the differential equation $(x^{2} + 9)\sin\theta\dfrac{\mathrm{d}\theta}{\mathrm{d}x} = (x + 3)\cos^{4}\theta$.
+It is given that $x = 3$ when $\theta = \dfrac{1}{3}\pi$.
+Solve the differential equation to find the value of $\cos\theta$ when $x = 0$. Give your answer correct to 3 significant figures.\hfill (8)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q2 ==========
+chapter: ["Algebra (partial fractions and binomial expansions)"]
+marks: 5
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":2,"code":"32","label":"2024 May/June · Paper 32 Q2"}
+figure: ""
+source: 24_MJ_32_2
+stem:
+Express $\dfrac{6x^{2} - 9x - 16}{2x^{2} - 5x - 12}$ in partial fractions.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q3 ==========
+chapter: ["Logarithmic and exponential functions"]
+marks: 5
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":3,"code":"32","label":"2024 May/June · Paper 32 Q3"}
+figure: ""
+source: 24_MJ_32_3
+stem:
+The variables $x$ and $y$ satisfy the equation $a^{2y-1} = b^{x-y}$, where $a$ and $b$ are constants.
+(a) Show that the graph of $y$ against $x$ is a straight line.\hfill (3)
+(b) Given that $a = b^{3}$, state the equation of the straight line in the form $y = px + q$, where $p$ and $q$ are rational numbers in their simplest form.\hfill (2)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q4 ==========
+chapter: ["Differentiation"]
+marks: 6
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":4,"code":"32","label":"2024 May/June · Paper 32 Q4"}
+figure: ""
+source: 24_MJ_32_4
+stem:
+The equation of a curve is $y\mathrm{e}^{2x} + y^{2}\mathrm{e}^{x} = 6$.
+Find the gradient of the curve at the point where $y = 1$.\hfill (6)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q5 ==========
+chapter: ["Numerical solution of equations"]
+marks: 6
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":5,"code":"32","label":"2024 May/June · Paper 32 Q5"}
+figure: ""
+source: 24_MJ_32_5
+stem:
+(a) It is given that the equation $\mathrm{e}^{2x} = 5 + \cos 3x$ has only one root. Show by calculation that this root lies in the interval $0.7 < x < 0.8$.\hfill (2)
+(b) Show that if a sequence of values in the interval $0.7 < x < 0.8$ given by the iterative formula $x_{n+1} = \dfrac{1}{2}\ln(5 + \cos 3x_n)$ converges then it converges to the root of the equation in part (a).\hfill (1)
+(c) Use this iterative formula to determine the root correct to 3 decimal places. Give the result of each iteration to 5 decimal places.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q6 ==========
+chapter: ["Differentiation","Integration"]
+marks: 9
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":6,"code":"32","label":"2024 May/June · Paper 32 Q6"}
+figure: "data/images/24_MJ_32_6.png"
+source: 24_MJ_32_6
+stem:
+The diagram shows the curve $y = x\mathrm{e}^{-ax}$, where $a$ is a positive constant, and its maximum point $M$.
+(a) Find the exact coordinates of $M$.\hfill (4)
+(b) Find the exact value of $\displaystyle\int_{0}^{\frac{2}{a}} x\mathrm{e}^{-ax}\,\mathrm{d}x$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q7 ==========
+chapter: ["Integration"]
+marks: 9
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":7,"code":"32","label":"2024 May/June · Paper 32 Q7"}
+figure: ""
+source: 24_MJ_32_7
+stem:
+(a) Show that $\cos^{4}\theta - \sin^{4}\theta \equiv \cos 2\theta$.\hfill (3)
+(b) Hence find the exact value of $\displaystyle\int_{-\frac{1}{8}\pi}^{\frac{1}{8}\pi} (\cos^{4}\theta - \sin^{4}\theta + 4\sin^{2}\theta\cos^{2}\theta)\,\mathrm{d}\theta$.\hfill (6)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q8 ==========
+chapter: ["Vectors"]
+marks: 12
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":8,"code":"32","label":"2024 May/June · Paper 32 Q8"}
+figure: ""
+source: 24_MJ_32_8
+stem:
+The points $A$, $B$ and $C$ have position vectors $\overrightarrow{OA} = -2\mathbf{i} + \mathbf{j} + 4\mathbf{k}$, $\overrightarrow{OB} = 5\mathbf{i} + 2\mathbf{j}$ and $\overrightarrow{OC} = 8\mathbf{i} + 5\mathbf{j} - 3\mathbf{k}$, where $O$ is the origin. The line $l_1$ passes through $B$ and $C$.
+(a) Find a vector equation for $l_1$.\hfill (3)
+The line $l_2$ has equation $\mathbf{r} = -2\mathbf{i} + \mathbf{j} + 4\mathbf{k} + \mu(3\mathbf{i} + \mathbf{j} - 2\mathbf{k})$.
+(b) Find the coordinates of the point of intersection of $l_1$ and $l_2$.\hfill (4)
+(c) The point $D$ on $l_2$ is such that $|\overrightarrow{AB}| = |\overrightarrow{BD}|$. Find the position vector of $D$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_24MJ32_q9 ==========
+chapter: ["Complex numbers"]
+marks: 10
+examRef: {"year":2024,"month":"May/June","paper":"32","qno":9,"code":"32","label":"2024 May/June · Paper 32 Q9"}
+figure: ""
+source: 24_MJ_32_9
+stem:
+The complex numbers $z$ and $\omega$ are defined by $z = 1 - \mathrm{i}$ and $\omega = -3 + 3\sqrt{3}\,\mathrm{i}$.
+(a) Express $z\omega$ in the form $a + b\mathrm{i}$, where $a$ and $b$ are real and in exact surd form.\hfill (1)
+(b) Express $z$ and $\omega$ in the form $r\mathrm{e}^{\mathrm{i}\theta}$, where $r > 0$ and $-\pi < \theta \leqslant \pi$. Give the exact values of $r$ and $\theta$ in each case.\hfill (4)
+(c) On an Argand diagram, the points representing $\omega$ and $z\omega$ are $A$ and $B$ respectively. Prove that $OAB$ is an isosceles right-angled triangle, where $O$ is the origin.\hfill (2)
+(d) Using your answers to part (b), prove that $\tan\dfrac{5}{12}\pi = \dfrac{\sqrt{3}+1}{\sqrt{3}-1}$.\hfill (3)
+--- solution existing ---
+(empty)

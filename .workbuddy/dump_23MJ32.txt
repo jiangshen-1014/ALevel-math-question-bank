@@ -1,0 +1,138 @@
+
+========== cie_p3_23MJ32_q1 ==========
+chapter: ["Algebra (modulus functions)"]
+marks: 4
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":1,"code":"32","label":"2023 May/June · Paper 32 Q1"}
+figure: ""
+source: 23_MJ_32_1
+stem:
+Solve the inequality $|5x - 3| < 2|3x - 7|$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q10 ==========
+chapter: ["Differentiation","Integration"]
+marks: 10
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":10,"code":"32","label":"2023 May/June · Paper 32 Q10"}
+figure: "data/images/23_MJ_32_10.png"
+source: 23_MJ_32_10
+stem:
+The diagram shows the curve $y = (x + 5)\sqrt{3 - 2x}$ and its maximum point $M$.
+(a) Find the exact coordinates of $M$.\hfill (5)
+(b) Using the substitution $u = 3 - 2x$, find by integration the area of the shaded region bounded by the curve and the $x$-axis. Give your answer in the form $a\sqrt{13}$, where $a$ is a rational number.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q11 ==========
+chapter: ["Vectors"]
+marks: 9
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":11,"code":"32","label":"2023 May/June · Paper 32 Q11"}
+figure: ""
+source: 23_MJ_32_11
+stem:
+The points $A$ and $B$ have position vectors $\mathbf{i} + 2\mathbf{j} - 2\mathbf{k}$ and $2\mathbf{i} - \mathbf{j} + \mathbf{k}$ respectively. The line $l$ has equation $\mathbf{r} = \mathbf{i} - \mathbf{j} + 3\mathbf{k} + \mu(2\mathbf{i} - 3\mathbf{j} + 4\mathbf{k})$.
+(a) Show that $l$ does not intersect the line passing through $A$ and $B$.\hfill (5)
+(b) Find the position vector of the foot of the perpendicular from $A$ to $l$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q2 ==========
+chapter: ["Logarithmic and exponential functions"]
+marks: 3
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":2,"code":"32","label":"2023 May/June · Paper 32 Q2"}
+figure: ""
+source: 23_MJ_32_2
+stem:
+Solve the equation $\ln(2x^{2} - 3) = 2\ln x - \ln 2$, giving your answer in an exact form.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q3 ==========
+chapter: ["Complex numbers"]
+marks: 4
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":3,"code":"32","label":"2023 May/June · Paper 32 Q3"}
+figure: ""
+source: 23_MJ_32_3
+stem:
+(a) On an Argand diagram, sketch the locus of points representing complex numbers $z$ satisfying $|z + 3 - 2\mathrm{i}| = 2$.\hfill (2)
+(b) Find the least value of $|z|$ for points on this locus, giving your answer in an exact form.\hfill (2)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q4 ==========
+chapter: ["Trigonometry"]
+marks: 5
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":4,"code":"32","label":"2023 May/June · Paper 32 Q4"}
+figure: ""
+source: 23_MJ_32_4
+stem:
+Solve the equation $2\cos x - \cos\dfrac{1}{2}x = 1$ for $0 \leqslant x \leqslant 2\pi$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q5 ==========
+chapter: ["Complex numbers"]
+marks: 6
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":5,"code":"32","label":"2023 May/June · Paper 32 Q5"}
+figure: ""
+source: 23_MJ_32_5
+stem:
+The complex number $2 + y\mathrm{i}$ is denoted by $\alpha$, where $y$ is a real number and $y < 0$. It is given that $f(\alpha) = \alpha^{3} - \alpha^{2} - 2\alpha$.
+(a) Find a simplified expression for $f(\alpha)$ in terms of $y$.\hfill (3)
+(b) Given that $\mathrm{Re}(f(\alpha)) = -20$, find $\arg\alpha$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q6 ==========
+chapter: ["Numerical solution of equations"]
+marks: 7
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":6,"code":"32","label":"2023 May/June · Paper 32 Q6"}
+figure: ""
+source: 23_MJ_32_6
+stem:
+The equation $\cot\dfrac{1}{2}x = 3x$ has one root in the interval $0 < x < \pi$, denoted by $\alpha$.
+(a) Show by calculation that $\alpha$ lies between 0.5 and 1.\hfill (2)
+(b) Show that, if a sequence of positive values given by the iterative formula $x_{n+1} = \dfrac{1}{3}\left(x_n + 4\tan^{-1}\dfrac{1}{3x_n}\right)$ converges, then it converges to $\alpha$.\hfill (2)
+(c) Use this iterative formula to calculate $\alpha$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q7 ==========
+chapter: ["Differentiation"]
+marks: 9
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":7,"code":"32","label":"2023 May/June · Paper 32 Q7"}
+figure: ""
+source: 23_MJ_32_7
+stem:
+The equation of a curve is $3x^{2} + 4xy + 3y^{2} = 5$.
+(a) Show that $\dfrac{\mathrm{d}y}{\mathrm{d}x} = -\dfrac{3x + 2y}{2x + 3y}$.\hfill (4)
+(b) Hence find the exact coordinates of the two points on the curve at which the tangent is parallel to $y + 2x = 0$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q8 ==========
+chapter: ["Differential equations"]
+marks: 8
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":8,"code":"32","label":"2023 May/June · Paper 32 Q8"}
+figure: ""
+source: 23_MJ_32_8
+stem:
+(a) The variables $x$ and $y$ satisfy the differential equation $\dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{4 + 9y^{2}}{\mathrm{e}^{2x+1}}$.
+It is given that $y = 0$ when $x = 1$.
+Solve the differential equation, obtaining an expression for $y$ in terms of $x$.\hfill (7)
+(b) State what happens to the value of $y$ as $x$ tends to infinity. Give your answer in an exact form.\hfill (1)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ32_q9 ==========
+chapter: ["Algebra (partial fractions and binomial expansions)"]
+marks: 10
+examRef: {"year":2023,"month":"May/June","paper":"32","qno":9,"code":"32","label":"2023 May/June · Paper 32 Q9"}
+figure: ""
+source: 23_MJ_32_9
+stem:
+Let $f(x) = \dfrac{2x^{2} + 17x - 17}{(1 + 2x)(2 - x)^{2}}$.
+(a) Express $f(x)$ in partial fractions.\hfill (5)
+(b) Hence show that $\displaystyle\int_{0}^{1} f(x)\,\mathrm{d}x = \dfrac{5}{2} - \ln 72$.\hfill (5)
+--- solution existing ---
+(empty)

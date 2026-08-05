@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>考点速查 · Cheatsheet | 数学题库</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- MathJax 3（CHTML 模式，与题库一致）-->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      packages: { '[+]': ['textmacros', 'ams', 'color', 'cancel', 'mhchem', 'noundefined', 'html', 'boldsymbol', 'newcommand'] },
+      macros: { hfill: ['\\hspace{\\fill}', 0] }
+    },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    chtml: { scale: 0.95 },
+    startup: { typeset: false }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --bg:#f5f7fa; --panel:#fff; --panel-2:#f0f3f7; --border:#e2e8f0; --border-strong:#cbd5e1;
+    --text:#1e293b; --text-soft:#64748b; --text-mute:#94a3b8;
+    --brand:#2563eb; --brand-soft:#dbeafe; --brand-2:#7c3aed;
+    --green:#16a34a; --green-soft:#dcfce7; --amber:#d97706; --amber-soft:#fef3c7;
+    --red:#dc2626; --red-soft:#fee2e2; --cie:#0ea5e9; --edx:#7c3aed;
+    --radius:10px; --radius-sm:7px; --shadow:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .topbar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+  .logo .mark{font-size:22px;color:var(--brand)}
+  .spacer{flex:1}
+  .link-back{font-size:13px;color:var(--brand);text-decoration:none;padding:7px 12px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--panel)}
+  .link-back:hover{background:var(--brand-soft)}
+  .tabs{display:flex;gap:8px;padding:14px 20px 0}
+  .tab{padding:9px 18px;border:1px solid var(--border-strong);border-radius:999px;background:var(--panel);cursor:pointer;font-weight:600;font-size:14px;color:var(--text-soft)}
+  .tab.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .tab .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+  .tab[data-k="CIE|P3"] .dot{background:var(--cie)}
+  .tab[data-k="Edexcel|FP2"] .dot{background:var(--edx)}
+  .wrap{max-width:960px;margin:0 auto;padding:18px 20px 80px}
+  .summary{font-size:13px;color:var(--text-soft);margin:6px 0 18px}
+  .ch-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:18px;overflow:hidden;box-shadow:var(--shadow)}
+  .ch-head{display:flex;align-items:center;gap:10px;padding:14px 18px;background:linear-gradient(90deg,var(--brand-soft),transparent);border-bottom:1px solid var(--border)}
+  .ch-head h2{margin:0;font-size:16px}
+  .ch-head .badge{margin-left:auto;font-size:12px;font-weight:700;color:var(--brand);background:var(--brand-soft);padding:3px 10px;border-radius:999px}
+  .ch-body{padding:14px 18px}
+  .block{margin-bottom:14px}
+  .block:last-child{margin-bottom:0}
+  .block-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px}
+  .block-title::before{content:"";width:4px;height:14px;border-radius:2px;background:var(--brand)}
+  .block-title.notes::before{background:var(--amber)}
+  .block-title.q::before{background:var(--green)}
+  .formula-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:8px}
+  .formula-item{padding:9px 12px;background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:15px}
+  .note-list{margin:0;padding-left:18px}
+  .note-list li{margin:5px 0;font-size:14px;color:var(--text)}
+  .note-list li::marker{color:var(--amber)}
+  .q-acc{display:flex;flex-direction:column;gap:8px}
+  details.q{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;background:var(--panel)}
+  details.q>summary{cursor:pointer;padding:9px 12px;font-size:13px;font-weight:600;background:var(--green-soft);list-style:none;display:flex;align-items:center;gap:10px}
+  details.q>summary::-webkit-details-marker{display:none}
+  details.q>summary .qid{color:var(--green);font-family:monospace}
+  details.q>summary .src{color:var(--text-soft);font-weight:500}
+  details.q>summary .meta{margin-left:auto;color:var(--text-mute);font-weight:500;font-size:12px}
+  .q-body{padding:12px 14px;border-top:1px dashed var(--border)}
+  .q-body .lbl{font-size:11px;font-weight:700;color:var(--green);margin:10px 0 4px}
+  .q-body .lbl:first-child{margin-top:0}
+  .q-body p{margin:6px 0}
+  .q-body .hfill-line{display:flex;justify-content:space-between;gap:12px}
+  .q-img{max-width:100%;border:1px solid var(--border);border-radius:8px;background:#fff;margin:6px 0}
+  .empty-q{font-size:13px;color:var(--text-mute);padding:10px 12px;background:var(--panel-2);border:1px dashed var(--border-strong);border-radius:var(--radius-sm)}
+  .no-content{font-size:13px;color:var(--text-mute);font-style:italic;padding:8px 0}
+  @media print{
+    .topbar,.tabs{display:none}
+    .ch-card{break-inside:avoid;box-shadow:none}
+    details.q>summary{background:#eef}
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo"><span class="mark">∑</span><div>考点速查 <small style="font-weight:400;color:var(--text-soft)">Cheatsheet</small></div></div>
+    <div class="spacer"></div>
+    <a class="link-back" href="index.html">← 返回题库</a>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-k="CIE|P3"><span class="dot"></span>CIE P3 (9709)</button>
+    <button class="tab" data-k="Edexcel|FP2"><span class="dot"></span>Edexcel FP2</button>
+  </nav>
+
+  <main class="wrap">
+    <div class="summary" id="summary"></div>
+    <div id="cheatRoot"></div>
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cheatsheet-data.js"></script>
+  <script>
+  /* ---------------- 轻量 markdown→HTML（仅保留 cheatsheet 需要的能力） ---------------- */
+  function escapeHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function escapeAttr(s){ return escapeHtml(s).replace(/"/g,"&quot;"); }
+  function mdToHtml(src){
+    if(!src) return "";
+    const math=[]; const MT=i=>"\u0001MATH"+i+"\u0001";
+    let s=String(src);
+    s=s.replace(/\$\$([\s\S]+?)\$\$/g,m=>{math.push(m);return MT(math.length-1);});
+    s=s.replace(/\$(?!\s)([^$\n]+?)\$/g,m=>{math.push(m);return MT(math.length-1);});
+    const imgs=[]; const IMG=i=>"\u0003IMG"+i+"\u0003";
+    s=s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g,(m,alt,src2)=>{imgs.push({alt,src:src2});return IMG(imgs.length-1);});
+    s=escapeHtml(s);
+    const lines=s.split("\n").map(line=>{
+      if(line.indexOf("\\hfill")!==-1){
+        const parts=line.split("\\hfill").map(p=>`<span>${p}</span>`);
+        return `<span class="hfill-line">${parts.join("")}</span>`;
+      }
+      return line;
+    });
+    s=lines.join("\n");
+    s=s.replace(/\\newline/g,"<br>");
+    s=s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+    s=s.replace(/`([^`]+)`/g,"<code>$1</code>");
+    const blocks=s.split(/\n{2,}/).map(b=> b.indexOf("<table")===0 ? b : `<p>${b.replace(/\n/g,"<br>")}</p>`);
+    s=blocks.join("");
+    s=s.replace(/\u0001MATH(\d+)\u0001/g,(m,i)=>math[+i]||"");
+    s=s.replace(/\u0003IMG(\d+)\u0003/g,(m,i)=>{const im=imgs[+i];if(!im)return "";return `<img class="q-img" src="${escapeAttr(im.src)}" alt="${escapeAttr(im.alt)}">`;});
+    return s;
+  }
+
+  /* ---------------- 章节归属（处理 CIE P3 早期 "Algebra" 单独标签） ---------------- */
+  function chapterKey(qCh, keys){
+    if(keys.includes(qCh)) return qCh;
+    if(qCh==="Algebra") return "Algebra (factor theorem and remainder theorem)";
+    const hit=keys.find(k=> k.startsWith(qCh) || qCh.startsWith(k));
+    return hit || qCh;
+  }
+  function boardSubjectOf(k){ const [b,s]=k.split("|"); return [b,s]; }
+
+  /* ---------------- 渲染 ---------------- */
+  const root=document.getElementById('cheatRoot');
+  const summary=document.getElementById('summary');
+  let current="CIE|P3";
+
+  function questionsFor(key){
+    const [board,subject]=boardSubjectOf(current);
+    const keys=Object.keys(CHEATSHEET[current]||{});
+    return (SEED_QUESTIONS||[]).filter(q=>{
+      if(q.board!==board||q.subject!==subject) return false;
+      const ch=Array.isArray(q.chapter)?q.chapter[0]:q.chapter;
+      return chapterKey(ch,keys)===key;
+    }).sort((a,b)=> (a.id||"").localeCompare(b.id||""));
+  }
+
+  function render(key){
+    current=key;
+    const data=CHEATSHEET[key]||{};
+    const keys=Object.keys(data);
+    root.innerHTML="";
+    let totalQ=0;
+    keys.forEach(chKey=>{
+      const block=data[chKey];
+      const qs=questionsFor(chKey);
+      totalQ+=qs.length;
+      const card=document.createElement('section');
+      card.className="ch-card";
+      let html=`<div class="ch-head"><h2>${escapeHtml(chKey)}</h2><span class="badge">${qs.length} 题</span></div><div class="ch-body">`;
+      /* 公式 */
+      html+=`<div class="block"><div class="block-title">核心公式 · Key Formulas</div>`;
+      if(block && block.formulas && block.formulas.length){
+        html+=`<ul class="formula-list">`+block.formulas.map(f=>`<li class="formula-item">${escapeHtml(f)}</li>`).join("")+`</ul>`;
+      } else { html+=`<div class="no-content">（该章节公式待补充）</div>`; }
+      html+=`</div>`;
+      /* 注意事项 */
+      html+=`<div class="block"><div class="block-title notes">注意事项 · 解题套路</div>`;
+      if(block && block.notes && block.notes.length){
+        html+=`<ul class="note-list">`+block.notes.map(n=>`<li>${escapeHtml(n)}</li>`).join("")+`</ul>`;
+      } else { html+=`<div class="no-content">（该章节注意事项待补充）</div>`; }
+      html+=`</div>`;
+      /* 真题 */
+      html+=`<div class="block"><div class="block-title q">已录入真题 · Past Questions</div>`;
+      if(qs.length){
+        html+=`<div class="q-acc">`;
+        qs.forEach(q=>{
+          const label=(q.examRef&&q.examRef.label)||q.source||q.id;
+          const diff="★".repeat(q.difficulty||0);
+          const marks=q.marks?` · ${q.marks}分`:"";
+          const stemHtml=mdToHtml(q.stem||"（无题干）");
+          const solHtml=mdToHtml(q.solution||"（暂无解析）");
+          html+=`<details class="q"><summary><span class="qid">${escapeHtml(q.id)}</span><span class="src">${escapeHtml(label)}</span><span class="meta">${diff}${marks}</span></summary>`+
+                `<div class="q-body">`+
+                `<div class="lbl">题干</div>${stemHtml}`+
+                (q.solution?`<div class="lbl">解析</div>${solHtml}`:"")+
+                `</div></details>`;
+        });
+        html+=`</div>`;
+      } else {
+        html+=`<div class="empty-q">暂无录入真题，待补充。</div>`;
+      }
+      html+=`</div>`;
+      html+=`</div>`;
+      card.innerHTML=html;
+      root.appendChild(card);
+    });
+    summary.textContent=`共 ${keys.length} 个章节 · 已录入真题 ${totalQ} 道（结合考纲与真题浓缩，未录入题目的章节在该处留空）。`;
+    /* 真题折叠：展开时再 typeset 该题内容（性能） */
+    root.querySelectorAll('details.q').forEach(d=>{
+      d.addEventListener('toggle',()=>{ if(d.open) ensureTypeset([d]); });
+    });
+    ensureTypeset([root]);
+  }
+
+  /* ---------------- MathJax 排版 ---------------- */
+  function ensureTypeset(els){
+    if(window.MathJax && MathJax.typesetPromise){
+      MathJax.typesetPromise(els).catch(e=>console.warn("MathJax typeset:",e));
+    } else {
+      const t=setInterval(()=>{
+        if(window.MathJax && MathJax.typesetPromise){ clearInterval(t); MathJax.typesetPromise(els).catch(()=>{}); }
+      },200);
+      setTimeout(()=>clearInterval(t),8000);
+    }
+  }
+
+  /* ---------------- Tab 切换 ---------------- */
+  document.getElementById('tabs').addEventListener('click',e=>{
+    const btn=e.target.closest('.tab'); if(!btn) return;
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.k);
+  });
+
+  /* 初始渲染（MathJax 就绪后） */
+  function boot(){ render(current); }
+  if(window.MathJax && MathJax.startup && MathJax.startup.promise){
+    MathJax.startup.promise.then(boot).catch(()=>render(current));
+  } else {
+    window.addEventListener('load',()=>{
+      if(window.MathJax&&MathJax.startup&&MathJax.startup.promise) MathJax.startup.promise.then(boot).catch(()=>render(current));
+      else setTimeout(boot,500);
+    });
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+
+========== cie_p3_22MJ31_q1 ==========
+chapter: ["Logarithmic and exponential functions"]
+marks: 4
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":1,"code":"31","label":"2022 May/June · Paper 31 Q1"}
+figure: ""
+source: 22_MJ_31_1
+stem:
+Solve the equation $2\times 3^{2x-1}=4^{x+1}$, giving your answer correct to $2$ decimal places.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q10 ==========
+chapter: ["Differentiation","Numerical solution of equations"]
+marks: 11
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":10,"code":"31","label":"2022 May/June · Paper 31 Q10"}
+figure: "data/images/22_MJ_31_10.png"
+source: 22_MJ_31_10
+stem:
+The curve $y=x\sqrt{\sin x}$ has one stationary point in the interval $0<x<\pi$, where $x=a$ (see diagram).
+(a) Show that $\tan a=-\dfrac{1}{2}a$.\hfill (4)
+(b) Verify by calculation that $a$ lies between $2$ and $2.5$.\hfill (2)
+(c) Show that if a sequence of values in the interval $0<x<\pi$ given by the iterative formula $x_{n+1}=\pi-\tan^{-1}\!\left(\dfrac{1}{2}x_{n}\right)$ converges, then it converges to $a$, the root of the equation in part (a).\hfill (2)
+(d) Use the iterative formula given in part (c) to determine $a$ correct to $2$ decimal places. Give the result of each iteration to $4$ decimal places.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q2 ==========
+chapter: ["Algebra (partial fractions and binomial expansions)"]
+marks: 5
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":2,"code":"31","label":"2022 May/June · Paper 31 Q2"}
+figure: ""
+source: 22_MJ_31_2
+stem:
+(a) Expand $(2-x^{2})^{-2}$ in ascending powers of $x$, up to and including the term in $x^{4}$, simplifying the coefficients.\hfill (4)
+(b) State the set of values of $x$ for which the expansion is valid.\hfill (1)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q3 ==========
+chapter: ["Trigonometry"]
+marks: 6
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":3,"code":"31","label":"2022 May/June · Paper 31 Q3"}
+figure: ""
+source: 22_MJ_31_3
+stem:
+Solve the equation $2\cot^{2}x+3\cot x=5$, for $0^{\circ}<x<180^{\circ}$.\hfill (6)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q4 ==========
+chapter: ["Differential equations"]
+marks: 7
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":4,"code":"31","label":"2022 May/June · Paper 31 Q4"}
+figure: ""
+source: 22_MJ_31_4
+stem:
+The variables $x$ and $y$ satisfy the differential equation $\dfrac{\mathrm{d}y}{\mathrm{d}x}=\dfrac{xy}{1+x^{2}}$, and $y=2$ when $x=0$. Solve the differential equation, obtaining a simplified expression for $y$ in terms of $x$.\hfill (7)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q5 ==========
+chapter: ["Algebra (factor theorem and remainder theorem)"]
+marks: 8
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":5,"code":"31","label":"2022 May/June · Paper 31 Q5"}
+figure: ""
+source: 22_MJ_31_5
+stem:
+The polynomial $ax^{3}-10x^{2}+bx+8$, where $a$ and $b$ are constants, is denoted by $\mathrm{p}(x)$. It is given that $(x-2)$ is a factor of both $\mathrm{p}(x)$ and $\mathrm{p}\prime(x)$.
+(a) Find the values of $a$ and $b$.\hfill (5)
+(b) When $a$ and $b$ have these values, factorise $\mathrm{p}(x)$ completely.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q6 ==========
+chapter: ["Integration"]
+marks: 8
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":6,"code":"31","label":"2022 May/June · Paper 31 Q6"}
+figure: ""
+source: 22_MJ_31_6
+stem:
+Let $I=\displaystyle\int_{0}^{3}\frac{27}{(9+x^{2})^{2}} \mathrm{d}x$.
+(a) Using the substitution $x=3\tan\theta$, show that $I=\displaystyle\int_{0}^{\frac{1}{4}\pi}\cos^{2}\theta \mathrm{d}\theta$.\hfill (4)
+(b) Hence find the exact value of $I$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q7 ==========
+chapter: ["Complex numbers"]
+marks: 8
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":7,"code":"31","label":"2022 May/June · Paper 31 Q7"}
+figure: ""
+source: 22_MJ_31_7
+stem:
+The complex number $u$ is defined by $u=\dfrac{\sqrt{2}-a\sqrt{2}\,\mathrm{i}}{1+2\mathrm{i}}$, where $a$ is a positive integer.
+(a) Express $u$ in terms of $a$, in the form $x+\mathrm{i}y$, where $x$ and $y$ are real and exact.\hfill (3)
+(b) It is now given that $a=3$. Express $u$ in the form $r\mathrm{e}^{\mathrm{i}\theta}$, where $r>0$ and $-\pi<\theta\leqslant\pi$, giving the exact values of $r$ and $\theta$.\hfill (2)
+(c) Using your answer to part (b), find the two square roots of $u$. Give your answers in the form $r\mathrm{e}^{\mathrm{i}\theta}$, where $r>0$ and $-\pi<\theta\leqslant\pi$, giving the exact values of $r$ and $\theta$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q8 ==========
+chapter: ["Differentiation"]
+marks: 9
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":8,"code":"31","label":"2022 May/June · Paper 31 Q8"}
+figure: ""
+source: 22_MJ_31_8
+stem:
+The equation of a curve is $x^{3}+y^{3}+2xy+8=0$.
+(a) Express $\dfrac{\mathrm{d}y}{\mathrm{d}x}$ in terms of $x$ and $y$.\hfill (4)
+(b) The tangent to the curve at the point where $x=0$ and the tangent at the point where $y=0$ intersect at the acute angle $\alpha$. Find the exact value of $\tan\alpha$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_22MJ31_q9 ==========
+chapter: ["Vectors"]
+marks: 9
+examRef: {"year":2022,"month":"May/June","paper":"31","qno":9,"code":"31","label":"2022 May/June · Paper 31 Q9"}
+figure: "data/images/22_MJ_31_9.png"
+source: 22_MJ_31_9
+stem:
+In the diagram, $OABCDEFG$ is a cuboid in which $OA=2$ units, $OC=4$ units and $OG=2$ units. Unit vectors $\mathbf{i}$, $\mathbf{j}$ and $\mathbf{k}$ are parallel to $OA$, $OC$ and $OG$ respectively. The point $M$ is the midpoint of $DF$. The point $N$ on $AB$ is such that $AN=\dfrac{3}{4}NB$.
+(a) Express the vectors $\overrightarrow{OM}$ and $\overrightarrow{MN}$ in terms of $\mathbf{i}$, $\mathbf{j}$ and $\mathbf{k}$.\hfill (3)
+(b) Find a vector equation for the line through $M$ and $N$.\hfill (2)
+(c) Show that the length of the perpendicular from $O$ to the line through $M$ and $N$ is $\dfrac{\sqrt{53}}{6}$.\hfill (4)
+--- solution existing ---
+(empty)

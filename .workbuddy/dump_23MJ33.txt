@@ -1,0 +1,136 @@
+
+========== cie_p3_23MJ33_q1 ==========
+chapter: ["Logarithmic and exponential functions"]
+marks: 4
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":1,"code":"33","label":"2023 May/June · Paper 33 Q1"}
+figure: ""
+source: 23_MJ_33_1
+stem:
+Solve the equation $\ln(x + 5) = 5 + \ln x$. Give your answer correct to 3 decimal places.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q10 ==========
+chapter: ["Algebra (partial fractions and binomial expansions)"]
+marks: 10
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":10,"code":"33","label":"2023 May/June · Paper 33 Q10"}
+figure: ""
+source: 23_MJ_33_10
+stem:
+Let $f(x) = \dfrac{21 - 8x - 2x^{2}}{(1 + 2x)(3 - x)^{2}}$.
+(a) Express $f(x)$ in partial fractions.\hfill (5)
+(b) Hence obtain the expansion of $f(x)$ in ascending powers of $x$, up to and including the term in $x^{2}$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q11 ==========
+chapter: ["Complex numbers"]
+marks: 9
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":11,"code":"33","label":"2023 May/June · Paper 33 Q11"}
+figure: ""
+source: 23_MJ_33_11
+stem:
+The complex number $z$ is defined by $z = \dfrac{5a - 2\mathrm{i}}{3 + a\mathrm{i}}$, where $a$ is an integer. It is given that $\arg z = -\dfrac{1}{4}\pi$.
+(a) Find the value of $a$ and hence express $z$ in the form $x + \mathrm{i}y$, where $x$ and $y$ are real.\hfill (6)
+(b) Express $z^{3}$ in the form $r\mathrm{e}^{\mathrm{i}\theta}$, where $r > 0$ and $-\pi < \theta \leqslant \pi$. Give the simplified exact values of $r$ and $\theta$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q2 ==========
+chapter: ["Algebra (factor theorem and remainder theorem)"]
+marks: 3
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":2,"code":"33","label":"2023 May/June · Paper 33 Q2"}
+figure: ""
+source: 23_MJ_33_2
+stem:
+Find the quotient and remainder when $2x^{4} - 27$ is divided by $x^{2} + x + 3$.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q3 ==========
+chapter: ["Complex numbers"]
+marks: 4
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":3,"code":"33","label":"2023 May/June · Paper 33 Q3"}
+figure: ""
+source: 23_MJ_33_3
+stem:
+On a sketch of an Argand diagram, shade the region whose points represent complex numbers $z$ satisfying the inequalities $|z - 3 - \mathrm{i}| \leqslant 3$ and $|z| \geqslant |z - 4\mathrm{i}|$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q4 ==========
+chapter: ["Differentiation"]
+marks: 5
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":4,"code":"33","label":"2023 May/June · Paper 33 Q4"}
+figure: ""
+source: 23_MJ_33_4
+stem:
+The parametric equations of a curve are $x = \dfrac{\cos\theta}{2 - \sin\theta}$, $y = \theta + 2\cos\theta$.
+Show that $\dfrac{\mathrm{d}y}{\mathrm{d}x} = (2 - \sin\theta)^{2}$.\hfill (5)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q5 ==========
+chapter: ["Differentiation","Numerical solution of equations"]
+marks: 6
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":5,"code":"33","label":"2023 May/June · Paper 33 Q5"}
+figure: "data/images/23_MJ_33_5.png"
+source: 23_MJ_33_5
+stem:
+The diagram shows the part of the curve $y = x^{2}\cos 3x$ for $0 \leqslant x \leqslant \dfrac{1}{6}\pi$, and its maximum point $M$, where $x = a$.
+(a) Show that $a$ satisfies the equation $a = \dfrac{1}{3}\tan^{-1}\dfrac{2}{3a}$.\hfill (3)
+(b) Use an iterative formula based on the equation in (a) to determine $a$ correct to 2 decimal places. Give the result of each iteration to 4 decimal places.\hfill (3)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q6 ==========
+chapter: ["Trigonometry"]
+marks: 8
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":6,"code":"33","label":"2023 May/June · Paper 33 Q6"}
+figure: ""
+source: 23_MJ_33_6
+stem:
+(a) Express $3\cos\theta + 2\cos(\theta - 60^\circ)$ in the form $R\cos(\theta - \alpha)$, where $R > 0$ and $0^\circ < \alpha < 90^\circ$. State the exact value of $R$ and give $\alpha$ correct to 2 decimal places.\hfill (4)
+(b) Hence solve the equation $3\cos 2\theta + 2\cos(2\theta - 60^\circ) = 2.5$ for $0^\circ < \theta < 180^\circ$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q7 ==========
+chapter: ["Integration"]
+marks: 8
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":7,"code":"33","label":"2023 May/June · Paper 33 Q7"}
+figure: ""
+source: 23_MJ_33_7
+stem:
+(a) Use the substitution $u = \cos x$ to show that $\displaystyle\int_{0}^{\pi} \sin 2x\, \mathrm{e}^{2\cos x}\,\mathrm{d}x = \int_{-1}^{1} 2u\,\mathrm{e}^{2u}\,\mathrm{d}u$.\hfill (4)
+(b) Hence find the exact value of $\displaystyle\int_{0}^{\pi} \sin 2x\, \mathrm{e}^{2\cos x}\,\mathrm{d}x$.\hfill (4)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q8 ==========
+chapter: ["Differential equations"]
+marks: 8
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":8,"code":"33","label":"2023 May/June · Paper 33 Q8"}
+figure: ""
+source: 23_MJ_33_8
+stem:
+The variables $x$ and $y$ satisfy the differential equation $\dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{y^{2}+4}{x(y+4)}$ for $x > 0$. It is given that $x = 4$ when $y = 2\sqrt{3}$.
+Solve the differential equation to obtain the value of $x$ when $y = 2$.\hfill (8)
+--- solution existing ---
+(empty)
+
+========== cie_p3_23MJ33_q9 ==========
+chapter: ["Vectors"]
+marks: 10
+examRef: {"year":2023,"month":"May/June","paper":"33","qno":9,"code":"33","label":"2023 May/June · Paper 33 Q9"}
+figure: ""
+source: 23_MJ_33_9
+stem:
+The lines $l$ and $m$ have equations
+$l$: $\mathbf{r} = a\mathbf{i} + 3\mathbf{j} + b\mathbf{k} + c(\mathbf{i} - 2\mathbf{j} + 4\mathbf{k})$,
+$m$: $\mathbf{r} = \mathbf{i} + 2\mathbf{j} + 3\mathbf{k} + \mu(2\mathbf{i} - 3\mathbf{j} + \mathbf{k})$.
+Relative to the origin $O$, the position vector of the point $P$ is $4\mathbf{i} + 7\mathbf{j} - 2\mathbf{k}$.
+(a) Given that $l$ is perpendicular to $m$ and that $P$ lies on $l$, find the values of the constants $a$, $b$ and $c$.\hfill (4)
+(b) The perpendicular from $P$ meets line $m$ at $Q$. The point $R$ lies on $PQ$ extended, with $PQ : QR = 2 : 3$. Find the position vector of $R$.\hfill (6)
+--- solution existing ---
+(empty)
