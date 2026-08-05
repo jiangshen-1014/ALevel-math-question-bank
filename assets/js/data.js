@@ -10321,6 +10321,152 @@ const SEED_QUESTIONS = [
     "label": "2025 Oct/Nov · Paper 51 Q7"
   },
   "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q1",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_MJ_55_1",
+  "stem": "Two fair 6-sided dice with faces labelled 1, 2, 3, 4, 5, 6 are thrown. The two scores are noted. The random variable $X$ is defined as follows. If the two scores are equal, $X = 0$. If the scores are not equal, $X$ is the larger score minus the smaller score.\n(a) Draw up the probability distribution table for $X$.\\hfill(3)\n(b) Find $\\text{E}(X)$ and $\\text{Var}(X)$.\\hfill(3)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 6,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 1,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q1"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q2",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_MJ_55_2",
+  "stem": "The heights of trees in a certain forest are classified as tall, medium or small. The heights can be modelled by a normal distribution with mean 20 m and standard deviation 5 m. Trees with a height of less than 14 m are classified as small.\n(a) For 150 randomly chosen trees from this forest, how many would you expect to be classified as small?\\hfill(4)\nTrees from this forest are classified as tall if their height is at least $h$ m. 25% of the trees are classified as tall.\n(b) Find the value of $h$.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 7,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 2,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q2"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q3",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）",
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_MJ_55_3",
+  "stem": "In a certain large school, on average, two pupils in five have music lessons.\n(a) A random sample of 80 pupils from this school is chosen. Use an approximation to find the probability that fewer than 27 pupils have music lessons.\\hfill(5)\n(b) A random sample of 10 pupils from this school is now chosen. Find the probability that no more than 2 pupils have music lessons.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 8,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 3,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q3"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q4",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_MJ_55_4",
+  "stem": "Students applying to Drysdale College take an entrance test. A student is either accepted or rejected or required to take another test with probabilities 0.3, 0.2 and 0.5 respectively. When a student takes a second test the outcomes and probabilities are exactly the same as for the first test. A student who has to take a third test is accepted with probability 0.25 and rejected with probability 0.75.\n(a) Draw a tree diagram to illustrate this information, showing all the probabilities.\\hfill(2)\n(b) Find the probability that a randomly chosen student who applies to Drysdale College is accepted.\\hfill(2)\n(c) Find the probability that a randomly chosen student who applies to Drysdale College takes at least two tests given that the student is accepted.\\hfill(3)\nThree friends apply to Drysdale College.\n(d) Find the probability that all three are rejected.\\hfill(2)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 9,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 4,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q4"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q5",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Representation of data（数据表示）"
+  ],
+  "source": "25_MJ_55_5",
+  "stem": "The Smarts and the Teasers are two quiz teams that each contain 11 members. Both complete a puzzle and the following table gives the times taken, in minutes, by the members of each team.\n| | | | | | | | | | | | |\n|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| Smarts | 38 | 30 | 13 | 29 | 18 | 22 | 28 | 18 | 11 | 9 | 41 |\n| Teasers | 39 | 37 | 18 | 36 | 25 | 25 | 32 | 21 | 15 | 12 | 39 |\n(a) Represent this information in a back-to-back stem-and-leaf diagram with Smarts on the left-hand side.\\hfill(4)\nFor the Teasers, the values of the lower quartile, median and upper quartile are 18, 25 and 37 minutes respectively.\n(b) On a single diagram draw box-and-whisker plots for the two teams.\\hfill(4)\n(c) Make two comparisons between the times for the two teams.\\hfill(2)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 10,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 5,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q5"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ55_q6",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）",
+    "Permutations & combinations（排列组合）"
+  ],
+  "source": "25_MJ_55_6",
+  "stem": "A darts club has 12 members made up of 7 men and 5 women.\n(a) Every Monday, a team of 4 is chosen at random to represent the club in a competition. Find the probability that, on a particular Monday, the team consists of 1 man and 3 women.\\hfill(3)\n(b) Every Tuesday, the darts club chooses 3 teams of 4. Each team enters a competition in a different town. In how many different ways can the teams be chosen if there are no restrictions?\\hfill(2)\n(c) In how many different ways can the teams be chosen if each team must contain at least 1 man and at least 1 woman?\\hfill(3)\nThe 7 men stand in a line for a photograph. Two of them are brothers, George and Harry.\n(d) How many different arrangements are there of the 7 men in which there are exactly 2 men between George and Harry?\\hfill(2)",
+  "figure": [],
+  "difficulty": 5,
+  "marks": 10,
+  "solution": "",
+  "createdAt": 1785903878836,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "55",
+    "qno": 6,
+    "code": "55",
+    "label": "2025 May/June · Paper 55 Q6"
+  },
+  "_dup": false
 }
 ];
 
