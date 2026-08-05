@@ -356,7 +356,7 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .paper-grid { text-align: center; margin: 14px 0 6px; }
 .paper-grid img { max-width: 340px; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; background: #fff; }
 .paper-grid-small { margin: 10px 0 4px; }
-.paper-grid-small img { max-width: 220px; }
+.paper-grid-small img { max-width: 300px; }
 .paper-sol { margin-top: 16px; padding: 10px 14px; background: var(--green-soft);
   border-left: 3px solid var(--green); border-radius: 4px; }
 .paper-sol .sl { font-weight: 700; color: var(--green); font-size: 12px; margin-bottom: 4px; }
