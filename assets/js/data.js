@@ -10467,6 +10467,174 @@ const SEED_QUESTIONS = [
     "label": "2025 May/June · Paper 55 Q6"
   },
   "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q1",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Representation of data（数据表示）"
+  ],
+  "source": "25_MJ_53_1",
+  "stem": "For a set of 40 values of $x$, it is found that\n$$\\sum(x-k) = 836.0, \\qquad \\sum(x-k)^2 = 25410.8,$$\nwhere $k$ is a constant.\n(a) Given that the mean of these 40 values is 124.0, find the value of $k$.\\hfill(2)\n(b) Find the standard deviation of these 40 values of $x$.\\hfill(2)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 4,
+  "solution": "",
+  "createdAt": 1785919378475,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 1,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q1"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q2",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_MJ_53_2",
+  "stem": "At a large college, all students who study Science also study exactly one of Art or Drama or Music. 20% of these students study Art, 45% study Drama and 35% study Music.\n(a) 3 students are selected at random from the students who study Science. Find the probability that at least 1 of these students studies Drama.\\hfill(2)\n(b) 10 students are selected at random from the students who study Science. Find the probability that more than 7 study Art or Music.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 5,
+  "solution": "",
+  "createdAt": 1785919378475,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 2,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q2"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q3",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_MJ_53_3",
+  "stem": "A fair six-sided dice with faces labelled 1, 2, 3, 4, 5, 6 is thrown repeatedly until a 3 is obtained. The number of throws taken is denoted by the random variable $X$.\n(a) Find $P(X = 8)$.\\hfill(1)\n(b) Find $P(X < 9)$.\\hfill(2)\n(c) Find the probability that a 3 is obtained for the second time before the 6th throw.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 6,
+  "solution": "",
+  "createdAt": 1785919378475,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 3,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q3"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q4",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Representation of data（数据表示）"
+  ],
+  "source": "25_MJ_53_4",
+  "stem": "84 people attempt a particular puzzle. The times taken, in minutes, to complete the puzzle are recorded. These times are represented in the cumulative frequency graph below.\n(a) Use the graph to estimate how many people took between 4 and 7.5 minutes to complete the puzzle.\\hfill(1)\n(b) On the grid below, draw a box-and-whisker plot to summarise the information in the cumulative frequency graph.\\hfill(4)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 5,
+  "solution": "",
+  "createdAt": 1785919378475,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 4,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q4"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q5",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_MJ_53_5",
+  "stem": "Bag $A$ contains 6 red marbles, 5 blue marbles and 1 green marble.\nBag $B$ contains 5 red marbles and 3 blue marbles.\nA marble is chosen at random from bag $A$ and placed in bag $B$.\nA marble is now chosen at random from bag $B$.\n(a) Draw a tree diagram to represent this information, giving the probability on each branch.\\hfill(3)\n(b) Find the probability that both marbles chosen are the same colour.\\hfill(2)\n(c) Find the probability that the marble chosen from bag $A$ is blue, given that the marble chosen from bag $B$ is blue.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 8,
+  "solution": "",
+  "createdAt": 1785919378475,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 5,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q5"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q6",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_MJ_53_6",
+  "stem": "A company sells bags of pasta. The masses of large bags of pasta are normally distributed with mean 2.50 kg and standard deviation 0.12 kg.\n(a) Find the probability that the mass of pasta in a randomly chosen large bag is less than 2.65 kg.\\hfill(2)\nA restaurant manager buys 160 of these large bags of pasta.\n(b) Find the number of bags for which you would expect the mass of pasta to be more than 1.65 standard deviations above the mean.\\hfill(3)\nThe masses of small bags of pasta sold by the company are normally distributed with mean $\\mu$ kg and standard deviation $\\sigma$ kg. Tests show that 77% of these bags have masses greater than 1.26 kg, and 44% have masses less than 1.35 kg.\n(c) Find, in either order, the value of $\\mu$ and the value of $\\sigma$.\\hfill(5)",
+  "figure": [],
+  "difficulty": 5,
+  "marks": 10,
+  "solution": "",
+  "createdAt": 1785919378476,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 6,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q6"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25MJ53_q7",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Permutations & combinations（排列组合）"
+  ],
+  "source": "25_MJ_53_7",
+  "stem": "A set of friends consists of 7 men and 4 women. Three of the men are brothers: Ali, Ben and Charlie.\n(a) Find the number of different arrangements of the 7 men in a line in which Ali and Ben do not stand next to each other.\\hfill(3)\n(b) Find the number of different arrangements of the 7 men and 4 women in a line in which all the men stand together and all the women stand together.\\hfill(3)\n(c) In how many ways can the 7 men and 4 women be divided into a group of 6, a group of 3 and a group of 2 if there are no restrictions?\\hfill(2)\n(d) The 7 men and 4 women are divided at random into a group of 6, a group of 3 and a group of 2. Find the probability that Ali, Ben and Charlie are all in the same group.\\hfill(4)",
+  "figure": [],
+  "difficulty": 5,
+  "marks": 12,
+  "solution": "",
+  "createdAt": 1785919378476,
+  "examRef": {
+    "year": 2025,
+    "month": "May/June",
+    "paper": "53",
+    "qno": 7,
+    "code": "53",
+    "label": "2025 May/June · Paper 53 Q7"
+  },
+  "_dup": false
 }
 ];
 
