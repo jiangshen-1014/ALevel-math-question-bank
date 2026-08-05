@@ -1318,6 +1318,7 @@
   /* ===================== 资料库（真题卷原卷 / 官方 MS）===================== */
   // 用独立的 IndexedDB 库(mathbank_library) 存上传的 PDF，不触碰题目存储层(Store)。
   let _folderPapers = null;   // assets/papers 扫描结果缓存
+  let _folderSource = "none";  // 来源：'server' | 'manifest' | 'none'
   let _libDB = null;
   let _libPendingFile = null; // 上传面板待保存的 PDF
 
@@ -1377,15 +1378,19 @@
   async function scanFolderPapers() {
     if (_folderPapers) return _folderPapers;
     let list = [];
+    let source = "none";
     try {
       const r = await fetch("/api/papers", { cache: "no-store" });
-      if (r.ok) { list = await r.json(); _folderPapers = list; return list; }
+      if (r.ok) { list = await r.json(); source = "server"; }
     } catch (e) { /* 无本地服务器，尝试 manifest 兜底 */ }
-    try {
-      const r = await fetch("assets/papers/manifest.json", { cache: "no-store" });
-      if (r.ok) { const j = await r.json(); list = j.files || []; }
-    } catch (e) {}
+    if (!list.length) {
+      try {
+        const r = await fetch("assets/papers/manifest.json", { cache: "no-store" });
+        if (r.ok) { const j = await r.json(); list = j.files || []; if (list.length) source = "manifest"; }
+      } catch (e) {}
+    }
     _folderPapers = list;
+    _folderSource = source;
     return list;
   }
 
@@ -1453,7 +1458,15 @@
     const visible = all.filter(match);
 
     if (!visible.length) {
-      tree.innerHTML = '<div class="empty"><div class="big">📂</div>资料库为空<br><small>点「⬆️ 上传资料」加入 PDF，或把真题卷放进 assets/papers/ 对应文件夹后点「🔄 刷新文件夹」。</small></div>';
+      let hint;
+      if (folder.length || lib.length) {
+        hint = '当前筛选 / 搜索条件下没有匹配的资料，试试调整筛选或清空搜索框。';
+      } else if (_folderSource === "none") {
+        hint = '未能连接本地服务器，且 manifest 清单为空。<br>请先运行 <code>node server/server.js</code> 再点「🔄 刷新文件夹」，<br>或运行 <code>node tools/scan_papers.js</code> 生成 manifest.json 清单。';
+      } else {
+        hint = '点「⬆️ 上传资料」加入 PDF，或把真题卷放进 assets/papers/ 对应文件夹后点「🔄 刷新文件夹」。';
+      }
+      tree.innerHTML = '<div class="empty"><div class="big">📂</div>资料库为空<br><small>' + hint + '</small></div>';
       return;
     }
 
