@@ -1401,7 +1401,9 @@
       JAN: "Jan", JUN: "Jun", OCT: "Oct"
     })[(s || "").toUpperCase()] || s || "";
   }
-  function libTypeLabel(t) { return t === "ms" ? "官方 MS" : "原卷"; }
+  function libTypeLabel(t) {
+    return ({ ms: "官方 MS", er: "Exam report", gt: "Grade threshold" })[t] || "原卷";
+  }
   function fmtSize(b) {
     if (b == null) return "";
     if (b < 1024) return b + " B";
@@ -1494,6 +1496,10 @@
             t[b][sj][y][se].forEach(function (e) {
               const typeBadge = e.type === "ms"
                 ? '<span class="badge b-ms">官方 MS</span>'
+                : e.type === "er"
+                ? '<span class="badge b-er">Exam report</span>'
+                : e.type === "gt"
+                ? '<span class="badge b-gt">Grade threshold</span>'
                 : '<span class="badge b-paper">原卷</span>';
               const srcBadge = e.source === "folder"
                 ? '<span class="badge b-folder">📁 文件夹</span>'
@@ -1541,7 +1547,7 @@
     const frame = $("#pdfFrame");
     frame.src = url;
     const a = $("#pdfOpenNew"); a.href = url; a.target = "_blank";
-    $("#pdfFileName").textContent = entry.name + (entry.type === "ms" ? "（官方 MS）" : "（原卷）");
+    $("#pdfFileName").textContent = entry.name + (entry.type === "ms" ? "（官方 MS）" : entry.type === "er" ? "（Exam report）" : entry.type === "gt" ? "（Grade threshold）" : "（原卷）");
     const ov = $("#pdfOverlay");
     ov._blobUrl = entry.source === "lib" ? url : null;
     openOverlay("#pdfOverlay");

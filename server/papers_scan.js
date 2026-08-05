@@ -24,6 +24,9 @@ function classify(name) {
   return /ms|mark[\s_-]?scheme|markscheme|评分|答案|解答/i.test(name) ? 'ms' : 'paper';
 }
 
+// 文件名里的考季字母 → 可读考季（与本项目约定一致：m→Feb-Mar, s→May-Jun, w→Oct-Nov）
+const SEASON_FROM_LETTER = { m: 'Feb-Mar', s: 'May-Jun', w: 'Oct-Nov' };
+
 // 从 qp/ms 子文件夹名推断类型（PDF 位于倒数第二层时）
 function typeFromParent(segs) {
   const parent = segs[segs.length - 2] || '';
@@ -50,13 +53,22 @@ function scanPapersDir(rootDir) {
     const segs = String(rel).split(path.sep);
     const fileName = segs[segs.length - 1];
     const name = fileName.replace(/\.pdf$/i, '');
-    // 兼容两种深度：…/season/file.pdf（5 段）或 …/season/qp|ms/file.pdf（6 段）
+    // 兼容三种深度：
+    //   …/season/file.pdf（5 段）→ season 取文件夹名
+    //   …/season/qp|ms/file.pdf（6 段）→ season 取文件夹名、type 取 qp/ms
+    //   …/year/file.pdf（4 段，如 er/gt 直接放年份目录）→ season 从文件名字母推断
     const board = segs[0] || '';
     const subject = segs[1] || '';
     const year = segs[2] || '';
-    const season = segs[3] || '';
+    let season = segs[3] || '';
     let type = typeFromParent(segs);
     if (!type) type = classify(name);
+    if (segs.length === 4) {
+      const letter = (name.match(/_([msw])\d{2}_/i) || [, ''])[1];
+      season = SEASON_FROM_LETTER[(letter || '').toLowerCase()] || '';
+      if (/_er$/i.test(name)) type = 'er';
+      else if (/_gt$/i.test(name)) type = 'gt';
+    }
     out.push({
       id: 'folder:' + rel,
       source: 'folder',

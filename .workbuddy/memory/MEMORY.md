@@ -1,58 +1,41 @@
 # 题库软件项目长期约定（Edexcel/CIE 数学）
 
 ## 录入规范（铁律）
-- ⚠️ **录入前必做存在性检查**：新卷注入前先确认库中是否已录入该卷，用 python 稳健正则 `re.findall(r'cie_p3_XXXX_q\d+"', data)`（或 `(?:id|"id")\s*:\s*"cie_p3_XXXX_q`）。**绝不**只用 `grep '"id": "cie_p3_..._q'`（带空格展开格式）判定——老会话录入的题为紧凑格式 `{"id":"cie_p3_...",...}`（无空格），grep 会漏判为"未录入"，导致重复注入。若已存在则跳过，不重复录。（2026-07-18 曾因此误注入 22MJ31，靠"注入后重复 id 检测"当场发现并 restore 回滚，无损。）
-- 题干截图只转 LaTeX 不入库；`figure` 只存真正配图，写全路径 `data/images/xxx.png`（app.js 渲染不拼前缀）。
-- 题干逐字复刻英文原版，不增删改写；stem 只含原题+数学，不混中文解说。解析 solution 可中英结合。
-- 小分用 `\hfill (N)`（JS 双反斜杠 `\\hfill`），必须在题干正文、紧跟文本同段落，**绝不**包进 `$...$`/`$$...$$`；禁止 `\tag{N}`。
-- 来源格式：Edexcel 新 `年_月_卷号[_题号]`；CIE `YY_SERIES_VARIANT`（MJ/FM/ON，变体31/32/33）。
-- **来源月份全称**：examRef.month 用全称 — FM=`"Feb/March"`，MJ=`"May/June"`，ON=`"Oct/Nov"`（label 同理含 "2024 Oct/Nov · Paper 31 Q1" 格式）。⚠️ 历史记忆曾误记成 "Oct/Nav"，以库内已录入数据（`24ON31` 等用 `"Oct/Nov"`）为准。
-- **小问序号不加粗**：`(a)``(b)` 等纯文本，**绝不**用 `**(a)**`。
-- **换行符（2026-07-17 修正）**：题干换行**只靠真实换行**——Excel 单元格内用 **Alt+Enter** 输入真实换行符；json.dumps 写出为 JS 源码里的 `\n`，浏览器加载时解析为真实换行，`mdToHtml` 按「行内 `\n`→`<br>`、连续 `\n{2,}`→分段 `<p>`」渲染。**严禁**在 Excel 里写字面转义 `\newline` 或 `\n\n` 当换行——录入时必须把这些**字面文本删除**（不转真实换行）。即：真实换行保留，字面 `\newline`/`\n\n` 删除。
-- 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。注入时另带 `topics: []`（与库内 25 系列题一致；老 23/24 系列题无此字段，JS 容忍）。
-- **批量录入 Excel 模板列结构（CIE P3 新模板）**：表头 9 列 = `考试局/科目 / 来源 / 题干 / 配图 / 章节 / 考点 / 难度 / 分值 / 解析`。说明：①「考试局/科目」仅首行填（如 `CIE/P3`），其余行沿用；②「配图」列填 `DISPIMG("ID_...")` 才提取嵌入图（存 `data/images/{来源}.png`），若填纯数字占位（如 `4/5/6`）且无嵌入图则 `figure` 留空；③「章节/考点/难度/分值/解析」可空——**空则推断**：章节按题干内容+`Differentiation` 规则判定，难度给合理 1–5 值，`marks` 从题干 `\hfill(N)` 求和，solution 留空。注入脚本应「优先读列、空则回退推断」（参考 `.workbuddy/inject_22on33.py`）。
-- ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
-- 章节权威清单（FP1 8章 / FP2 8章 / **CIE P3 11章**，含 `Differentiation` / **CIE S1 5章**：`Representation of data` / `Permutations & combinations` / `Probability` / `Discrete random variables` / `The normal distribution`）在 data.js `CHAPTER_PRESETS`，录入严格对应。
-- **批量录入 Excel 模板（CIE S1 多图版）**：表头 11 列 = `考试局/科目 / 来源 / 题干 / 配图 / 配图2 / 配图3 / 章节 / 考点 / 难度 / 分值 / 解析`。与 P3 不同，S1 一道题常挂多张图，故设**配图/配图2/配图3 三列**，每列在 WPS「插入图片到单元格」生成各自 DISPIMG。注入脚本（`.workbuddy/inject_s1.py`）**自动解析 xlsx 内全部 cellImage**（ID→media，**无需手填映射**——这是相对 P3 注入的关键改进），把三列收成 `figure` **数组**（如 `["data/images/{来源}.png","data/images/{来源}_2.png","data/images/{来源}_3.png"]`，空列自动跳过）；`figure` 字段兼容「单字符串（老 P3 题）或字符串数组（S1 多图）」，app.js 三处渲染（卡片 `q-fig` / 预览 `pq-fig` / 编辑器预览）+ CSS 均已支持数组横排。注入脚本默认 `APPLY=False` 仅 DRY_RUN 预览，填好 `XLSX` 路径与每题 `CHAPTER/DIFF` 后改 `APPLY=True` 才落盘；含存在性检查、自动备份、行式安全插入。模板见 `批量录入模板_CIE_S1.xlsx`（含「章节对照」说明页）。生成器脚本 `.workbuddy/make_s1_template.py`（无依赖 zipfile 生成）。
-- ✅ **CIE P3 `Differentiation` 章已加入（2026-07-17）**：隐函数求导、参数方程求导、求 maximum/minimum（含驻点）的题目**都归属 `Differentiation`**。归类细则：① 纯微分法（隐函数/参数方程/令 dy/dx=0 解极值）单标签 `["Differentiation"]`；② 先求极值再求面积/体积的多问大题双标签 `["Differentiation","Integration"]`；③ 用迭代/数值法定位驻点的题双标签 `["Differentiation","Numerical solution of equations"]`（保留数值法身份）。微分方程求解仍归 `"Differential equations"`、复平面 |z| 极值仍归 `"Complex numbers"`、求给定梯度后积分的题（如 `25MJ35_q7`）仍归 `"Integration"`。
+- **存在性检查**：注入前用 python `re.findall(r'cie_p3_XXXX_q\d+"', data)` 确认未录入；绝不用 `grep '"id": "cie_p3..._q'`（老题紧凑格式 `{"id":"..."}` 无空格会漏判）。已存在则跳过。
+- 题干逐字复刻英文原版；截图只转 LaTeX 不入库；figure 只存真图，写全路径 `data/images/xxx.png`。
+- 小分 `\hfill (N)`（JS `\\hfill`），正文同段落、绝不包进 `$...$`/`$$...$$`；禁 `\tag{N}`。
+- 来源：Edexcel `年_月_卷号[_题号]`；CIE `YY_SERIES_VARIANT`（MJ/FM/ON，变体31/32/33）。month 用全称 FM=`Feb/March`、MJ=`May/June`、ON=`Oct/Nov`（label 含 "2024 Oct/Nov · Paper 31 Q1"）。
+- 小问序号 `(a)(b)` 纯文本，绝不加粗 `**(a)**`。
+- **换行只靠真实换行**：Excel 内用 Alt+Enter；严禁字面 `\newline`/`\n\n`（录入时删掉）。
+- 必填：id/board/subject/chapter[]/source/stem/figure/difficulty(1–5)/solution/createdAt/examRef(.label)；注入另带 `topics:[]`。
+- 章节权威清单：FP1 8章/FP2 8章/CIE P3 11章(含 Differentiation)/CIE S1 5章(Representation of data/Permutations & combinations/Probability/Discrete random variables/The normal distribution)，data.js `CHAPTER_PRESETS`。
+- 模板：CIE P3 9 列；CIE S1 多图 11 列(配图/配图2/配图3)。注入脚本 `.workbuddy/inject_s1.py` 自动解析 xlsx cellImage → figure 数组，默认 APPLY=False 先 DRY_RUN。
+- **Differentiation 归类**：隐/参数方程求导、求驻点极值单标签 `["Differentiation"]`；先极值再面积/体积双标签 `["Differentiation","Integration"]`；迭代定位驻点双标签 `["Differentiation","Numerical solution of equations"]`。微分方程→`Differential equations`、|z|极值→`Complex numbers`。
 
-## 解析配图 / 数学字体
-- solution 内嵌 `![alt](src)`；网页上传转 data URI（缩≤1000px / JPEG q0.85）；种子图写全路径。三处解析均走 `mdToHtml`。
-- `mdToHtml`（题干/解析/录入预览共用）现已支持 **GFM markdown 表格**：`| 表头 |` + `|---|` + 数据行 渲染为 `<table class="md-table">`，支持省略首尾 `|` 与列对齐 `:--` / `:--:` / `--:`；普通文本里的 `|`（如绝对值 `|x|`）因下一行非分隔行不会被误判。
-- MathJax 已切 **CHTML** 模式（`tex-chtml-full.js` + `chtml:{scale:0.95}`），CSS `.mjx-container, .mjx-chtml { font-weight:300 !important }` 调细字重（SVG 模式字形为矢量路径、font-weight 无效，详见 2026-07-18 日志）。
+## 解析 / MathJax
+- solution 内嵌 `![alt](src)`；网页上传转 data URI(≤1000px/JPEG q0.85)。mdToHtml 支持 GFM 表格。
+- MathJax CHTML 模式(`tex-chtml-full.js`,scale 0.95)；CSS 调细字重 `font-weight:300`。
 
-## 修改前备份（铁律）
-- 改 data.js/app.js 前必跑 `python .workbuddy/tools/backup.py backup <file>`（存 `.workbuddy/backups/`，保留 30 版；restore 自动再备份）。
-- ⚠️ **注入绝不可截断 Store**：`data.js` 末尾在 `SEED_QUESTIONS` 的 `];` **之后**还有完整的 `Store` IIFE（`const Store = (function(){...})();`，含 `parseExamRef`/`_MONTHS`/`_normMonth`/init/all/upsert/remove/replaceAll）。录入注入必须用**行式插入到 `];` 之前、保留 `];` 及之后全部内容**的方式；**绝不可**整体重写或截断 `];` 之后，否则白屏。
-- ⚠️ **注入插入点锚定（2026-07-18 实战踩坑）**：定位 SEED 数组结尾必须用 **`const SEED_QUESTIONS = [` 之后第一个 `];`**（`txt.index("];", txt.index("const SEED_QUESTIONS = ["))`）。**绝不可用 `rfind("];")`**（会命中 Store 内部 `parseExamRef` 等的 `];`，把题插进 Store 函数体里直接白屏/语法错）；也**不可锚定 `const Store = (function`**（SEED 的 `];` 与 `const Store` 之间隔着注释块 `/* 5. 存储层... */` 和多个 `];`，`\];\s*const Store` 正则匹配不到）。插入后再 `node --check` + `grep -c "const Store = (function"` 须为 1。
-- 注入后**强制校验**：`node --check assets/js/data.js` 通过 + `grep -c "const Store = (function" assets/js/data.js` 须为 1 + `grep -o '"id":"' assets/js/data.js | wc -l`（或 python 解析 SEED_QUESTIONS）确认题数。
-- 若已截断 Store 的**恢复流程**：从注入前备份用 Python 提取 `];` 之后全部行（Store 段落）追加到当前文件（先确认当前末尾确为 `];`），再 `node --check`。
+## 修改前备份 & 注入铁律
+- 改 data.js/app.js 前 `python .workbuddy/tools/backup.py backup <file>`。
+- **注入绝不截断 Store**：插到 `const SEED_QUESTIONS = [` 之后第一个 `];` 之前（`txt.index("];", txt.index(...))`），保留 `];` 及之后 Store IIFE 全部。绝不用 `rfind("];")`。
+- 注入后校验：`node --check assets/js/data.js` + `grep -c "const Store = (function" assets/js/data.js` 须为 **1** + 题数核对。
+- 稀疏数组空洞：录入后检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
 
-## 存储层与规模化（2026-07-15）
-- ⚠️ 数据丢失根因：用户网页编辑发生在 `_edited` 保护加入**前** → 本地题无标记；抬高种子 createdAt 后刷新，`Store.all()` 把未保护本地题整条覆盖为种子版（种子 139 题全有解析，故丢失的是用户**改写版**而非空白）。补救：未刷新标签页立即点「导出 JSON」是唯一找回途径。
-- ✅ **P0 已实施**：存储层迁移 **IndexedDB**（库 `mathbank`，对象库 `questions` 存用户覆盖记录、`deleted` 存删除标记，均按 id keyPath）。合并 = 种子被覆盖按 id 覆盖 + 排除已删 id；内存 `_cache` 仅 `init()` 构建一次，`Store.all()` 此后 O(1) 返回；保存退化为一次异步 `put`（非阻塞）。首次运行自动迁移 localStorage 中 `_edited`/非种子记录（等同种子不固化，便于种子修复自动生效）。无 IDB 时降级回 localStorage 旧逻辑。
-- 验证：假 IndexedDB 自测（迁移/覆盖胜出/删除/新增/按 id 持久化）全 PASS；`node --check` data.js/app.js 通过；改动前已用 backup.py 备份。
-- ✅ **P1 已实施（2026-07-15）**：列表虚拟滚动（仅渲染可视区 ±6 缓冲卡片，DOM 节点从全量 N 降到 ~40）+ MathJax 增量排版（仅新卡 stem，解析展开时再排）+ 保存单题精准更新（`vlUpdateItem`：仅当该卡可见且仍在筛选内才替换其 DOM，否则才整页重建）；解析展开/收起触发重测高度并滚动锚定防跳屏；含「VL 未初始化全量渲染」兜底。验证：node 语法校验通过 + 纯逻辑（二分查找/偏移累加）单测全 PASS + DOM 桩集成测试（139 题仅挂 10 卡，WINDOWING_OK）。关键改动：`assets/js/app.js` 新增 `VL` 虚拟列表模块 + `vlInit/vlBuild/vlRender/vlUpdateItem` 等；`typeset` 支持回调；`toggleBasket`/`saveEdit` 改为精准更新；`assets/css/style.css` 加 `#qList{position:relative}`。
-- ✅ **列表分页（2026-07-16）**：在 P1 虚拟滚动之上加显式分页（每页 10 题）。`renderList` 先全量过滤再 `slice` 当前页喂 `vlBuild`；`renderPager`+`pageNumbers`（>10 页带省略号）渲染页码/上下页/信息；搜索/筛选/侧边栏切换复位 `state.page=1`；`index.html` 在 `.list-wrap` 外加 `#pager` 固定底栏，`style.css` 加 `.pager` 样式。验证：DOM 桩测试 第1页挂10卡、点页码2切第2页 → PAGINATION_OK。
-- 🔁 **「以导出文件为准覆盖」恢复流程（2026-07-15 实战）**：用户提供旧标签页导出的 JSON（135 题，含被恢复自定义解析）。做法 = 合并写回 `SEED_QUESTIONS`：重叠题以文件为准、种子独有真实题保留（示例题样题缺 `examRef` 时自动补 `examRef.label`）。并导出合并集 JSON（如 `mathbank_recovered_YYYY-MM-DD.json`，139 题）供网页「导入 JSON」一键生效。⚠️ 浏览器生效注意：P0 后数据在 IndexedDB，**仅刷新可能不生效**（旧 IDB 覆盖优先）；最稳是网页内「导入 JSON」选合并集文件，或清掉站点 IndexedDB 后刷新（新种子即合并集）。
+## 存储层（IndexedDB）
+- 库 `mathbank`：`questions`(用户覆盖)、`deleted`(删除标记)，按 id keyPath。合并=O(1) 返回；无 IDB 降级 localStorage。
+- 列表虚拟滚动(±6缓冲)+MathJax增量+分页(每页10)。
+- 浏览器数据在 IndexedDB：仅刷新可能不生效（旧IDB覆盖优先）→ 最稳用网页「导入 JSON」或清站点 IndexedDB。
 
-## 上线/部署倾向（2026-07-17，当前搁置）
-- **现状**：纯静态前端 + 浏览器本地 IndexedDB，无后端/登录/共享写入。多人共享录入**必须**加后端+共享库+登录。
-- **用户决策**：暂时搁置上线，优先完善本地数据。未来上线时再议。
-- **成本敏感**：介意标准 CVM ¥65/月；倾向免费/极便宜方案。国内访问速度重要（使用者均在国内）。
-- **候选方案**（上线时据预算/实名意愿选）：
-  1. 腾讯云轻量服务器 Lighthouse 特价（~¥60/年，国内快，需实名，复用 Node 服务+一键脚本）。
-  2. 腾讯云 CloudBase 云开发（国内快，免后端代码、前端直连平台库+登录，有免费/极低额度，需实名）。
-  3. Supabase（海外，完全免费、免实名免备案，前端直连 API，但国内偏慢）。
-  4. *排除*：纯静态托管（CloudStudio 部署）跑不了后端；标准 CVM ¥65/月偏贵。
-- **已搭未完成的 `server/` 脚手架**（Express + `db.js` JSON 文件库 + 待补 `auth.js`）：上线时复用，本地应用不加载它、不影响当前使用。
+## 上线倾向（搁置）
+- 纯静态+本地 IndexedDB，无后端。候选：腾讯云 Lighthouse(~¥60/年)/CloudBase(免后端)/Supabase(免费但海外慢)；排除标准 CVM ¥65/月。server/ 脚手架(Express+db.js)待补 auth。
 
-## 资料库（真题卷原卷 / 官方 MS，2026-08-05 新增）
-- **入口**：顶栏「📚 资料库」(`#btnLibrary` → `#libraryOverlay`)；PDF 预览弹窗 `#pdfOverlay`（iframe，含「↗ 新窗口打开」）。
-- **两种来源（两者结合）**：
-  1. **文件夹**：`assets/papers/{board}/{subject}/{year}/{season}/*.pdf`，由 `server/server.js` 的 `GET /api/papers` 实时扫描（**需本地服务器** `node server/server.js`）。纯静态/双击打开时改读 `assets/papers/manifest.json` 兜底——往该文件夹增删 PDF 后运行 `node tools/scan_papers.js` 刷新清单。
-  2. **网页上传**：存浏览器**独立** IndexedDB 库 `mathbank_library`（store `files`，keyPath `id`），由 app.js 内 `openLibDB/libAll/libPut/libDel` 管理，**不碰题目 Store（`mathbank`）**，删除/刷新不丢题目数据。
-- **文件夹约定（5 层）**：`assets/papers/{board}/{subject}/{year}/{season}/{qp|ms}/{file}.pdf`。board=CIE/Edexcel；CIE 的 subject 用 **9709/9231**（不细分单元）；Edexcel 的 subject 用**单元代码**（P1/S1/M1/FP1…，按科目分）。`qp`=原卷、`ms`=官方 MS；类型判定优先看 `qp/ms` 子文件夹名，其次看文件名（含 `ms`/`mark scheme`/`评分`/`答案`/`解答`→官方MS）。season（考季）文件夹名可读化：CIE 用 `Feb-Mar`/`May-Jun`/`Oct-Nov`，Edexcel IAL 用 `Jan`/`Jun`/`Oct`（UI 的 `libSeasonLabel` 已映射显示）。
-- **UI**：树形 board→subject→year→season→文件；顶部可按 考试局/科目/年份/考季/类型 筛选 + 搜索；每文件行带「原卷/官方MS」「📁文件夹/💾本地」徽章与「打开/删除」；删除仅对**上传项**生效（文件夹项在磁盘删）。
-- **打开逻辑**：文件夹项用其 `path` URL（静态服务）；上传项用 `URL.createObjectURL(blob)`，`pdfOverlay` 关闭时 `revokeObjectURL`。
-- **部署注意**：改 `index.html`/`assets/js/app.js`/`assets/css/style.css` 后同步 `public/`；`server/server.js` 扫描依赖 `require('./papers_scan.js')`（扫描逻辑共用模块），新增 PDF 目录结构见 `assets/papers/README.md`。
+## 资料库（真题卷/官方MS）
+- 入口顶栏「📚 资料库」→ #libraryOverlay；PDF 弹窗 #pdfOverlay(iframe)。
+- 来源①文件夹 `assets/papers/{board}/{subject}/{year}/{season}/{qp|ms}/*.pdf`：server `GET /api/papers` 实时扫描(**需 `node server/server.js`**)，否则读 `assets/papers/manifest.json` 兜底(增删PDF后跑 `node tools/scan_papers.js` 刷新)。来源②网页上传→独立 IndexedDB `mathbank_library`。
+- 结构：board=CIE/Edexcel；CIE subject=9709/9231；Edexcel subject=单元代码。season：CIE `Feb-Mar/May-Jun/Oct-Nov`，Edexcel `Jan/Jun/Oct`。qp=原卷、ms=官方MS。
+- 改 index.html/app.js/style.css 后同步 `public/`；PDF 不入库(git仅跟踪 manifest.json+README)，换机需重放。
+
+## 本地服务器运维
+- 资料库文件夹扫描必须运行 `node server/server.js`（端口 8787，双击「启动服务器.bat」）；file:// 双击因 CORS 取不到数据。
+- server.js MIME 表含 `.pdf:application/pdf`（否则浏览器变下载）；改后须重启 server。
