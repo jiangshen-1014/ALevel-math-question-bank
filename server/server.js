@@ -22,7 +22,10 @@ const { URL } = require('url');
 const ROOT = path.resolve(__dirname, '..');            // 项目根目录
 const DATA_DIR = path.join(ROOT, 'data');
 const STORE_FILE = path.join(DATA_DIR, 'store.json');
+const PAPERS_DIR = path.join(ROOT, 'assets', 'papers'); // 资料库：真题卷/官方 MS 文件夹
 const PORT = process.env.PORT || 8787;
+
+const { scanPapersDir } = require('./papers_scan.js');
 
 /* ---------- 本地文件持久化（覆盖记录 + 删除标记） ---------- */
 function loadStore() {
@@ -118,6 +121,12 @@ const server = http.createServer(async (req, res) => {
       if (b && Array.isArray(b.deleted)) store.deleted = b.deleted;
       await persist();
       setJson(); res.end(JSON.stringify({ ok: true })); return;
+    }
+    // 资料库：扫描 assets/papers 下的真题卷 / 官方 MS
+    if (p === '/api/papers' && req.method === 'GET') {
+      setJson();
+      res.end(JSON.stringify(scanPapersDir(PAPERS_DIR)));
+      return;
     }
     // 静态文件
     let rel = decodeURIComponent(p);

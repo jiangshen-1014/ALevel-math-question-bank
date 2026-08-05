@@ -1315,6 +1315,253 @@
     toast(`已载入「${paper.name || "未命名试卷"}」到组卷篮`);
   }
 
+  /* ===================== 资料库（真题卷原卷 / 官方 MS）===================== */
+  // 用独立的 IndexedDB 库(mathbank_library) 存上传的 PDF，不触碰题目存储层(Store)。
+  let _folderPapers = null;   // assets/papers 扫描结果缓存
+  let _libDB = null;
+  let _libPendingFile = null; // 上传面板待保存的 PDF
+
+  function _esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function openLibDB() {
+    return new Promise(function (resolve, reject) {
+      if (_libDB) return resolve(_libDB);
+      if (typeof indexedDB === "undefined") return reject(new Error("no-idb"));
+      const req = indexedDB.open("mathbank_library", 1);
+      req.onupgradeneeded = function () {
+        const db = req.result;
+        if (!db.objectStoreNames.contains("files")) db.createObjectStore("files", { keyPath: "id" });
+      };
+      req.onsuccess = function () { _libDB = req.result; resolve(_libDB); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+  async function libAll() {
+    const db = await openLibDB();
+    return new Promise(function (resolve, reject) {
+      const r = db.transaction("files", "readonly").objectStore("files").getAll();
+      r.onsuccess = function () { resolve(r.result || []); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  async function libPut(entry) {
+    const db = await openLibDB();
+    return new Promise(function (resolve, reject) {
+      const r = db.transaction("files", "readwrite").objectStore("files").put(entry);
+      r.onsuccess = function () { resolve(); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  async function libDel(id) {
+    const db = await openLibDB();
+    return new Promise(function (resolve, reject) {
+      const r = db.transaction("files", "readwrite").objectStore("files").delete(id);
+      r.onsuccess = function () { resolve(); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+  async function libGet(id) {
+    const db = await openLibDB();
+    return new Promise(function (resolve, reject) {
+      const r = db.transaction("files", "readonly").objectStore("files").get(id);
+      r.onsuccess = function () { resolve(r.result || null); };
+      r.onerror = function () { reject(r.error); };
+    });
+  }
+
+  // 文件夹扫描：优先 /api/papers（本地服务器），失败则读 assets/papers/manifest.json 兜底
+  async function scanFolderPapers() {
+    if (_folderPapers) return _folderPapers;
+    let list = [];
+    try {
+      const r = await fetch("/api/papers", { cache: "no-store" });
+      if (r.ok) { list = await r.json(); _folderPapers = list; return list; }
+    } catch (e) { /* 无本地服务器，尝试 manifest 兜底 */ }
+    try {
+      const r = await fetch("assets/papers/manifest.json", { cache: "no-store" });
+      if (r.ok) { const j = await r.json(); list = j.files || []; }
+    } catch (e) {}
+    _folderPapers = list;
+    return list;
+  }
+
+  function libSeasonLabel(s) {
+    return ({ MJ: "May/June", FM: "Feb/March", ON: "Oct/Nov" })[(s || "").toUpperCase()] || s || "";
+  }
+  function libTypeLabel(t) { return t === "ms" ? "官方 MS" : "原卷"; }
+  function fmtSize(b) {
+    if (b == null) return "";
+    if (b < 1024) return b + " B";
+    if (b < 1024 * 1024) return (b / 1024).toFixed(1) + " KB";
+    return (b / 1024 / 1024).toFixed(1) + " MB";
+  }
+  function libUnique(arr, key) {
+    const s = new Set();
+    arr.forEach(function (e) { const v = e[key]; if (v) s.add(v); });
+    return Array.from(s).sort();
+  }
+
+  function fillLibFilters(all) {
+    const set = function (sel, vals, placeholder) {
+      const el = $(sel); if (!el) return;
+      const cur = el.value;
+      el.innerHTML = '<option value="">' + placeholder + "</option>";
+      vals.forEach(function (v) { const o = document.createElement("option"); o.value = v; o.textContent = v; el.appendChild(o); });
+      if (vals.indexOf(cur) >= 0) el.value = cur;
+    };
+    set("#libFBoard", libUnique(all, "board"), "全部考试局");
+    set("#libFSubject", libUnique(all, "subject"), "全部科目");
+    set("#libFYear", libUnique(all, "year"), "全部年份");
+    set("#libFSeason", libUnique(all, "season"), "全部考季");
+  }
+
+  async function renderLibrary() {
+    const tree = $("#libraryTree");
+    if (!tree) return;
+    tree.innerHTML = '<div class="lib-loading">正在加载资料库…</div>';
+    let folder = [], lib = [];
+    try { folder = await scanFolderPapers(); } catch (e) { folder = []; }
+    try { lib = await libAll(); } catch (e) { lib = []; }
+    const all = folder.concat(lib);
+
+    fillLibFilters(all);
+
+    const fb = $("#libFBoard").value, fsj = $("#libFSubject").value, fy = $("#libFYear").value,
+          fse = $("#libFSeason").value, ft = $("#libFType").value,
+          q = ($("#libSearch").value || "").trim().toLowerCase();
+
+    function match(e) {
+      if (fb && (e.board || "").toLowerCase() !== fb.toLowerCase()) return false;
+      if (fsj && (e.subject || "").toLowerCase() !== fsj.toLowerCase()) return false;
+      if (fy && (e.year || "").toLowerCase() !== fy.toLowerCase()) return false;
+      if (fse && (e.season || "").toUpperCase() !== fse.toUpperCase()) return false;
+      if (ft && (e.type || "") !== ft) return false;
+      if (q) {
+        const hay = [e.name, e.board, e.subject, e.year, e.season, libTypeLabel(e.type)].join(" ").toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    }
+    const visible = all.filter(match);
+
+    if (!visible.length) {
+      tree.innerHTML = '<div class="empty"><div class="big">📂</div>资料库为空<br><small>点「⬆️ 上传资料」加入 PDF，或把真题卷放进 assets/papers/ 对应文件夹后点「🔄 刷新文件夹」。</small></div>';
+      return;
+    }
+
+    // 构建树 board → subject → year → season → [entries]
+    const t = {};
+    visible.forEach(function (e) {
+      const b = e.board || "未分类", sj = e.subject || "未分类", y = e.year || "未分类", se = e.season || "未分类";
+      t[b] = t[b] || {}; t[b][sj] = t[b][sj] || {};
+      t[b][sj][y] = t[b][sj][y] || {}; t[b][sj][y][se] = t[b][sj][y][se] || [];
+      t[b][sj][y][se].push(e);
+    });
+
+    let html = "";
+    Object.keys(t).sort().forEach(function (b) {
+      let boardCount = 0;
+      Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { Object.keys(t[b][sj][y]).forEach(function (se) { boardCount += t[b][sj][y][se].length; }); }); });
+      html += '<details class="lib-node" open><summary><span class="ln-ico">📁</span><b>' + _esc(b) + '</b> <span class="ln-count">' + boardCount + "</span></summary>";
+      Object.keys(t[b]).sort().forEach(function (sj) {
+        html += '<details class="lib-node" open><summary><span class="ln-ico">📂</span>' + _esc(sj) + "</summary>";
+        Object.keys(t[b][sj]).sort().forEach(function (y) {
+          html += '<details class="lib-node" open><summary>' + _esc(y) + "</summary>";
+          Object.keys(t[b][sj][y]).sort().forEach(function (se) {
+            const seLabel = libSeasonLabel(se) || se;
+            html += '<details class="lib-node" open><summary>' + (seLabel ? _esc(seLabel) : "未分考季") + "</summary>";
+            t[b][sj][y][se].forEach(function (e) {
+              const typeBadge = e.type === "ms"
+                ? '<span class="badge b-ms">官方 MS</span>'
+                : '<span class="badge b-paper">原卷</span>';
+              const srcBadge = e.source === "folder"
+                ? '<span class="badge b-folder">📁 文件夹</span>'
+                : '<span class="badge b-lib">💾 本地</span>';
+              const delBtn = e.source === "lib"
+                ? '<button class="btn sm ghost" data-act="del" data-id="' + _esc(e.id) + '">删除</button>'
+                : "";
+              html += '<div class="lib-file" data-id="' + _esc(e.id) + '" data-source="' + e.source + '">'
+                + '<span class="lib-ico">📄</span>'
+                + '<span class="lib-name" title="' + _esc(e.name) + '">' + _esc(e.name) + "</span>"
+                + typeBadge + srcBadge
+                + (e.size ? '<span class="lib-size">' + fmtSize(e.size) + "</span>" : "")
+                + '<span class="lib-actions">'
+                + '<button class="btn sm" data-act="open" data-id="' + _esc(e.id) + '">打开</button>'
+                + delBtn
+                + "</span></div>";
+            });
+            html += "</details>";
+          });
+          html += "</details>";
+        });
+        html += "</details>";
+      });
+      html += "</details>";
+    });
+    tree.innerHTML = html;
+  }
+
+  async function findLibEntry(id) {
+    if (id.indexOf("folder:") === 0) {
+      return (_folderPapers || []).find(function (e) { return e.id === id; }) || null;
+    }
+    try { return await libGet(id); } catch (e) { return null; }
+  }
+
+  async function openLibFile(entry) {
+    let url;
+    if (entry.source === "folder") {
+      url = entry.path;
+    } else {
+      const rec = await findLibEntry(entry.id);
+      if (!rec || !rec.blob) { toast("文件读取失败"); return; }
+      url = URL.createObjectURL(rec.blob);
+    }
+    const frame = $("#pdfFrame");
+    frame.src = url;
+    const a = $("#pdfOpenNew"); a.href = url; a.target = "_blank";
+    $("#pdfFileName").textContent = entry.name + (entry.type === "ms" ? "（官方 MS）" : "（原卷）");
+    const ov = $("#pdfOverlay");
+    ov._blobUrl = entry.source === "lib" ? url : null;
+    openOverlay("#pdfOverlay");
+  }
+
+  function libShowUpload(show) {
+    const p = $("#libUploadPanel");
+    if (p) p.style.display = show ? "block" : "none";
+    if (!show) { _libPendingFile = null; const n = $("#libPickName"); if (n) n.textContent = ""; const f = $("#libFile"); if (f) f.value = ""; }
+  }
+
+  async function handleLibUpload() {
+    const file = _libPendingFile;
+    if (!file) { toast("请先选择 PDF 文件"); return; }
+    const board = $("#libBoard").value.trim();
+    const subject = $("#libSubject").value.trim();
+    const year = $("#libYear").value.trim();
+    const season = $("#libSeason").value.trim();
+    const type = $("#libType").value;
+    if (!subject || !year) { toast("请填写科目与年份"); return; }
+    const id = "lib:" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    const entry = {
+      id: id, source: "lib",
+      board: board, subject: subject, year: year, season: season, type: type,
+      name: file.name.replace(/\.pdf$/i, ""),
+      fileName: file.name, blob: file, size: file.size, createdAt: Date.now()
+    };
+    try {
+      await libPut(entry);
+      toast("已保存到资料库");
+      libShowUpload(false);
+      renderLibrary();
+    } catch (e) {
+      toast("保存失败：当前浏览器不支持本地数据库");
+    }
+  }
+
   /* ---------- 随章节随机组卷 ---------- */
   // 官方满分：纯数 Pure（科目以 P 开头）75 分；力学/统计（M*/S*）50 分（CIE / Edexcel 同规则）
   function officialFullMarks(subject) {
@@ -1841,6 +2088,66 @@
     // 试卷库
     $("#btnPapers").onclick = () => { renderPapersList(); openOverlay("#papersOverlay"); };
     $("#papersClose").onclick = () => closeOverlay("#papersOverlay");
+
+    /* ---------- 资料库 ---------- */
+    $("#btnLibrary").onclick = () => { renderLibrary(); openOverlay("#libraryOverlay"); };
+    $("#libraryClose").onclick = () => closeOverlay("#libraryOverlay");
+    $("#libRefresh").onclick = () => { _folderPapers = null; renderLibrary(); toast("已刷新文件夹"); };
+    // 上传面板开关
+    $("#libUploadBtn").onclick = () => {
+      const p = $("#libUploadPanel");
+      libShowUpload(p.style.display === "none");
+    };
+    $("#libUploadCancel").onclick = () => libShowUpload(false);
+    $("#libPickBtn").onclick = () => $("#libFile").click();
+    $("#libDrop").onclick = (e) => { if (e.target.id === "libDrop" || e.target.id === "libPickName") $("#libFile").click(); };
+    $("#libFile").onchange = () => {
+      const f = $("#libFile").files && $("#libFile").files[0];
+      _libPendingFile = f || null;
+      $("#libPickName").textContent = f ? "已选择：" + f.name + "（" + fmtSize(f.size) + "）" : "";
+    };
+    // 拖拽上传
+    const drop = $("#libDrop");
+    drop.ondragover = (e) => { e.preventDefault(); drop.classList.add("drag"); };
+    drop.ondragleave = () => drop.classList.remove("drag");
+    drop.ondrop = (e) => {
+      e.preventDefault(); drop.classList.remove("drag");
+      const f = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (!f) return;
+      if (!/\.pdf$/i.test(f.name)) { toast("仅支持 PDF 文件"); return; }
+      _libPendingFile = f;
+      $("#libFile").value = "";
+      $("#libPickName").textContent = "已选择：" + f.name + "（" + fmtSize(f.size) + "）";
+    };
+    $("#libUploadSave").onclick = () => handleLibUpload();
+    // 筛选 / 搜索
+    $("#libSearch").oninput = () => renderLibrary();
+    ["#libFBoard", "#libFSubject", "#libFYear", "#libFSeason", "#libFType"].forEach(function (sel) {
+      $(sel).onchange = () => renderLibrary();
+    });
+    // 树内事件委托：打开 / 删除
+    $("#libraryTree").addEventListener("click", async function (ev) {
+      const btn = ev.target.closest("[data-act]");
+      if (!btn) return;
+      const id = btn.getAttribute("data-id");
+      const act = btn.getAttribute("data-act");
+      if (act === "open") {
+        const entry = await findLibEntry(id);
+        if (entry) openLibFile(entry); else toast("未找到该资料");
+      } else if (act === "del") {
+        const ok = await confirmDialog("确定删除该资料？（仅删除本机上传的记录，不影响 assets/papers 文件夹）");
+        if (ok) { try { await libDel(id); toast("已删除"); renderLibrary(); } catch (e) { toast("删除失败"); } }
+      }
+    });
+    // PDF 预览弹窗
+    $("#pdfClose").onclick = () => {
+      const ov = $("#pdfOverlay");
+      const frame = $("#pdfFrame");
+      if (frame) frame.src = "about:blank";
+      if (ov._blobUrl) { URL.revokeObjectURL(ov._blobUrl); ov._blobUrl = null; }
+      closeOverlay("#pdfOverlay");
+    };
+    $("#pdfOverlay").addEventListener("click", function (e) { if (e.target === this) $("#pdfClose").click(); });
     // 随章节随机组卷
     fillRandSelects();
     $("#genRandomPaper").onclick = () => generateRandomPaper($("#f_randBoard").value, $("#f_randSubject").value);

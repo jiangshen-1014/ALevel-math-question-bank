@@ -43,6 +43,7 @@
       <button class="btn sm primary" id="btnAdd">＋ 新增题目</button>
       <button class="btn sm basket-btn" id="btnBasket">🧺 组卷篮 <span class="n" id="basketN" style="display:none">0</span></button>
       <button class="btn sm basket-btn" id="btnPapers">📄 试卷库</button>
+      <button class="btn sm basket-btn" id="btnLibrary">📚 资料库</button>
       <button class="btn sm ai-btn" id="btnAIChat" title="打开 AI 对话">🤖 AI 对话</button>
       <button class="btn sm ghost" id="btnAISettings" title="配置 AI 接口">⚙ AI 设置</button>
     </div>
@@ -269,6 +270,69 @@
     <div class="modal-body">
       <div class="hint" style="margin:0 0 12px">这里列出你保存的组卷方案。可勾选「带解析 / 带来源」、选择排序方式后直接【生成预览】；或【载入组卷篮】回到组卷抽屉继续编辑再生成。</div>
       <div id="papersList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 资料库 弹窗 -->
+<div class="overlay" id="libraryOverlay">
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2>📚 资料库 <small style="font-weight:400;font-size:13px;color:var(--text-mute)">真题卷原卷 &amp; 官方 MS</small></h2>
+      <button class="btn sm ghost x" id="libraryClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="lib-toolbar">
+        <button class="btn sm primary" id="libUploadBtn">⬆️ 上传资料</button>
+        <button class="btn sm ghost" id="libRefresh">🔄 刷新文件夹</button>
+        <div class="search" style="flex:1;min-width:160px">
+          <span class="ico">🔍</span>
+          <input type="text" id="libSearch" placeholder="搜索文件名 / 考试局 / 科目 / 年份 / 考季…" />
+        </div>
+        <select class="select-sm" id="libFBoard"><option value="">全部考试局</option><option>CIE</option><option>Edexcel</option></select>
+        <select class="select-sm" id="libFSubject"><option value="">全部科目</option></select>
+        <select class="select-sm" id="libFYear"><option value="">全部年份</option></select>
+        <select class="select-sm" id="libFSeason"><option value="">全部考季</option><option value="MJ">MJ</option><option value="FM">FM</option><option value="ON">ON</option></select>
+        <select class="select-sm" id="libFType"><option value="">全部类型</option><option value="paper">原卷</option><option value="ms">官方 MS</option></select>
+      </div>
+
+      <!-- 上传面板 -->
+      <div class="lib-upload" id="libUploadPanel" style="display:none">
+        <div class="lib-drop" id="libDrop">把 PDF 拖到此处，或 <button type="button" class="btn sm ghost" id="libPickBtn">选择文件</button>
+          <div class="lib-pickname" id="libPickName"></div>
+        </div>
+        <input type="file" id="libFile" accept="application/pdf" style="display:none" />
+        <div class="lib-form">
+          <label class="fld">考试局<select id="libBoard"><option>CIE</option><option>Edexcel</option></select></label>
+          <label class="fld">科目<input id="libSubject" placeholder="如 S1" /></label>
+          <label class="fld">年份<input id="libYear" placeholder="如 2025" /></label>
+          <label class="fld">考季<select id="libSeason"><option value="MJ">MJ (May/June)</option><option value="FM">FM (Feb/March)</option><option value="ON">ON (Oct/Nov)</option></select></label>
+          <label class="fld">类型<select id="libType"><option value="paper">原卷</option><option value="ms">官方 MS</option></select></label>
+        </div>
+        <div class="lib-upload-actions">
+          <button class="btn ghost" id="libUploadCancel">取消</button>
+          <button class="btn primary" id="libUploadSave">保存资料</button>
+        </div>
+      </div>
+
+      <div class="hint" style="margin:8px 0">文件夹资料来自 <code>assets/papers/</code>（需本地服务器或运行 <code>tools/scan_papers.js</code> 刷新清单）；网页上传的资料仅存本浏览器。</div>
+      <div id="libraryTree" class="lib-tree"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PDF 预览 弹窗 -->
+<div class="overlay" id="pdfOverlay">
+  <div class="modal pdf-modal">
+    <div class="modal-head">
+      <h3 id="pdfFileName">PDF 预览</h3>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <a class="btn sm ghost" id="pdfOpenNew" target="_blank" rel="noopener">↗ 新窗口打开</a>
+        <button class="btn sm ghost x" id="pdfClose">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" style="padding:0;display:flex;flex:1;min-height:0">
+      <iframe id="pdfFrame" style="flex:1;width:100%;border:0;background:#fff"></iframe>
     </div>
   </div>
 </div>
