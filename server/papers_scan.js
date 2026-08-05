@@ -53,28 +53,23 @@ function scanPapersDir(rootDir) {
     const segs = String(rel).split(path.sep);
     const fileName = segs[segs.length - 1];
     const name = fileName.replace(/\.pdf$/i, '');
-    // 兼容三种深度：
-    //   …/season/file.pdf（5 段）→ season 取文件夹名
+    // 三种深度：
     //   …/season/qp|ms/file.pdf（6 段）→ season 取文件夹名、type 取 qp/ms
-    //   …/year/file.pdf（4 段，如 er/gt 直接放年份目录）→ season 从文件名字母推断
+    //   …/season/file.pdf（5 段，如 er/gt 直接放考季目录）→ season 取文件夹名、type 由文件名推断
+    //   …/year/file.pdf（4 段，兼容用户手动放年份目录）→ season 从文件名字母推断
     const board = segs[0] || '';
     const subject = segs[1] || '';
     const year = segs[2] || '';
     let season = segs[3] || '';
     let type = typeFromParent(segs);
-    if (!type) type = classify(name);
+    if (!type) {
+      if (/_er$/i.test(name)) type = 'er';
+      else if (/_gt$/i.test(name)) type = 'gt';
+      else type = classify(name);
+    }
     if (segs.length === 4) {
-      // er / gt 直接放在年份目录，不属于某个具体考季，season 留空
-      if (/_er$/i.test(name)) {
-        type = 'er';
-        season = '';
-      } else if (/_gt$/i.test(name)) {
-        type = 'gt';
-        season = '';
-      } else {
-        const letter = (name.match(/_([msw])\d{2}_/i) || [, ''])[1];
-        season = SEASON_FROM_LETTER[(letter || '').toLowerCase()] || '';
-      }
+      const letter = (name.match(/_([msw])\d{2}_/i) || [, ''])[1];
+      season = SEASON_FROM_LETTER[(letter || '').toLowerCase()] || season;
     }
     out.push({
       id: 'folder:' + rel,

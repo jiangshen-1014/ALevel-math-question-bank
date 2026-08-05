@@ -1472,18 +1472,13 @@
       return;
     }
 
-    // 构建树 board → subject → year → { _direct: [直接挂在年份下的 er/gt], _seasons: { season: [entries] } }
+    // 构建树 board → subject → year → season → [entries]
     const t = {};
     visible.forEach(function (e) {
-      const b = e.board || "未分类", sj = e.subject || "未分类", y = e.year || "未分类";
-      t[b] = t[b] || {}; t[b][sj] = t[b][sj] || {}; t[b][sj][y] = t[b][sj][y] || { _direct: [], _seasons: {} };
-      if (!e.season && (e.type === "er" || e.type === "gt")) {
-        t[b][sj][y]._direct.push(e);
-      } else {
-        const se = e.season || "未分考季";
-        t[b][sj][y]._seasons[se] = t[b][sj][y]._seasons[se] || [];
-        t[b][sj][y]._seasons[se].push(e);
-      }
+      const b = e.board || "未分类", sj = e.subject || "未分类", y = e.year || "未分类", se = e.season || "未分考季";
+      t[b] = t[b] || {}; t[b][sj] = t[b][sj] || {};
+      t[b][sj][y] = t[b][sj][y] || {}; t[b][sj][y][se] = t[b][sj][y][se] || [];
+      t[b][sj][y][se].push(e);
     });
 
     function fileRow(e) {
@@ -1514,17 +1509,16 @@
     let html = "";
     Object.keys(t).sort().forEach(function (b) {
       let boardCount = 0;
-      Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { boardCount += t[b][sj][y]._direct.length + Object.keys(t[b][sj][y]._seasons).reduce(function (sum, se) { return sum + t[b][sj][y]._seasons[se].length; }, 0); }); });
+      Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { boardCount += Object.keys(t[b][sj][y]).reduce(function (sum, se) { return sum + t[b][sj][y][se].length; }, 0); }); });
       html += '<details class="lib-node" open><summary><span class="ln-ico">📁</span><b>' + _esc(b) + '</b> <span class="ln-count">' + boardCount + "</span></summary>";
       Object.keys(t[b]).sort().forEach(function (sj) {
         html += '<details class="lib-node" open><summary><span class="ln-ico">📂</span>' + _esc(sj) + "</summary>";
         Object.keys(t[b][sj]).sort().forEach(function (y) {
           html += '<details class="lib-node" open><summary>' + _esc(y) + "</summary>";
-          t[b][sj][y]._direct.forEach(function (e) { html += fileRow(e); });
-          Object.keys(t[b][sj][y]._seasons).sort().forEach(function (se) {
+          Object.keys(t[b][sj][y]).sort().forEach(function (se) {
             const seLabel = libSeasonLabel(se) || se;
             html += '<details class="lib-node" open><summary>' + (seLabel ? _esc(seLabel) : "未分考季") + "</summary>";
-            t[b][sj][y]._seasons[se].forEach(function (e) { html += fileRow(e); });
+            t[b][sj][y][se].forEach(function (e) { html += fileRow(e); });
             html += "</details>";
           });
           html += "</details>";
