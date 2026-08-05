@@ -23,7 +23,7 @@ CIE S1 批量录入注入脚本（多配图版）
 import re, json, zipfile, time, os, shutil, xml.etree.ElementTree as ET
 
 # ===================== 需填写 =====================
-XLSX = r"F:/题库输入表格/CIE S1录入/25_ON_52.xlsx"       # TODO: 填实际 S1 录入表
+XLSX = r"F:/题库输入表格/CIE S1录入/25_ON_51.xlsx"       # TODO: 填实际 S1 录入表
 APPLY = False                                            # 确认无误后改 True 才会写入 data.js
 # =================================================
 
@@ -34,17 +34,17 @@ MONTH = {"MJ": "May/June", "FM": "Feb/March", "ON": "Oct/Nov"}
 
 # 每题章节：qno -> chapter（可填字符串或 [章1,章2]）；留空 {} 则按关键词推断
 CHAPTER = {
-    1: ["Discrete random variables（离散随机变量）"],                                  # 几何分布：首次正面在第5次/第6次后
-    2: ["Discrete random variables（离散随机变量）"],                                  # 抽球直到取到绿球，X=次数，分布表+Var
-    3: ["The normal distribution（正态分布）"],                                       # 正态：均值±5cm内人数 + 逆查σ
-    4: ["Probability（概率）"],                                                       # 两包卡片概率表，列方程求x + 同类概率
-    5: ["Representation of data（数据表示）"],                                        # 频数表画直方图 + 估计均值
-    6: ["Discrete random variables（离散随机变量）", "The normal distribution（正态分布）"],  # 二项 + 正态近似（类比 25FM52_q2）
-    7: ["Permutations & combinations（排列组合）"],                                   # ZOOLOGICAL 排列约束 + 抽两字母概率
+    1: ["Discrete random variables（离散随机变量）"],                                  # kx²分布表 + E(X) + 条件概率 P(X≠2|X>0)
+    2: ["Discrete random variables（离散随机变量）"],                                  # 掷骰至首次/第三次出现6（几何/负二项）
+    3: ["Representation of data（数据表示）"],                                        # 背靠背茎叶图比较两家公司薪资
+    4: ["Probability（概率）"],                                                       # 两袋转移概率（树状图）
+    5: ["Probability（概率）"],                                                       # 穿毛衣条件概率
+    6: ["The normal distribution（正态分布）"],                                       # 两厂正态 + 逆查 μ,σ
+    7: ["Permutations & combinations（排列组合）"],                                   # SEYCHELLES 排列约束
 }
 # 每题难度 1–5；留空 {} 则按分值推断
 DIFF = {
-    1: 2, 2: 4, 3: 4, 4: 3, 5: 4, 6: 4, 7: 5,
+    1: 3, 2: 3, 3: 4, 4: 3, 5: 4, 6: 4, 7: 5,
 }
 
 # ---------- 通用：解析 xlsx ----------

@@ -10153,6 +10153,174 @@ const SEED_QUESTIONS = [
     "label": "2025 Oct/Nov · Paper 52 Q7"
   },
   "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q1",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_ON_51_1",
+  "stem": "The random variable $X$ takes the value $x$ with probability $kx^2$, where $k$ is a constant and $x$ takes the values $-2$, 1, 2, 3 only.\n(a) Draw up the probability distribution table for $X$, giving the probabilities as numerical fractions.\\hfill(3)\n(b) Find $\\text{E}(X)$.\\hfill(1)\n(c) Find $\\text{P}(X \\neq 2 \\mid X > 0)$.\\hfill(2)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 6,
+  "solution": "",
+  "createdAt": 1785902282984,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 1,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q1"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q2",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_ON_51_2",
+  "stem": "A fair six-sided dice with faces labelled 1, 2, 3, 4, 5, 6 is thrown repeatedly until a 6 is obtained.\n(a) Find the probability that a 6 is obtained for the first time on the 8th throw.\\hfill(1)\n(b) Find the probability that a 6 is obtained for the third time on the 7th throw.\\hfill(3)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 4,
+  "solution": "",
+  "createdAt": 1785902282984,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 2,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q2"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q3",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Representation of data（数据表示）"
+  ],
+  "source": "25_ON_51_3",
+  "stem": "The back-to-back stem-and-leaf diagram shows the annual salaries, in dollars, of 27 employees at each of two companies, Browns and Greens.\n| Browns | | Stem | | Greens |\n|:---:|:---:|:---:|:---:|:---:|\n| 9 8 4 | (3) | 30 | (2) | 6 8 |\n| 8 8 5 3 3 1 0 | (7) | 31 | (4) | 2 4 5 8 |\n| 9 7 6 4 2 2 0 | (7) | 32 | (5) | 3 6 6 7 9 |\n| 8 7 5 5 3 1 | (6) | 33 | (8) | 1 1 3 7 8 8 9 9 |\n| 4 2 2 | (3) | 34 | (6) | 0 2 3 5 6 9 |\n| 7 | (1) | 35 | (2) | 3 7 |\nKey: $6|32|7$ means Browns: $\\$32600$, Greens: $\\$32700$\n(a) Find the median and interquartile range for the annual salaries of employees at Browns.\\hfill(3)\nThe annual salary of an employee at Browns is denoted by $x$ thousand dollars and the annual salary of an employee at Greens is denoted by $y$ thousand dollars. It is given that, for the 27 employees at each of the companies,\n$$\\sum x = 878.3, \\quad \\sum x^2 = 28616.09, \\quad \\sum y = 896.5, \\quad \\sum y^2 = 29815.63$$\n(b) Find the mean and standard deviation of the annual salaries of these 54 employees.\\hfill(5)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 8,
+  "solution": "",
+  "createdAt": 1785902282984,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 3,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q3"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q4",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_ON_51_4",
+  "stem": "Bag A contains 8 red marbles and 3 blue marbles. Bag B contains 4 red marbles and 1 blue marble.\nA marble is chosen at random from Bag A. If it is red it is discarded. If it is blue it is placed in Bag B.\nA marble is then chosen at random from Bag B. If it is red it is discarded. If it is blue it is placed in Bag A.\nA marble is then chosen at random from Bag A.\n(a) Complete the tree diagram below by entering all the remaining outcomes and probabilities.\\hfill(3)\n(b) Find the probability that all three marbles chosen are the same colour.\\hfill(2)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 5,
+  "solution": "",
+  "createdAt": 1785902282984,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 4,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q4"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q5",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_ON_51_5",
+  "stem": "On any given day, Cooper either wears a blue jumper or he wears a green jumper or he does not wear a jumper. The probability that he wears a blue jumper is 0.6 and the probability that he wears a green jumper is 0.3. Whether Cooper wears a jumper of either colour, or does not wear a jumper, on any day is independent of his choice on any other day.\n(a) Find the probability that in a week (7 days), Cooper wears a blue jumper on at least 5 days.\\hfill(3)\n(b) Use a suitable approximation to find the probability that, in any 150-day period, Cooper does not wear a jumper on fewer than 22 days.\\hfill(5)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 8,
+  "solution": "",
+  "createdAt": 1785902282985,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 5,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q5"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q6",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_ON_51_6",
+  "stem": "A factory produces chocolate bars. The weights of the bars are normally distributed with mean 155 g and standard deviation 6 g. A random sample of 350 of these bars is chosen.\n(a) How many of these 350 bars would you expect to weigh between 148 g and 160 g?\\hfill(4)\nA second factory also produces chocolate bars. The weights of these bars are normally distributed with mean $\\mu$ g and standard deviation $\\sigma$ g. Tests show that 8% of the bars weigh more than 114.0 g and 20% weigh less than 99.5 g.\n(b) Find the value of $\\mu$ and the value of $\\sigma$.\\hfill(5)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 9,
+  "solution": "",
+  "createdAt": 1785902282985,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 6,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q6"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON51_q7",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Permutations & combinations（排列组合）"
+  ],
+  "source": "25_ON_51_7",
+  "stem": "(a) How many different arrangements are there of the 10 letters in the word SEYCHELLES?\\hfill(1)\n(b) How many different arrangements are there of the 10 letters in the word SEYCHELLES in which there are exactly two letters between the Ss and one of these two letters is C?\\hfill(3)\n(c) How many different arrangements are there of the 10 letters in the word SEYCHELLES in which there is an S at the beginning, an S at the end and the three Es are not all next to each other?\\hfill(3)\n5 letters are selected at random from the 10 letters in the word SEYCHELLES.\n(d) Find the probability that these 5 letters include the three Es.\\hfill(3)",
+  "figure": [],
+  "difficulty": 5,
+  "marks": 10,
+  "solution": "",
+  "createdAt": 1785902282985,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "51",
+    "qno": 7,
+    "code": "51",
+    "label": "2025 Oct/Nov · Paper 51 Q7"
+  },
+  "_dup": false
 }
 ];
 
