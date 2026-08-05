@@ -34,6 +34,7 @@
 - 入口顶栏「📚 资料库」→ #libraryOverlay；PDF 弹窗 #pdfOverlay(iframe)。
 - 来源①文件夹 `assets/papers/{board}/{subject}/{year}/{season}/{qp|ms}/*.pdf`：server `GET /api/papers` 实时扫描(**需 `node server/server.js`**)，否则读 `assets/papers/manifest.json` 兜底(增删PDF后跑 `node tools/scan_papers.js` 刷新)。来源②网页上传→独立 IndexedDB `mathbank_library`。
 - 结构：board=CIE/Edexcel；CIE subject=9709/9231；Edexcel subject=单元代码。season：CIE `Feb-Mar/May-Jun/Oct-Nov`，Edexcel `Jan/Jun/Oct`。qp=原卷、ms=官方MS。
+- **er/gt 规则**：`er`=Exam report、`gt`=Grade threshold 的文件放 `…/{year}/{season}/文件名.pdf`（直接挂考季文件夹下，**不进 qp/ms 子文件夹**）；UI 在考季节点下与 qp/ms 混合显示，靠 badge 区分（`.b-er`紫/`.b-gt`红）。扫描深度5(`…/season/file`)时 season 取文件夹名、type 优先匹配 `_er$`/`_gt$`。
 - 改 index.html/app.js/style.css 后同步 `public/`；PDF 不入库(git仅跟踪 manifest.json+README)，换机需重放。
 
 ## 本地服务器运维
