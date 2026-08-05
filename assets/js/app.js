@@ -1086,7 +1086,7 @@
           <h1>${escapeHtml(title)}</h1>
           <div class="pmeta">${escapeHtml(boards)} &nbsp;|&nbsp; 共 ${qs.length} 题 &nbsp;|&nbsp; 满分 ${totalMarks} marks
             ${inc || incSrc ? "&nbsp;|&nbsp;" : ""}${inc ? "教师版（含解析）" : ""}${incSrc ? (inc ? " · 含来源" : "含来源") : ""}</div>
-          <div class="pmeta" style="margin-top:6px">姓名 Name: ____________ &nbsp;&nbsp; 日期 Date: ____________</div>
+          <div class="pmeta" style="margin-top:6px">姓名 Name: ____________ &nbsp;&nbsp; 班级 Class: ____________ &nbsp;&nbsp; 成绩 Score: ____________</div>
         </div>` : ""}
         <div class="paper-qbody">
           <div class="paper-qline">
