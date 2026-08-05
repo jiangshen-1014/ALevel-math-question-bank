@@ -52,7 +52,7 @@
 - **两种来源（两者结合）**：
   1. **文件夹**：`assets/papers/{board}/{subject}/{year}/{season}/*.pdf`，由 `server/server.js` 的 `GET /api/papers` 实时扫描（**需本地服务器** `node server/server.js`）。纯静态/双击打开时改读 `assets/papers/manifest.json` 兜底——往该文件夹增删 PDF 后运行 `node tools/scan_papers.js` 刷新清单。
   2. **网页上传**：存浏览器**独立** IndexedDB 库 `mathbank_library`（store `files`，keyPath `id`），由 app.js 内 `openLibDB/libAll/libPut/libDel` 管理，**不碰题目 Store（`mathbank`）**，删除/刷新不丢题目数据。
-- **文件夹四层约定**：board(CIE/Edexcel) → subject(如 S1/P3) → year → season(MJ=May/June / FM=Feb/March / ON=Oct/Nov，也接受 Jun/Jan 自由文本) → 文件。文件名含 `ms`/`mark scheme`/`markscheme`/`评分`/`答案` → 判为**官方 MS**，否则**原卷**（类型徽章）。
+- **文件夹约定（5 层）**：`assets/papers/{board}/{subject}/{year}/{season}/{qp|ms}/{file}.pdf`。board=CIE/Edexcel；CIE 的 subject 用 **9709/9231**（不细分单元）；Edexcel 的 subject 用**单元代码**（P1/S1/M1/FP1…，按科目分）。`qp`=原卷、`ms`=官方 MS；类型判定优先看 `qp/ms` 子文件夹名，其次看文件名（含 `ms`/`mark scheme`/`评分`/`答案`/`解答`→官方MS）。season（考季）文件夹名可读化：CIE 用 `Feb-Mar`/`May-Jun`/`Oct-Nov`，Edexcel IAL 用 `Jan`/`Jun`/`Oct`（UI 的 `libSeasonLabel` 已映射显示）。
 - **UI**：树形 board→subject→year→season→文件；顶部可按 考试局/科目/年份/考季/类型 筛选 + 搜索；每文件行带「原卷/官方MS」「📁文件夹/💾本地」徽章与「打开/删除」；删除仅对**上传项**生效（文件夹项在磁盘删）。
 - **打开逻辑**：文件夹项用其 `path` URL（静态服务）；上传项用 `URL.createObjectURL(blob)`，`pdfOverlay` 关闭时 `revokeObjectURL`。
 - **部署注意**：改 `index.html`/`assets/js/app.js`/`assets/css/style.css` 后同步 `public/`；`server/server.js` 扫描依赖 `require('./papers_scan.js')`（扫描逻辑共用模块），新增 PDF 目录结构见 `assets/papers/README.md`。
