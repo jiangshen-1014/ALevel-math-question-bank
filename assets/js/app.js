@@ -1510,14 +1510,14 @@
     Object.keys(t).sort().forEach(function (b) {
       let boardCount = 0;
       Object.keys(t[b]).forEach(function (sj) { Object.keys(t[b][sj]).forEach(function (y) { boardCount += Object.keys(t[b][sj][y]).reduce(function (sum, se) { return sum + t[b][sj][y][se].length; }, 0); }); });
-      html += '<details class="lib-node" open><summary><span class="ln-ico">📁</span><b>' + _esc(b) + '</b> <span class="ln-count">' + boardCount + "</span></summary>";
+      html += '<details class="lib-node"><summary><span class="ln-ico">📁</span><b>' + _esc(b) + '</b> <span class="ln-count">' + boardCount + "</span></summary>";
       Object.keys(t[b]).sort().forEach(function (sj) {
-        html += '<details class="lib-node" open><summary><span class="ln-ico">📂</span>' + _esc(sj) + "</summary>";
+        html += '<details class="lib-node"><summary><span class="ln-ico">📂</span>' + _esc(sj) + "</summary>";
         Object.keys(t[b][sj]).sort().forEach(function (y) {
-          html += '<details class="lib-node" open><summary>' + _esc(y) + "</summary>";
+          html += '<details class="lib-node"><summary>' + _esc(y) + "</summary>";
           Object.keys(t[b][sj][y]).sort().forEach(function (se) {
             const seLabel = libSeasonLabel(se) || se;
-            html += '<details class="lib-node" open><summary>' + (seLabel ? _esc(seLabel) : "未分考季") + "</summary>";
+            html += '<details class="lib-node"><summary>' + (seLabel ? _esc(seLabel) : "未分考季") + "</summary>";
             t[b][sj][y][se].forEach(function (e) { html += fileRow(e); });
             html += "</details>";
           });
