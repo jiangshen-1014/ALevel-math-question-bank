@@ -1087,12 +1087,12 @@
           <div class="pmeta">${escapeHtml(boards)} &nbsp;|&nbsp; 共 ${qs.length} 题 &nbsp;|&nbsp; 满分 ${totalMarks} marks</div>
           <div class="pmeta" style="margin-top:6px">姓名 Name: ____________ &nbsp;&nbsp; 班级 Class: ____________ &nbsp;&nbsp; 成绩 Score: ____________</div>
         </div>` : ""}
-        <div class="paper-qbody">
+          <div class="paper-qbody">
           <div class="paper-qline">
             <span class="pq-num">${i + 1}.</span>
             <span class="mathrender pq-stem">${mdToHtml(q.stem, state.search)}</span>
-            <span class="pq-marks">[${q.marks || "—"} marks]</span>
           </div>
+          <div class="paper-qmeta"><span class="pq-marks">[${q.marks || "—"} marks]</span></div>
           ${incSrc && srcText ? `<div class="paper-src">${escapeHtml(srcText)}</div>` : ""}
           ${figureHtml(q.figure, "pq-fig")}
           ${q.hasGrid ? `<div class="paper-grid"><img src="data/images/grid_s1.png" alt="Graph paper grid" /></div>` : ""}
