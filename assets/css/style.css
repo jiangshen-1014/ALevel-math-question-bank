@@ -311,6 +311,9 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .basket-item .bi-ctrl button { border: none; background: var(--panel-2); border-radius: 5px;
   width: 24px; height: 20px; font-size: 11px; color: var(--text-soft); }
 .basket-item .bi-ctrl button:hover { background: var(--brand-soft); color: var(--brand); }
+.basket-item .bi-blank { display: flex; align-items: center; gap: 2px; font-size: 11px; color: var(--text-mute);
+  margin-top: 2px; cursor: pointer; }
+.basket-item .bi-blank input { margin: 0; width: 13px; height: 13px; cursor: pointer; }
 
 .toggle-row { display: flex; align-items: center; gap: 10px; margin: 10px 0; padding: 10px 12px;
   background: var(--panel-2); border-radius: 8px; }
@@ -372,6 +375,11 @@ label.fld { display: block; font-size: 12.5px; font-weight: 600; color: var(--te
 .paper-end { margin-top: 18px; text-align: center; color: #94a3b8; font-size: 12px; }
 .paper-hint { margin: 0 0 14px; padding: 10px 14px; background: #fff7ed; border: 1px solid #fed7aa;
   border-radius: 8px; color: #9a3412; font-size: 12.5px; line-height: 1.6; }
+/* 题后空白页 */
+.paper-blank-page { display: flex; align-items: center; justify-content: center; min-height: 70vh; }
+.paper-blank-page-content { color: var(--text-mute); font-size: 18px; text-align: center;
+  border: 2px dashed var(--border); padding: 40px 70px; border-radius: 8px; }
+.paper-blank-page-content .paper-blank-sub { font-size: 13px; display: block; margin-top: 4px; }
 
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
   background: var(--text); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px;
@@ -437,6 +445,9 @@ mark {
   .paper-q { display: block !important; min-height: auto !important;
     page-break-after: always; break-after: page; page-break-inside: avoid; }
   .paper-q:last-child { page-break-after: auto; break-after: auto; }
+  /* 题后空白页：占满整页，不显示虚线框提示 */
+  .paper-blank-page { min-height: 100vh !important; }
+  .paper-blank-page .paper-blank-page-content { border: none !important; color: #cbd5e1 !important; }
   .paper-sol { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   /* 画图格纸：打印时放大到接近页面宽度，方便学生作图 */
   .paper-grid img { max-width: 100% !important; width: 460px !important; }

@@ -16,7 +16,8 @@
     search: "",
     page: 1,         // 当前页码（分页，每页 PAGE_SIZE 题）
     basket: loadBasket(),
-    selected: []   // 组卷多选：当前勾选的题 id（与组卷篮相互独立）
+    selected: [],   // 组卷多选：当前勾选的题 id（与组卷篮相互独立）
+    blankAfter: loadBlankAfter() // 题后加空白页：id -> boolean
   };
 
   /* ---------- 工具 ---------- */
@@ -28,6 +29,11 @@
     catch (e) { return []; }
   }
   function saveBasket() { localStorage.setItem("mathbank_basket", JSON.stringify(state.basket)); }
+  function loadBlankAfter() {
+    try { return JSON.parse(localStorage.getItem("mathbank_blank_after") || "{}"); }
+    catch (e) { return {}; }
+  }
+  function saveBlankAfter() { localStorage.setItem("mathbank_blank_after", JSON.stringify(state.blankAfter)); }
 
   function toast(msg) {
     const t = $("#toast"); t.textContent = msg; t.classList.add("show");
@@ -712,7 +718,7 @@
         confirmDialog("确定删除这道题？").then(ok => {
           if (!ok) return;
           Store.remove(id);
-          state.basket = state.basket.filter(x => x !== id); saveBasket();
+          state.basket = state.basket.filter(x => x !== id); delete state.blankAfter[id]; saveBasket(); saveBlankAfter();
           refresh(); toast("已删除");
         });
       }
@@ -938,9 +944,9 @@
   /* ---------- 组卷篮 ---------- */
   function toggleBasket(id) {
     const i = state.basket.indexOf(id);
-    if (i >= 0) { state.basket.splice(i, 1); toast("已移出组卷篮"); }
+    if (i >= 0) { state.basket.splice(i, 1); delete state.blankAfter[id]; toast("已移出组卷篮"); }
     else { state.basket.push(id); toast("已加入组卷篮"); }
-    saveBasket(); updateBasketBadge();
+    saveBasket(); saveBlankAfter(); updateBasketBadge();
     // 仅更新当前可见卡片上的「加入组卷」按钮，不整页重渲染
     const node = VL.active ? vlNodeById(id) : null;
     if (node) {
@@ -977,6 +983,7 @@
           <button data-mv="up" title="上移">▲</button>
           <button data-mv="down" title="下移">▼</button>
           <button data-mv="rm" title="移除">✕</button>
+          <label class="bi-blank" title="生成试卷时在该题后插入一页空白页"><input type="checkbox" data-blank="${id}" ${state.blankAfter[id] ? "checked" : ""} />加页</label>
         </div>
       </div>`;
     }).join("");
@@ -990,10 +997,18 @@
           const i = state.basket.indexOf(id);
           if (b.dataset.mv === "up" && i > 0) { [state.basket[i - 1], state.basket[i]] = [state.basket[i], state.basket[i - 1]]; }
           else if (b.dataset.mv === "down" && i < state.basket.length - 1) { [state.basket[i + 1], state.basket[i]] = [state.basket[i], state.basket[i + 1]]; }
-          else if (b.dataset.mv === "rm") { state.basket.splice(i, 1); }
+          else if (b.dataset.mv === "rm") { state.basket.splice(i, 1); delete state.blankAfter[id]; saveBlankAfter(); }
           saveBasket(); updateBasketBadge(); renderDrawer(); renderList();
         };
       });
+      const blankCb = it.querySelector("[data-blank]");
+      if (blankCb) {
+        blankCb.onchange = () => {
+          if (blankCb.checked) state.blankAfter[id] = true;
+          else delete state.blankAfter[id];
+          saveBlankAfter();
+        };
+      }
     });
   }
 
@@ -1103,6 +1118,11 @@
             : `<div class="paper-blank"></div>`}
         </div>
       </div>`;
+      if (state.blankAfter[q.id]) {
+        html += `<div class="paper-q paper-blank-page">
+          <div class="paper-blank-page-content">空白答题页<br><span class="paper-blank-sub">Blank Page for Question ${i + 1}</span></div>
+        </div>`;
+      }
     });
     html += `</div>`;
 
@@ -1657,7 +1677,7 @@
     $("#drawerClose").onclick = () => $("#drawer").classList.remove("open");
     $("#clearBasket").onclick = () => confirmDialog("清空组卷篮？").then(ok => {
       if (!ok) return;
-      state.basket = []; saveBasket(); updateBasketBadge(); renderDrawer(); renderList();
+      state.basket = []; state.blankAfter = {}; saveBasket(); saveBlankAfter(); updateBasketBadge(); renderDrawer(); renderList();
     });
     $("#genPaper").onclick = generatePaper;
     // 随章节随机组卷
