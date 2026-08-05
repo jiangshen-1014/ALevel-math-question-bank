@@ -9984,6 +9984,175 @@ const SEED_QUESTIONS = [
     "label": "2025 Oct/Nov · Paper 53 Q7"
   },
   "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q1",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_ON_52_1",
+  "stem": "A biased coin is thrown repeatedly until the first head is obtained. The probability that a head is obtained on any throw is 0.4.\n(a) Find the probability that the first head is obtained on the 5th throw.\\hfill(1)\n(b) Find the probability that the first head is obtained after the 6th throw.\\hfill(2)",
+  "figure": [],
+  "difficulty": 2,
+  "marks": 3,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 1,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q1"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q2",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）"
+  ],
+  "source": "25_ON_52_2",
+  "stem": "Kayla has a bag containing 3 red marbles, 1 blue marble and 2 green marbles. She selects one marble from the bag at random and does not replace it in the bag. She repeats this process until she obtains a green marble. The random variable $X$ is the number of marbles that she needs to select until she obtains a green marble.\n(a) Draw up the probability distribution table for $X$.\\hfill(4)\n(b) Find $\\text{Var}(X)$.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 7,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 2,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q2"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q3",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_ON_52_3",
+  "stem": "The heights of the 124 Senior members of the Giraffes basketball club are normally distributed with mean 187.4 cm and standard deviation 6.4 cm.\n(a) How many members of the club would you expect to have heights within 5 cm of the mean?\\hfill(4)\nThe heights of the Junior members of the Giraffes club are normally distributed with mean 172.7 cm and standard deviation $\\sigma$ cm. 23% of these members have height less than 170.3 cm.\n(b) Find the value of $\\sigma$.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 7,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 3,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q3"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q4",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Probability（概率）"
+  ],
+  "source": "25_ON_52_4",
+  "stem": "Gio has a pack of 18 cards. Ivy has a pack of $x$ cards. Each card has a picture of a bus or a car or a train. The number of cards with each picture in the two packs is shown in the table.\n| | Bus | Car | Train |\n|:---:|:---:|:---:|:---:|\n| Gio's pack | 6 | 10 | 2 |\n| Ivy's pack | $x-12$ | 9 | 3 |\nOne card is chosen at random from each pack. The probability that the two cards have pictures of buses on them is equal to twice the probability that the two cards have pictures of cars on them.\n(a) Write down an equation in terms of $x$ and hence find the value of $x$.\\hfill(4)\n(b) Find the probability that the two cards have pictures of the same type of vehicle on them.\\hfill(3)",
+  "figure": [],
+  "difficulty": 3,
+  "marks": 7,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 4,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q4"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q5",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Representation of data（数据表示）"
+  ],
+  "source": "25_ON_52_5",
+  "stem": "The times of 240 competitors taking part in an event are recorded correct to the nearest minute. The results are summarised in the table.\n| Time (minutes) | Frequency |\n|:---:|:---:|\n| $1 \\leq t < 10.5$ | 12 |\n| $10.5 \\leq t < 20.5$ | 38 |\n| $20.5 \\leq t < 25.5$ | 68 |\n| $25.5 \\leq t < 30.5$ | 76 |\n| $30.5 \\leq t < 50.5$ | 46 |\n(a) Draw a histogram to represent this information.\\hfill(4)\n(b) Calculate an estimate of the mean time taken by the 240 competitors.\\hfill(3)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 7,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 5,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q5"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q6",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Discrete random variables（离散随机变量）",
+    "The normal distribution（正态分布）"
+  ],
+  "source": "25_ON_52_6",
+  "stem": "For a randomly chosen person, their next birthday is equally likely to occur on any day of the week, independently of any other person's birthday.\n(a) Find the probability that, out of 10 randomly chosen people, none of them will have their next birthday on a Saturday or Sunday.\\hfill(1)\n(b) Find the probability that, out of 10 randomly chosen people, fewer than 3 will have their next birthday on a Wednesday.\\hfill(3)\n(c) Use a suitable approximation to find the probability that, out of 392 randomly chosen people, more than 65 will have their next birthday on a Friday.\\hfill(5)",
+  "figure": [],
+  "difficulty": 4,
+  "marks": 9,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 6,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q6"
+  },
+  "_dup": false
+},
+{
+  "id": "cie_s1_25ON52_q7",
+  "board": "CIE",
+  "subject": "S1",
+  "chapter": [
+    "Permutations & combinations（排列组合）"
+  ],
+  "source": "25_ON_52_7",
+  "stem": "(a) Find the number of different arrangements of the 10 letters in the word ZOOLOGICAL in which the three Os are together and the two Ls are not next to each other.\\hfill(4)\n(b) Find the number of different arrangements of the 10 letters in the word ZOOLOGICAL in which there are exactly 5 letters between the two Ls.\\hfill(3)\nTwo letters are chosen at random from the 10 letters in the word ZOOLOGICAL.\n(c) Find the probability that these two letters are different.\\hfill(3)",
+  "figure": [],
+  "difficulty": 5,
+  "marks": 10,
+  "solution": "",
+  "createdAt": 1785899600140,
+  "examRef": {
+    "year": 2025,
+    "month": "Oct/Nov",
+    "paper": "52",
+    "qno": 7,
+    "code": "52",
+    "label": "2025 Oct/Nov · Paper 52 Q7"
+  },
+  "_dup": false
 }
 ];
 
