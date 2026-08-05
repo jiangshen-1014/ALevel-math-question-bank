@@ -440,7 +440,7 @@ mark {
   .paper-sol { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   /* 画图格纸：打印时放大到接近页面宽度，方便学生作图 */
   .paper-grid img { max-width: 100% !important; width: 460px !important; }
-  .paper-grid-small img { max-width: 100% !important; width: 300px !important; }
+  .paper-grid-small img { max-width: 100% !important; width: 500px !important; }
   /* 打印时表格边框用深色、字号略缩，保证清晰可读 */
   .md-table { font-size: 11px; }
   .md-table th, .md-table td { border-color: #999 !important; padding: 4px 8px; }
