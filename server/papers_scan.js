@@ -2,13 +2,14 @@
 /*
  * papers_scan.js —— 递归扫描 assets/papers/ 下的真题卷 / 官方 MS（PDF）。
  *
- * 目录约定（4 层文件夹 + 文件名）：
- *   assets/papers/{考试局 board}/{科目 subject}/{年份 year}/{考季 season}/{文件名}.pdf
+ * 目录约定（5 层文件夹 + 文件名）：
+ *   assets/papers/{考试局 board}/{科目 subject}/{年份 year}/{考季 season}/{qp|ms}/{文件名}.pdf
  *     board : CIE | Edexcel（大小写不限，原样返回）
- *     subject: 如 S1 / P3 / P1 / M1 / FP1 …
+ *     subject: CIE 用 9709 / 9231；Edexcel 用单元代码 P1/S1/M1/FP1…
  *     year : 如 2025 / 25
- *     season: MJ (May/June) | FM (Feb/March) | ON (Oct/Nov)
- *   文件名若含 ms / mark scheme / markscheme / 评分 / 答案 → 判定为官方 MS，否则为原卷。
+ *     season: Feb-Mar / May-Jun / Oct-Nov（CIE）或 Jan / Jun / Oct（Edexcel IAL）
+ *     qp|ms : qp = 原卷(question paper)，ms = 官方评分方案(mark scheme)
+ *   类型判定优先级：qp|ms 子文件夹名 → 文件名（含 ms / mark scheme / 评分 / 答案 → 官方 MS）
  *
  * 返回数组，每项为：
  *   { id, source:'folder', board, subject, year, season,
@@ -21,6 +22,14 @@ const path = require('path');
 
 function classify(name) {
   return /ms|mark[\s_-]?scheme|markscheme|评分|答案|解答/i.test(name) ? 'ms' : 'paper';
+}
+
+// 从 qp/ms 子文件夹名推断类型（PDF 位于倒数第二层时）
+function typeFromParent(segs) {
+  const parent = segs[segs.length - 2] || '';
+  if (/^ms$/i.test(parent)) return 'ms';
+  if (/^qp$/i.test(parent)) return 'paper';
+  return null;
 }
 
 function scanPapersDir(rootDir) {
@@ -41,14 +50,17 @@ function scanPapersDir(rootDir) {
     const segs = String(rel).split(path.sep);
     const fileName = segs[segs.length - 1];
     const name = fileName.replace(/\.pdf$/i, '');
+    // 兼容两种深度：…/season/file.pdf（5 段）或 …/season/qp|ms/file.pdf（6 段）
+    const board = segs[0] || '';
+    const subject = segs[1] || '';
+    const year = segs[2] || '';
+    const season = segs[3] || '';
+    let type = typeFromParent(segs);
+    if (!type) type = classify(name);
     out.push({
       id: 'folder:' + rel,
       source: 'folder',
-      board: segs[0] || '',
-      subject: segs[1] || '',
-      year: segs[2] || '',
-      season: segs[3] || '',
-      type: classify(name),
+      board, subject, year, season, type,
       name: name,
       rel: String(rel),
       path: '/assets/papers/' + String(rel).split(path.sep).join('/'),

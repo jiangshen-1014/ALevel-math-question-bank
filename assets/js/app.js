@@ -1390,7 +1390,11 @@
   }
 
   function libSeasonLabel(s) {
-    return ({ MJ: "May/June", FM: "Feb/March", ON: "Oct/Nov" })[(s || "").toUpperCase()] || s || "";
+    return ({
+      MJ: "May/June", FM: "Feb/March", ON: "Oct/Nov",
+      "FEB-MAR": "Feb/Mar", "MAY-JUN": "May/Jun", "OCT-NOV": "Oct/Nov",
+      JAN: "Jan", JUN: "Jun", OCT: "Oct"
+    })[(s || "").toUpperCase()] || s || "";
   }
   function libTypeLabel(t) { return t === "ms" ? "官方 MS" : "原卷"; }
   function fmtSize(b) {
