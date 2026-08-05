@@ -12,16 +12,19 @@
 - 每题必填：id / board / subject / chapter[] / source / stem / figure / difficulty(1–5) / solution / createdAt / examRef（含 `.label` 的对象）。注入时另带 `topics: []`（与库内 25 系列题一致；老 23/24 系列题无此字段，JS 容忍）。
 - **批量录入 Excel 模板列结构（CIE P3 新模板）**：表头 9 列 = `考试局/科目 / 来源 / 题干 / 配图 / 章节 / 考点 / 难度 / 分值 / 解析`。说明：①「考试局/科目」仅首行填（如 `CIE/P3`），其余行沿用；②「配图」列填 `DISPIMG("ID_...")` 才提取嵌入图（存 `data/images/{来源}.png`），若填纯数字占位（如 `4/5/6`）且无嵌入图则 `figure` 留空；③「章节/考点/难度/分值/解析」可空——**空则推断**：章节按题干内容+`Differentiation` 规则判定，难度给合理 1–5 值，`marks` 从题干 `\hfill(N)` 求和，solution 留空。注入脚本应「优先读列、空则回退推断」（参考 `.workbuddy/inject_22on33.py`）。
 - ⚠️ 稀疏数组空洞白屏：录入后必须显式 `for` 检测空洞 + 连调两次 Store.all() + vm 桩跑 init。
-- 章节权威清单（FP1 8章 / FP2 8章 / **CIE P3 11章**，含 `Differentiation`）在 data.js `CHAPTER_PRESETS`，录入严格对应。
+- 章节权威清单（FP1 8章 / FP2 8章 / **CIE P3 11章**，含 `Differentiation` / **CIE S1 5章**：`Representation of data` / `Permutations & combinations` / `Probability` / `Discrete random variables` / `The normal distribution`）在 data.js `CHAPTER_PRESETS`，录入严格对应。
+- **批量录入 Excel 模板（CIE S1 多图版）**：表头 11 列 = `考试局/科目 / 来源 / 题干 / 配图 / 配图2 / 配图3 / 章节 / 考点 / 难度 / 分值 / 解析`。与 P3 不同，S1 一道题常挂多张图，故设**配图/配图2/配图3 三列**，每列在 WPS「插入图片到单元格」生成各自 DISPIMG。注入脚本（`.workbuddy/inject_s1.py`）**自动解析 xlsx 内全部 cellImage**（ID→media，**无需手填映射**——这是相对 P3 注入的关键改进），把三列收成 `figure` **数组**（如 `["data/images/{来源}.png","data/images/{来源}_2.png","data/images/{来源}_3.png"]`，空列自动跳过）；`figure` 字段兼容「单字符串（老 P3 题）或字符串数组（S1 多图）」，app.js 三处渲染（卡片 `q-fig` / 预览 `pq-fig` / 编辑器预览）+ CSS 均已支持数组横排。注入脚本默认 `APPLY=False` 仅 DRY_RUN 预览，填好 `XLSX` 路径与每题 `CHAPTER/DIFF` 后改 `APPLY=True` 才落盘；含存在性检查、自动备份、行式安全插入。模板见 `批量录入模板_CIE_S1.xlsx`（含「章节对照」说明页）。生成器脚本 `.workbuddy/make_s1_template.py`（无依赖 zipfile 生成）。
 - ✅ **CIE P3 `Differentiation` 章已加入（2026-07-17）**：隐函数求导、参数方程求导、求 maximum/minimum（含驻点）的题目**都归属 `Differentiation`**。归类细则：① 纯微分法（隐函数/参数方程/令 dy/dx=0 解极值）单标签 `["Differentiation"]`；② 先求极值再求面积/体积的多问大题双标签 `["Differentiation","Integration"]`；③ 用迭代/数值法定位驻点的题双标签 `["Differentiation","Numerical solution of equations"]`（保留数值法身份）。微分方程求解仍归 `"Differential equations"`、复平面 |z| 极值仍归 `"Complex numbers"`、求给定梯度后积分的题（如 `25MJ35_q7`）仍归 `"Integration"`。
 
 ## 解析配图 / 数学字体
 - solution 内嵌 `![alt](src)`；网页上传转 data URI（缩≤1000px / JPEG q0.85）；种子图写全路径。三处解析均走 `mdToHtml`。
-- MathJax 已切 SVG 模式：`.MathJax_SVG text{font-family:"Segoe UI";font-weight:400!important}` 全量覆盖为系统正文字体。
+- `mdToHtml`（题干/解析/录入预览共用）现已支持 **GFM markdown 表格**：`| 表头 |` + `|---|` + 数据行 渲染为 `<table class="md-table">`，支持省略首尾 `|` 与列对齐 `:--` / `:--:` / `--:`；普通文本里的 `|`（如绝对值 `|x|`）因下一行非分隔行不会被误判。
+- MathJax 已切 **CHTML** 模式（`tex-chtml-full.js` + `chtml:{scale:0.95}`），CSS `.mjx-container, .mjx-chtml { font-weight:300 !important }` 调细字重（SVG 模式字形为矢量路径、font-weight 无效，详见 2026-07-18 日志）。
 
 ## 修改前备份（铁律）
 - 改 data.js/app.js 前必跑 `python .workbuddy/tools/backup.py backup <file>`（存 `.workbuddy/backups/`，保留 30 版；restore 自动再备份）。
 - ⚠️ **注入绝不可截断 Store**：`data.js` 末尾在 `SEED_QUESTIONS` 的 `];` **之后**还有完整的 `Store` IIFE（`const Store = (function(){...})();`，含 `parseExamRef`/`_MONTHS`/`_normMonth`/init/all/upsert/remove/replaceAll）。录入注入必须用**行式插入到 `];` 之前、保留 `];` 及之后全部内容**的方式；**绝不可**整体重写或截断 `];` 之后，否则白屏。
+- ⚠️ **注入插入点锚定（2026-07-18 实战踩坑）**：定位 SEED 数组结尾必须用 **`const SEED_QUESTIONS = [` 之后第一个 `];`**（`txt.index("];", txt.index("const SEED_QUESTIONS = ["))`）。**绝不可用 `rfind("];")`**（会命中 Store 内部 `parseExamRef` 等的 `];`，把题插进 Store 函数体里直接白屏/语法错）；也**不可锚定 `const Store = (function`**（SEED 的 `];` 与 `const Store` 之间隔着注释块 `/* 5. 存储层... */` 和多个 `];`，`\];\s*const Store` 正则匹配不到）。插入后再 `node --check` + `grep -c "const Store = (function"` 须为 1。
 - 注入后**强制校验**：`node --check assets/js/data.js` 通过 + `grep -c "const Store = (function" assets/js/data.js` 须为 1 + `grep -o '"id":"' assets/js/data.js | wc -l`（或 python 解析 SEED_QUESTIONS）确认题数。
 - 若已截断 Store 的**恢复流程**：从注入前备份用 Python 提取 `];` 之后全部行（Store 段落）追加到当前文件（先确认当前末尾确为 `];`），再 `node --check`。
 
@@ -43,3 +46,13 @@
   3. Supabase（海外，完全免费、免实名免备案，前端直连 API，但国内偏慢）。
   4. *排除*：纯静态托管（CloudStudio 部署）跑不了后端；标准 CVM ¥65/月偏贵。
 - **已搭未完成的 `server/` 脚手架**（Express + `db.js` JSON 文件库 + 待补 `auth.js`）：上线时复用，本地应用不加载它、不影响当前使用。
+
+## 资料库（真题卷原卷 / 官方 MS，2026-08-05 新增）
+- **入口**：顶栏「📚 资料库」(`#btnLibrary` → `#libraryOverlay`)；PDF 预览弹窗 `#pdfOverlay`（iframe，含「↗ 新窗口打开」）。
+- **两种来源（两者结合）**：
+  1. **文件夹**：`assets/papers/{board}/{subject}/{year}/{season}/*.pdf`，由 `server/server.js` 的 `GET /api/papers` 实时扫描（**需本地服务器** `node server/server.js`）。纯静态/双击打开时改读 `assets/papers/manifest.json` 兜底——往该文件夹增删 PDF 后运行 `node tools/scan_papers.js` 刷新清单。
+  2. **网页上传**：存浏览器**独立** IndexedDB 库 `mathbank_library`（store `files`，keyPath `id`），由 app.js 内 `openLibDB/libAll/libPut/libDel` 管理，**不碰题目 Store（`mathbank`）**，删除/刷新不丢题目数据。
+- **文件夹四层约定**：board(CIE/Edexcel) → subject(如 S1/P3) → year → season(MJ=May/June / FM=Feb/March / ON=Oct/Nov，也接受 Jun/Jan 自由文本) → 文件。文件名含 `ms`/`mark scheme`/`markscheme`/`评分`/`答案` → 判为**官方 MS**，否则**原卷**（类型徽章）。
+- **UI**：树形 board→subject→year→season→文件；顶部可按 考试局/科目/年份/考季/类型 筛选 + 搜索；每文件行带「原卷/官方MS」「📁文件夹/💾本地」徽章与「打开/删除」；删除仅对**上传项**生效（文件夹项在磁盘删）。
+- **打开逻辑**：文件夹项用其 `path` URL（静态服务）；上传项用 `URL.createObjectURL(blob)`，`pdfOverlay` 关闭时 `revokeObjectURL`。
+- **部署注意**：改 `index.html`/`assets/js/app.js`/`assets/css/style.css` 后同步 `public/`；`server/server.js` 扫描依赖 `require('./papers_scan.js')`（扫描逻辑共用模块），新增 PDF 目录结构见 `assets/papers/README.md`。
